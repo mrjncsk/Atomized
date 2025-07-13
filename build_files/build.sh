@@ -16,6 +16,7 @@ dnf5 -y install \
     xdg-desktop-portal-hyprland \
     waybar \
     kitty \
+    nvim \
     mc
 
 # Disable Copr
