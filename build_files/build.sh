@@ -3,16 +3,23 @@ set -ouex pipefail
 
 # Enable Copr
 dnf5 -y copr enable ublue-os/staging
+dnf5 -y copr enable solopasha/hyprland
 
 # Install Software
 dnf5 -y install \
     hyprland \
+    hyprpaper \
+    hypridle \
+    hyprshot \
+    hyprlock \
+    xdg-desktop-portal-hyprland \
     waybar \
     kitty \
     mc
 
 # Disable Copr
 dnf5 -y copr disable ublue-os/staging
+dnf5 -y copr disable solopasha/hyprland
 
 # Services
 systemctl enable podman.socket
