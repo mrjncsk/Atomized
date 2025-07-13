@@ -1,9 +1,6 @@
 #!/bin/bash
 set -ouex pipefail
 
-# Copy Files
-copy rootfs/* /
-
 # Enable Copr
 dnf5 -y copr enable ublue-os/staging
 
