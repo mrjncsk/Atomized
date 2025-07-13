@@ -18,19 +18,18 @@ dnf5 -y install \
     xdg-desktop-portal-wlr \
     wlroots
 
-# Terminal
-dnf5 -y install git tmux nvim mc git
-
 # Desktop
 dnf5 -y install hyprland swaybg swaylock
 
 # Apps
- dnf5 -y install kitty
+dnf5 -y install kitty
+
+# Terminal
+dnf5 -y install git tmux nvim mc wget curl cmatrix
 
 # Disable Copr
 dnf5 -y copr disable ublue-os/staging
 
-#### Example for enabling a System Unit File
-
+# Services
 systemctl enable podman.socket
 systemctl enable sddm.service
