@@ -7,7 +7,6 @@ dnf5 -y copr enable ublue-os/staging
 # Install Software
 dnf5 -y install \
     hyprland \
-    hyprpaper \
     waybar \
     kitty \
     mc
