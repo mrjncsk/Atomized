@@ -12,6 +12,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build.sh && \
     ostree container commit
 
-COPY rootfs/* /
+COPY rootfs/ /
 
 RUN bootc container lint
