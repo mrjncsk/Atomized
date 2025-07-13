@@ -20,9 +20,6 @@ set -ouex pipefail
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
-systemctl enable sddm-pulse.service
+systemctl enable sddm.service
 systemctl enable pipewire-pulse.service
 systemctl enable wireplumber.service
-systemctl start sddm-pulse.service
-systemctl start pipewire-pulse.service
-systemctl start wireplumber.service
