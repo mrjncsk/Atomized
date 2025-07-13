@@ -2,7 +2,7 @@
 set -ouex pipefail
 
 # to workarround gnupg error on build, gpg: Fatal: can't create directory '/root/.gnupg': No such file or directory
-mkdir /root/.gnupg
+mkdir -p /root/.gnupg
 
 # Enable Copr
 dnf5 -y copr enable ublue-os/staging
