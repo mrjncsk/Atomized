@@ -9,7 +9,7 @@ set -ouex pipefail
  dnf5 -y install git tmux nvim mc git
 
  # System
- dnf5 -y install wayland weston wlroots libinput mesa-dri-drivers mesa-libGL mesa-libgbm mesa-libwayland-egl xdg-desktop-portal-wlr swaybg swaylock polkit pipewire pipewire-pulseaudio wireplumber xorg-xwayland psmisc dbus-x11 sddm
+ dnf5 -y install weston wlroots libinput mesa-dri-drivers mesa-libGL xorg-x11-server-Xwayland mesa-libgbm xdg-desktop-portal-wlr swaybg swaylock polkit pipewire pipewire-pulseaudio wireplumber xorg-xwayland psmisc dbus-x11 sddm
 
  # Desktop
  dnf5 -y install kitty
