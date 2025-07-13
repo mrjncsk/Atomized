@@ -1,10 +1,13 @@
+
+# hyprblue
+
 # image-template
 
-# Purpose
+## Purpose
 
 This repository is meant to be a template for building your own custom [bootc](https://github.com/bootc-dev/bootc) image. This template is the recommended way to make customizations to any image published by the Universal Blue Project:
 - Products: [Aurora](https://getaurora.dev/), [Bazzite](https://bazzite.gg/), [Bluefin](https://projectbluefin.io/), [uCore](https://projectucore.io/)
-- Base images: [main](https://github.com/ublue-os/main/) - the product images build on these and may be a better starting point depending on what you want. 
+- Base images: [main](https://github.com/ublue-os/main/) - the product images build on these and may be a better starting point depending on what you want.
 
 or any other base image if you want to start from scratch:
 
@@ -13,7 +16,7 @@ or any other base image if you want to start from scratch:
 
 This template includes a Containerfile and a Github workflow for building the container image, signing, and proper metadata to be listed on [artifacthub](https://artifacthub.io/). As soon as the workflow is enabled in your repository, it will build the container image and push it to the Github Container Registry.
 
-# Prerequisites
+## Prerequisites
 
 Working knowledge in the following topics:
 
@@ -27,38 +30,38 @@ Working knowledge in the following topics:
 - Github Workflows
   - https://docs.github.com/en/actions/using-workflows
 
-# Video Tutorial
+## Video Tutorial
 
-TesterTech has made a tutorial video, check it out: 
+TesterTech has made a tutorial video, check it out:
 
 [![Video Tutorial](https://img.youtube.com/vi/IxBl11Zmq5w/0.jpg)](https://www.youtube.com/watch?v=IxBl11Zmq5wE)
 
-# How to Use
+## How to Use
 
-## Template
+### Template
 
 Select `Use this Template` and create a new repository from it. To enable the workflows, you may need to go the `Actions` tab of the new repository and click to enable workflows.
 
-## Containerfile
+### Containerfile
 
 This file defines the operations used to customize the selected image. It contains examples of possible modifications, including how to:
 - change the upstream from which the custom image is derived
 - add additional RPM packages
 - add binaries as a layer from other images
 
-## Building disk images
+### Building disk images
 
 This template provides an out of the box workflow for creating ISO and other disk images for your custom OCI image which can be used to directly install onto your machines.
 
 This template provides a way to upload the disk images that is generated from the workflow to a S3 bucket or it will be available as an artifact from the job. To upload to S3 we use a tool called [rclone](https://rclone.org/) which is able to use [many S3 providers](https://rclone.org/s3/). For more details on how to configure this see the details [below](#build-isoyml).
 
-## Workflows
+### Workflows
 
-### build.yml
+#### build.yml
 
 This workflow creates your custom OCI image and publishes it to the Github Container Registry (GHCR). By default, the image name will match the Github repository name.
 
-### build-disk.yml
+#### build-disk.yml
 
 This workflow creates a disk images from your OCI image by utilizing the [bootc-image-builder](https://osbuild.org/docs/bootc/). In order to use this workflow you must complete the following steps:
 
@@ -74,7 +77,7 @@ This workflow creates a disk images from your OCI image by utilizing the [bootc-
 
 Once the workflow is done, you'll find the disk images either in your S3 bucket or as part of the summary under `Artifacts` after the workflow is completed.
 
-#### Container Signing
+##### Container Signing
 
 Container signing is important for end-user security and is enabled on all Universal Blue images. It is recommended you set this up, and by default the image builds *will fail* if you don't.
 
@@ -88,7 +91,7 @@ This provides users a method of verifying the image.
     cosign generate-key-pair
     ```
 
-    
+
     - Do NOT put in a password when it asks you to, just press enter. The signing key will be used in GitHub Actions and will not work if it is encrypted.
 
 > [!WARNING]
@@ -109,55 +112,55 @@ This provides users a method of verifying the image.
 
 4. Commit the `cosign.pub` file to the root of your git repository.
 
-# Community
+## Community
 
 - [**bootc discussion forums**](https://github.com/bootc-dev/bootc/discussions) - Nothing in this template is ublue specific, the upstream bootc project has a discussions forum where custom image builders can hang out and ask questions.
 
-## Artifacthub
+### Artifacthub
 
 This template comes with the necessary tooling to index your image on [artifacthub.io](https://artifacthub.io), use the `artifacthub-repo.yml` file at the root to verify yourself as the publisher. This is important to you for a few reasons:
 
-- The value of artifacthub is it's one place for people to index their custom images, and since we depend on each other to learn, it helps grow the community. 
+- The value of artifacthub is it's one place for people to index their custom images, and since we depend on each other to learn, it helps grow the community.
 - You get to see your pet project listed with the other cool projects in Cloud Native.
-- Since the site puts your README front and center, it's a good way to learn how to write a good README, learn some marketing, finding your audience, etc. 
+- Since the site puts your README front and center, it's a good way to learn how to write a good README, learn some marketing, finding your audience, etc.
 
 [Discussion thread](https://universal-blue.discourse.group/t/listing-your-custom-image-on-artifacthub/6446)
 
 
-### Justfile Documentation
+#### Justfile Documentation
 
 This `Justfile` contains various commands and configurations for building and managing container images and virtual machine images using Podman and other utilities.
 
-#### Environment Variables
+##### Environment Variables
 
 - `image_name`: The name of the image (default: "image-template").
 - `default_tag`: The default tag for the image (default: "latest").
 - `bib_image`: The Bootc Image Builder (BIB) image (default: "quay.io/centos-bootc/bootc-image-builder:latest").
 
-#### Aliases
+##### Aliases
 
 - `build-vm`: Alias for `build-qcow2`.
 - `rebuild-vm`: Alias for `rebuild-qcow2`.
 - `run-vm`: Alias for `run-vm-qcow2`.
 
 
-#### Commands
+##### Commands
 
-###### `check`
+####### `check`
 
 Checks the syntax of all `.just` files and the `Justfile`.
 
-###### `fix`
+####### `fix`
 
 Fixes the syntax of all `.just` files and the `Justfile`.
 
-###### `clean`
+####### `clean`
 
 Cleans the repository by removing build artifacts.
 
-##### Build Commands
+###### Build Commands
 
-###### `build`
+####### `build`
 
 Builds a container image using Podman.
 
@@ -169,9 +172,9 @@ Arguments:
 - `$target_image`: The tag you want to apply to the image (default: `$image_name`).
 - `$tag`: The tag for the image (default: `$default_tag`).
 
-##### Building Virtual Machines and ISOs
+###### Building Virtual Machines and ISOs
 
-###### `build-qcow2`
+####### `build-qcow2`
 
 Builds a QCOW2 virtual machine image.
 
@@ -179,7 +182,7 @@ Builds a QCOW2 virtual machine image.
 just build-qcow2 $target_image $tag
 ```
 
-###### `build-raw`
+####### `build-raw`
 
 Builds a RAW virtual machine image.
 
@@ -187,7 +190,7 @@ Builds a RAW virtual machine image.
 just build-raw $target_image $tag
 ```
 
-###### `build-iso`
+####### `build-iso`
 
 Builds an ISO virtual machine image.
 
@@ -195,7 +198,7 @@ Builds an ISO virtual machine image.
 just build-iso $target_image $tag
 ```
 
-###### `rebuild-qcow2`
+####### `rebuild-qcow2`
 
 Rebuilds a QCOW2 virtual machine image.
 
@@ -203,7 +206,7 @@ Rebuilds a QCOW2 virtual machine image.
 just rebuild-qcow2 $target_image $tag
 ```
 
-###### `rebuild-raw`
+####### `rebuild-raw`
 
 Rebuilds a RAW virtual machine image.
 
@@ -211,7 +214,7 @@ Rebuilds a RAW virtual machine image.
 just rebuild-raw $target_image $tag
 ```
 
-###### `rebuild-iso`
+####### `rebuild-iso`
 
 Rebuilds an ISO virtual machine image.
 
@@ -219,9 +222,9 @@ Rebuilds an ISO virtual machine image.
 just rebuild-iso $target_image $tag
 ```
 
-##### Run Virtual Machines
+###### Run Virtual Machines
 
-###### `run-vm-qcow2`
+####### `run-vm-qcow2`
 
 Runs a virtual machine from a QCOW2 image.
 
@@ -229,7 +232,7 @@ Runs a virtual machine from a QCOW2 image.
 just run-vm-qcow2 $target_image $tag
 ```
 
-###### `run-vm-raw`
+####### `run-vm-raw`
 
 Runs a virtual machine from a RAW image.
 
@@ -237,7 +240,7 @@ Runs a virtual machine from a RAW image.
 just run-vm-raw $target_image $tag
 ```
 
-###### `run-vm-iso`
+####### `run-vm-iso`
 
 Runs a virtual machine from an ISO.
 
@@ -245,7 +248,7 @@ Runs a virtual machine from an ISO.
 just run-vm-iso $target_image $tag
 ```
 
-###### `spawn-vm`
+####### `spawn-vm`
 
 Runs a virtual machine using systemd-vmspawn.
 
@@ -253,17 +256,17 @@ Runs a virtual machine using systemd-vmspawn.
 just spawn-vm rebuild="0" type="qcow2" ram="6G"
 ```
 
-##### Lint and Format
+###### Lint and Format
 
-###### `lint`
+####### `lint`
 
 Runs shell check on all Bash scripts.
 
-###### `format`
+####### `format`
 
 Runs shfmt on all Bash scripts.
 
-## Community Examples
+### Community Examples
 
 - [m2Giles' OS](https://github.com/m2giles/m2os)
 - [bOS](https://github.com/bsherman/bos)

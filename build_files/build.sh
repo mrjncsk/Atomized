@@ -9,7 +9,7 @@ set -ouex pipefail
  dnf5 -y install git tmux nvim mc git
 
  # System
- dnf5 -y install hyprland
+ dnf5 -y install wayland weston wlroots libinput mesa-dri-drivers mesa-libGL mesa-libgbm mesa-libwayland-egl xdg-desktop-portal-wlr swaybg swaylock polkit pipewire pipewire-pulseaudio wireplumber xorg-xwayland psmisc dbus-x11 sddm
 
  # Desktop
  dnf5 -y install kitty
@@ -20,3 +20,9 @@ set -ouex pipefail
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+systemctl enable sddm
+systemctl enable pipewire
+systemctl enable wireplumber
+systemctl start sddm
+systemctl start pipewire
+systemctl start wireplumber
