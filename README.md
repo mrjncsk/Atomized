@@ -1,9 +1,12 @@
-
 # hyprblue
 
 generated from https://github.com/ublue-os/image-template
 
 **early not running dev version!**
+
+---------------------------------------------------------------------------
+
+# ublue-os/image-template
 
 ## Purpose
 
