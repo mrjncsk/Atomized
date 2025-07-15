@@ -1,5 +1,7 @@
 # hyprblue
 
+[logo.png]
+
 early Version!
 
 ## Base
