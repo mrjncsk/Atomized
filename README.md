@@ -1,6 +1,6 @@
 # hyprblue
 
-[logo.png]
+!(logo.png])
 
 early Version!
 
