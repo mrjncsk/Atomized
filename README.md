@@ -1,5 +1,3 @@
-# hyprblue
-
 ![hyprblue](logo.png)
 
 early Version!
