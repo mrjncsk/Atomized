@@ -14,4 +14,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
 
 COPY rootfs/ /
 
+RUN dracut -f
+
 RUN bootc container lint
