@@ -9,12 +9,13 @@ dnf5 -y copr enable solopasha/hyprland
 dnf5 -y install \
     hyprland \
     hyprland-qtutils \
-    hyprpaper \
     hypridle \
     hyprshot \
     hyprlock \
     xdg-desktop-portal-hyprland \
+    hyprpanel \
     waybar \
+    swww \
     kitty \
     nvim \
     mc
