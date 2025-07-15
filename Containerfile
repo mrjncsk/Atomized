@@ -1,8 +1,7 @@
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 
-COPY build_files /
-COPY rootfs/ /
+COPY files /
 
 # Base Image from https://github.com/orgs/ublue-os/packages
 FROM ghcr.io/ublue-os/bazzite:stable
