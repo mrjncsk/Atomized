@@ -7,6 +7,13 @@ early Version!
 - Template: https://github.com/ublue-os/image-template
 - Base: https://github.com/ublue-os/bazzite
 
+## Bazzite
+
+- KDE Plasma
+- Steam
+- Lutris
+- Boxbuddy
+
 ## Additions
 
 - kitty
