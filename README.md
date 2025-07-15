@@ -7,7 +7,7 @@ early Version!
 - Template: https://github.com/ublue-os/image-template
 - Base: https://github.com/ublue-os/bazzite
 
-## Addittions
+## Additions
 
 - kitty
 - nvim
@@ -19,6 +19,7 @@ early Version!
 - hypridle
 - hyprlock
 - hyprshot
+- matugen
 - swww
 
 ### Personalisations

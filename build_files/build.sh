@@ -15,6 +15,7 @@ dnf5 -y install \
     xdg-desktop-portal-hyprland \
     hyprpanel \
     waybar \
+    matugen \
     swww \
     kitty \
     nvim \
