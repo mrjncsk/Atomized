@@ -1,10 +1,10 @@
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 
-COPY files /
-
 # Base Image from https://github.com/orgs/ublue-os/packages
 FROM ghcr.io/ublue-os/bazzite:stable
+
+COPY files /
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
