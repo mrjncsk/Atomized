@@ -26,5 +26,7 @@ dnf5 -y install \
 dnf5 -y copr disable ublue-os/staging
 dnf5 -y copr disable solopasha/hyprland
 
+dracut -f
+
 # Services
 systemctl enable podman.socket
