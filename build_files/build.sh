@@ -17,6 +17,7 @@ dnf5 -y install \
     waybar \
     matugen \
     swww \
+    wofi \
     kitty \
     nvim \
     mc

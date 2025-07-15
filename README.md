@@ -19,6 +19,7 @@ early Version!
 - hypridle
 - hyprlock
 - hyprshot
+- wofi
 - matugen
 - swww
 
