@@ -4,7 +4,7 @@ FROM scratch AS ctx
 COPY build /
 
 # Base Image from https://github.com/orgs/ublue-os/packages
-FROM ghcr.io/ublue-os/bazzite:stable
+FROM ghcr.io/ublue-os/bazzite-nvidia:stable
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
