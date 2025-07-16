@@ -32,6 +32,8 @@ early test Version!
 - matugen
 - swww
 
+![Hyprland](images/Hyprland.png)
+
 ### Personalisations
 
 - Logos
