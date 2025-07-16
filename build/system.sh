@@ -1,6 +1,8 @@
 #!/bin/bash
 set -ouex pipefail
 
+rm /usr/share/wallpapers/*
+
 # Enable Copr
 dnf5 -y copr enable ublue-os/staging
 dnf5 -y copr enable solopasha/hyprland
