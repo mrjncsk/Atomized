@@ -1,4 +1,4 @@
-![hyprblue](logo.png)
+![hyprblue](images/Banner.png)
 
 early Version!
 
@@ -34,3 +34,5 @@ early Version!
 
 - Logos
 - Wallpapers
+
+![hyprblue](images/Logo.png)
