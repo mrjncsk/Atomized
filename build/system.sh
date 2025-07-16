@@ -2,6 +2,7 @@
 set -ouex pipefail
 
 rm /usr/share/wallpapers/*.*
+rm /etc/skel/.config/autostart/steam.desktop
 
 # Enable Copr
 dnf5 -y copr enable ublue-os/staging
