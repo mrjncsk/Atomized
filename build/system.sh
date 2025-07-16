@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ouex pipefail
 
-rm /usr/share/wallpapers/*
+rm /usr/share/wallpapers/*.*
 
 # Enable Copr
 dnf5 -y copr enable ublue-os/staging
