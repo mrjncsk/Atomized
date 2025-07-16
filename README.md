@@ -1,6 +1,6 @@
 early test Version!
 
-![hyprblue](images/Banner.png)
+![Banner](images/Banner.png)
 
 ## Base
 
@@ -13,6 +13,8 @@ early test Version!
 - Steam
 - Lutris
 - Boxbuddy
+
+![Plasma](images/Plasma.png)
 
 ## Additions
 
@@ -35,4 +37,4 @@ early test Version!
 - Logos
 - Wallpapers
 
-![hyprblue](images/Logo.png)
+![Logo](images/Logo.png)
