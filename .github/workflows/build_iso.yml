@@ -1,0 +1,78 @@
+name: Build ISO
+
+on:
+  workflow_dispatch:
+    inputs:
+      upload-to-s3:
+        description: "Upload to S3"
+        required: false
+        default: false
+        type: boolean
+      platform:
+        required: true
+        type: choice
+        options:
+          - amd64
+          - arm64
+
+env:
+  IMAGE_NAME: ${{ github.event.repository.name }}
+  IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
+  DEFAULT_TAG: "latest"
+  BIB_IMAGE: "ghcr.io/lorbuschris/bootc-image-builder:20250608"
+
+jobs:
+  build_iso:
+    name: Build anaconda ISO
+    runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
+    permissions:
+      contents: read
+      packages: read
+      id-token: write
+
+    steps:
+      - name: Prepare
+        run: |
+          echo "DISK_TYPE=anaconda-iso" >> $GITHUB_ENV
+          echo "IMAGE_NAME=${IMAGE_NAME,,}" >> $GITHUB_ENV
+          echo "IMAGE_REGISTRY=${IMAGE_REGISTRY,,}" >> $GITHUB_ENV
+          echo "USER_UID=$(id -u)" >> $GITHUB_ENV
+          echo "USER_GID=$(id -g)" >> $GITHUB_ENV
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        if: inputs.platform == 'arm64'
+        run: sudo apt update && sudo apt install -y podman
+
+      - name: Build ISO
+        id: build
+        uses: osbuild/bootc-image-builder-action@main
+        with:
+          builder-image: ${{ env.BIB_IMAGE }}
+          config-file: ./disk/iso.toml
+          image: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}
+          chown: ${{ env.USER_UID }}:${{ env.USER_GID }}
+          types: anaconda-iso
+          additional-args: --use-librepo=True --rootfs=ext4
+
+      - name: Upload artifacts
+        if: inputs.upload-to-s3 != true
+        uses: actions/upload-artifact@v4
+        with:
+          path: ${{ steps.build.outputs.output-directory }}
+          if-no-files-found: error
+
+      - name: Upload to S3
+        if: inputs.upload-to-s3 == true
+        run: |
+          sudo apt install -y rclone
+          rclone copy ${{ steps.build.outputs.output-directory }} S3:${{ secrets.S3_BUCKET_NAME }}
+        env:
+          RCLONE_CONFIG_S3_TYPE: s3
+          RCLONE_CONFIG_S3_PROVIDER: ${{ secrets.S3_PROVIDER }}
+          RCLONE_CONFIG_S3_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+          RCLONE_CONFIG_S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+          RCLONE_CONFIG_S3_REGION: ${{ secrets.S3_REGION }}
+          RCLONE_CONFIG_S3_ENDPOINT: ${{ secrets.S3_ENDPOINT }}
