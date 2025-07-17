@@ -1,6 +1,7 @@
 NAME="hyprblue"
 VERSION="42.20250715.0 (Kinoite)"
 RELEASE_TYPE=stable
+ID="hyprblue"
 ID_LIKE="bazzite"
 VERSION_ID=42
 VERSION_CODENAME="Holographic"
