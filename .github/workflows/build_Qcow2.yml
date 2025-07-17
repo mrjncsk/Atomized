@@ -1,4 +1,4 @@
-name: Build QCOW2
+name: Build QCOW2 VM Disk Image
 
 on:
   workflow_dispatch:

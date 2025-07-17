@@ -1,4 +1,4 @@
-name: Build disk images
+name: Build ISO + Qcow2 Images
 
 on:
   workflow_dispatch:

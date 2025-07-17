@@ -6,7 +6,6 @@ rm /etc/skel/.config/autostart/steam.desktop
 
 sed -i \
     -e 's/^NAME=.*/NAME="hyprblue"/' \
-    -e 's/^ID=.*/ID=hyprblue/' \
     -e 's/^PRETTY_NAME=.*/PRETTY_NAME="hyprblue Atomic OS"/' \
     -e 's/^LOGO=.*/LOGO=hyprblue-logo-icon/' \
     -e 's|^CPE_NAME=.*|CPE_NAME="cpe:/o:universal-blue:hyprblue:42"|' \
