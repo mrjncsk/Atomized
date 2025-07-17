@@ -1,4 +1,4 @@
-name: Build ISO + Qcow2 Images
+name: Build Installation ISO
 
 on:
   workflow_dispatch:
