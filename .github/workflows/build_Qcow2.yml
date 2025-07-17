@@ -21,8 +21,8 @@ concurrency:
 
 jobs:
   build-qcow2:
-    name: Build QCOW2 image
-    runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
+    name: Build QCOW2
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       packages: read

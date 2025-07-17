@@ -1,4 +1,4 @@
-name: Build Installation ISO
+name: Build Installation ISO Image
 
 on:
   workflow_dispatch:
@@ -21,8 +21,8 @@ concurrency:
 
 jobs:
   build-iso:
-    name: Build ISO image
-    runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
+    name: Build ISO
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       packages: read
