@@ -16,14 +16,6 @@ early test Version!
 
 ![Plasma](images/Plasma.png)
 
-## Additions
-
-- kitty
-- nvim
-- mc
-
-![MC](images/MC.png)
-
 ### Hyprland WM
 
 - hyprpanel / waybar
@@ -35,6 +27,14 @@ early test Version!
 - swww
 
 ![Hyprland](images/Hyprland.png)
+
+## Additions
+
+- kitty
+- nvim
+- mc
+
+![MC](images/MC.png)
 
 ### Personalisations
 
