@@ -42,3 +42,11 @@ early test Version!
 - Wallpapers
 
 ![Logo](images/Logo.png)
+
+### Instalation
+
+At the Moment just from Existing Ublue Installation
+
+```bash
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/hyprblue
+```
