@@ -1,5 +1,6 @@
 ---
-name: Build Image Workflow
+name: Container Workflow
+
 on:
   pull_request:
     branches:

@@ -1,4 +1,5 @@
-name: Build ISO Workflow
+---
+name: ISO Workflow
 
 on:
   workflow_dispatch:
@@ -21,7 +22,7 @@ concurrency:
 
 jobs:
   build-iso:
-    name: Build ISO
+    name: Build Iso Image
     runs-on: ubuntu-24.04
     permissions:
       contents: read

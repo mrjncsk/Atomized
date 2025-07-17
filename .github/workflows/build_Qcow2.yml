@@ -1,4 +1,5 @@
-name: Build Qcow2 Workflow
+---
+name: Qcow2 Workflow
 
 on:
   workflow_dispatch:
@@ -21,7 +22,7 @@ concurrency:
 
 jobs:
   build-qcow2:
-    name: Build QCOW2
+    name: Build Qcow2 Image
     runs-on: ubuntu-24.04
     permissions:
       contents: read
