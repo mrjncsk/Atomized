@@ -46,6 +46,7 @@ early test Version!
 ### Instalation
 
 At the Moment just from Existing Ublue Installation
+https://universal-blue.org/#images
 
 ```bash
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/hyprblue
