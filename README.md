@@ -43,10 +43,13 @@ early test Version!
 
 ![Logo](images/Logo.png)
 
-### Instalation
+### Download
 
-At the Moment just from Existing Ublue Installation
-https://universal-blue.org/#images
+https://github.com/mrjncsk/hyprblue/releases
+
+### Rebase
+
+Switch from other Fadora Atomic Installation
 
 ```bash
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/hyprblue
