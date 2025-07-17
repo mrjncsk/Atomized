@@ -1,4 +1,4 @@
-name: Build Qcow2 VM Disk
+name: Build Qcow2 Workflow
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
       - main
     paths:
       - "./disk/disk.toml"
-      - "./.github/workflows/build-Qcow2.yml"
+      - "./.github/workflows/build_Qcow2.yml"
 
 env:
   IMAGE_NAME: ${{ github.event.repository.name }}

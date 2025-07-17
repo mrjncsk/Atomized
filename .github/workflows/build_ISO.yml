@@ -1,4 +1,4 @@
-name: Build Installation ISO Image
+name: Build ISO Workflow
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
       - main
     paths:
       - "./disk/iso.toml"
-      - "./.github/workflows/build-ISO.yml"
+      - "./.github/workflows/build_ISO.yml"
 
 env:
   IMAGE_NAME: ${{ github.event.repository.name }}

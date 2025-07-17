@@ -1,5 +1,5 @@
 ---
-name: Build Ccontainer Image
+name: Build Image Workflow
 on:
   pull_request:
     branches:
