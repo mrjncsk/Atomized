@@ -22,6 +22,8 @@ early test Version!
 - nvim
 - mc
 
+![MC](images/MC.png)
+
 ### Hyprland WM
 
 - hyprpanel / waybar
