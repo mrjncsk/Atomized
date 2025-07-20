@@ -30,7 +30,7 @@ dnf5 -y copr disable solopasha/hyprland
 systemctl enable podman.socket
 
 # Remove Steam Wallpapers
-rm /usr/share/wallpapers/Steam*.*
+rm /usr/share/wallpapers/*.jpg
 
 # Remove Steam Autostart
 rm /etc/skel/.config/autostart/steam.desktop
