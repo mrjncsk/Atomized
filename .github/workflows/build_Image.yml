@@ -1,3 +1,18 @@
+name: Image Build and Push
+
+on:
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "55 5 * * *"
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**/README.md"
+  workflow_dispatch:
+
 jobs:
   build_and_push:
     name: Build and push ${{ matrix.variant.name }}
@@ -39,7 +54,7 @@ jobs:
 
       - name: Get current date
         id: date
-        run: echo "date=$(date -u +%Y\-%m\-%d\T%H\:%M\:%S\Z)" >> $GITHUB_OUTPUT
+        run: echo "date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> $GITHUB_OUTPUT
 
       - name: Image Metadata
         uses: docker/metadata-action@v5
@@ -47,15 +62,15 @@ jobs:
         with:
           tags: |
             type=raw,value=${{ env.DEFAULT_TAG }}
-            type=raw,value=${{ env.DEFAULT_TAG }}-${{ matrix.variant.name }}.{{date 'YYYYMMDD'}}
-            type=raw,value=${{ matrix.variant.name }}.{{date 'YYYYMMDD'}}
+            type=raw,value=${{ env.DEFAULT_TAG }}-${{ matrix.variant.name }}.${{ steps.date.outputs.date }}
+            type=raw,value=${{ matrix.variant.name }}.${{ steps.date.outputs.date }}
             type=sha,enable=${{ github.event_name == 'pull_request' }}
             type=ref,event=pr
           labels: |
             org.opencontainers.image.title=${{ env.IMAGE_NAME }}
             org.opencontainers.image.source=https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/blob/main/Containerfile
             org.opencontainers.image.created=${{ steps.date.outputs.date }}
-            org.opencontainers.image.version=${{ env.DEFAULT_TAG }}.{{date 'YYYYMMDD'}}
+            org.opencontainers.image.version=${{ env.DEFAULT_TAG }}.${{ steps.date.outputs.date }}
             org.opencontainers.image.description=${{ env.IMAGE_DESC }}
             io.artifacthub.package.logo-url=${{ env.IMAGE_LOGO_URL }}
             io.artifacthub.package.keywords=${{ env.IMAGE_KEYWORDS }}
