@@ -73,13 +73,16 @@ jobs:
 
       - name: Rename ISOs with version tag
         run: |
-          version=${{ steps.date.outputs.date }}  # z. B. "v0.1.0"
+          version=${{ steps.date.outputs.date }}
           mv ./output/anaconda-iso/install.iso ./output/atomized_${version}.iso
-          mv ./output/anaconda-iso/install.sha256 ./output/atomized_${version}.sha256
-          mv ./output/anaconda-iso/install.md5 ./output/atomized_${version}.md5
           mv ./output/anaconda-iso/install-nvidia.iso ./output/atomized-nvidia_${version}.iso
-          mv ./output/anaconda-iso/install-nvidia.sha256 ./output/atomized-nvidia_${version}.sha256
-          mv ./output/anaconda-iso/install-nvidia.md5 ./output/atomized-nvidia_${version}.md5
+
+      - name: Create Checksums
+        run: |
+          version=${{ steps.date.outputs.date }}
+          sudo chmod -R a+rX ./output
+          sha256sum output/atomized_${version}.iso > output/atomized_${version}.iso.sha256
+          sha256sum output/atomized-nvidia_${version}.iso > output/atomized-nvidia_${version}.iso.sha256
 
       - name: Create GitHub Release and upload ISO
         uses: softprops/action-gh-release@v2
