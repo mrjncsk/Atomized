@@ -1,12 +1,6 @@
 #!/bin/bash
 set -ouex pipefail
 
-# Remove Steam Wallpapers
-rm /usr/share/wallpapers/Steam*.*
-
-# Remove Steam Autostart
-rm /etc/skel/.config/autostart/steam.desktop
-
 # Enable Copr
 dnf5 -y copr enable ublue-os/staging
 dnf5 -y copr enable solopasha/hyprland
@@ -32,19 +26,24 @@ dnf5 -y install \
 dnf5 -y copr disable ublue-os/staging
 dnf5 -y copr disable solopasha/hyprland
 
-# OS Realease
+# Services
+systemctl enable podman.socket
+
+# Remove Steam Wallpapers
+rm /usr/share/wallpapers/Steam*.*
+
+# Remove Steam Autostart
+rm /etc/skel/.config/autostart/steam.desktop
+
+# OS Release
 sed -i \
 -e 's/^NAME=.*/NAME="Atomized"/' \
--e 's/^ID=.*/ID="atomized"/' \
 -e 's/^PRETTY_NAME=.*/PRETTY_NAME="Atomized (FROM Ublue)"/' \
 -e 's/^LOGO=.*/LOGO=atomized-logo-icon/' \
 -e 's/^DEFAULT_HOSTNAME=.*/DEFAULT_HOSTNAME="atomized"/' \
 -e 's/^HOME_URL=.*/HOME_URL="https:\/\/github.com\/mrjncsk\/Atomized"/' \
 -e 's/^BOOTLOADER_NAME=.*/BOOTLOADER_NAME="atomized"/' \
 /usr/lib/os-release
-
-# Services
-systemctl enable podman.socket
 
 # Rebuild Initramfs
 echo "::group::Executing build-initramfs"
