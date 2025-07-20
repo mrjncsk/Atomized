@@ -33,7 +33,7 @@ dnf5 -y copr disable ublue-os/staging
 dnf5 -y copr disable solopasha/hyprland
 
 # OS Realease
-sudo sed -i \
+sed -i \
 -e 's/^NAME=.*/NAME="Atomized"/' \
 -e 's/^ID=.*/ID="atomized"/' \
 -e 's/^PRETTY_NAME=.*/PRETTY_NAME="Atomized (FROM Ublue)"/' \
