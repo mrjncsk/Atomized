@@ -79,6 +79,6 @@ jobs:
           name: Release ${{ steps.tag.outputs.tag }}
           draft: false
           prerelease: false
-          files: ${{ steps.build.outputs.output-directory }}/*.iso
+          files: ${{ steps.build.outputs.output-directory }}/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
