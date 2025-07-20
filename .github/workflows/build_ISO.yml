@@ -74,15 +74,13 @@ jobs:
       - name: Rename ISOs with version tag
         run: |
           version=${{ steps.date.outputs.date }}
-          mv ./output/bootiso/install.iso ./output/atomized_${version}.iso
-          mv ./output/bootiso/install-nvidia.iso ./output/atomized-nvidia_${version}.iso
+          mv ./output/bootiso/install.iso ./output/${{ matrix.base_tag }}_${version}.iso
 
       - name: Create Checksums
         run: |
           version=${{ steps.date.outputs.date }}
           sudo chmod -R a+rX ./output
-          sha256sum output/atomized_${version}.iso > output/atomized_${version}.iso.sha256
-          sha256sum output/atomized-nvidia_${version}.iso > output/atomized-nvidia_${version}.iso.sha256
+          sha256sum output/${{ matrix.base_tag }}_${version}.iso > output/${{ matrix.base_tag }}_${version}.iso.sha256
 
       - name: Create GitHub Release and upload ISO
         uses: softprops/action-gh-release@v2
@@ -92,6 +90,6 @@ jobs:
           name: Release ${{ steps.tag.outputs.tag }}
           draft: false
           prerelease: false
-          files: ${{ steps.build.outputs.output-directory }}/*
+          files: ${{ steps.build.outputs.output-directory }}/${{ matrix.base_tag }}_${version}.*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
