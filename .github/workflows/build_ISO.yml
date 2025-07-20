@@ -79,7 +79,7 @@ jobs:
           mv ./output/anaconda-iso/install.md5 ./output/atomized-${version}.md5
           mv ./output/anaconda-iso/install-nvidia.iso ./output/atomized-nvidia-${version}.iso
           mv ./output/anaconda-iso/install-nvidia.sha256 ./output/atomized-nvidia-${version}.sha256
-          mv ./output/anaconda-iso/install-nvidia.shamd5 ./output/atomized-nvidia-${version}.md5
+          mv ./output/anaconda-iso/install-nvidia.md5 ./output/atomized-nvidia-${version}.md5
 
       - name: Create GitHub Release and upload ISO
         uses: softprops/action-gh-release@v2
