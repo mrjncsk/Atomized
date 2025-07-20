@@ -2,6 +2,8 @@ early test Version!
 
 ![Banner](images/Banner.png)
 
+My personalized Atomic OS Images for Desk/Laptop
+
 ## Base
 
 - Template: https://github.com/ublue-os/image-template
@@ -16,25 +18,12 @@ early test Version!
 
 ![Plasma](images/Plasma.png)
 
-### Hyprland WM
-
-- hyprpanel / waybar
-- hypridle
-- hyprlock
-- hyprshot
-- wofi
-- matugen
-- swww
-
-![Hyprland](images/Hyprland.png)
 
 ## Additions
 
 - kitty
 - nvim
 - mc
-
-![MC](images/MC.png)
 
 ### Personalisations
 
@@ -45,12 +34,12 @@ early test Version!
 
 ### Download
 
-https://github.com/mrjncsk/hyprblue/releases
+https://github.com/mrjncsk/Atomized/releases
 
 ### Rebase
 
 Switch from other Fadora Atomic Installation
 
 ```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/hyprblue
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/Atomized
 ```
