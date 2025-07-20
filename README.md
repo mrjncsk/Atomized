@@ -16,8 +16,6 @@ My personalized Atomic OS Images for Desk/Laptop
 - Lutris
 - Boxbuddy
 
-![Plasma](images/Plasma.png)
-
 
 ## Additions
 
