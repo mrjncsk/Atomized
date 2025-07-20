@@ -35,7 +35,12 @@ jobs:
         run: |
           echo "DISK_TYPE=anaconda-iso" >> $GITHUB_ENV
           echo "IMAGE_REGISTRY=${{ env.IMAGE_REGISTRY }}" >> $GITHUB_ENV
-          echo "IMAGE_NAME=${{ github.event.repository.name }}${{ matrix.base_tag == 'atomized-nvidia' && '-nvidia' || '' }}" >> $GITHUB_ENV
+          # IMAGE_NAME abhängig vom base_tag setzen
+          if [[ "${{ matrix.base_tag }}" == "atomized-nvidia" ]]; then
+            echo "IMAGE_NAME=${{ github.event.repository.name }}-nvidia" >> $GITHUB_ENV
+          else
+            echo "IMAGE_NAME=${{ github.event.repository.name }}" >> $GITHUB_ENV
+          fi
           echo "IMAGE_TAG=${{ env.IMAGE_TAG }}" >> $GITHUB_ENV
           echo "USER_UID=$(id -u)" >> $GITHUB_ENV
           echo "USER_GID=$(id -g)" >> $GITHUB_ENV
@@ -72,24 +77,31 @@ jobs:
           additional-args: --use-librepo=True --rootfs=ext4
 
       - name: Rename ISOs with version tag
+        env:
+          VERSION: ${{ steps.tag.outputs.tag }}
+          BASE_TAG: ${{ matrix.base_tag }}
         run: |
-          version=${{ steps.date.outputs.date }}
-          mv ./output/bootiso/install.iso ./output/${{ matrix.base_tag }}_${version}.iso
+          echo "Using version: $VERSION"
+          sudo chmod -R a+rX ./output
+          mv ./output/bootiso/install.iso ./output/${BASE_TAG}_${VERSION}.iso
 
       - name: Create Checksums
+        env:
+          VERSION: ${{ steps.tag.outputs.tag }}
+          BASE_TAG: ${{ matrix.base_tag }}
         run: |
-          version=${{ steps.date.outputs.date }}
-          sudo chmod -R a+rX ./output
-          sha256sum output/${{ matrix.base_tag }}_${version}.iso > output/${{ matrix.base_tag }}_${version}.iso.sha256
+          sha256sum output/${BASE_TAG}_${VERSION}.iso > output/${BASE_TAG}_${VERSION}.iso.sha256
 
       - name: Create GitHub Release and upload ISO
-        uses: softprops/action-gh-release@v2
         if: github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.tag.outputs.tag }}
           name: Release ${{ steps.tag.outputs.tag }}
           draft: false
           prerelease: false
-          files: ${{ steps.build.outputs.output-directory }}/${{ matrix.base_tag }}_${version}.*
+          files: |
+            ./output/${{ matrix.base_tag }}_${{ steps.tag.outputs.tag }}.iso
+            ./output/${{ matrix.base_tag }}_${{ steps.tag.outputs.tag }}.iso.sha256
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
