@@ -73,6 +73,7 @@ jobs:
 
       - name: Rename ISOs with version tag
         run: |
+          ls -R /
           version=${{ steps.date.outputs.date }}
           mv ./output/anaconda-iso/install.iso ./output/atomized_${version}.iso
           mv ./output/anaconda-iso/install-nvidia.iso ./output/atomized-nvidia_${version}.iso
