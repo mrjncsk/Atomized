@@ -24,6 +24,12 @@ jobs:
   build-qcow2:
     name: Build Qcow2 Image
     runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        base_tag: [bazzite, bazzite-nvidia]
+    env:
+      IMAGE_TAG: ${{ matrix.base_tag }}
+
     permissions:
       contents: read
       packages: read
@@ -53,7 +59,7 @@ jobs:
         with:
           builder-image: ${{ env.BIB_IMAGE }}
           config-file: ./disk/disk.toml
-          image: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}
+          image: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
           chown: ${{ env.USER_UID }}:${{ env.USER_GID }}
           types: qcow2
           additional-args: --use-librepo=True --rootfs=ext4
@@ -62,6 +68,7 @@ jobs:
         if: inputs.upload-to-s3 != true && github.event_name != 'pull_request'
         uses: actions/upload-artifact@v4
         with:
+          name: qcow2-${{ matrix.base_tag }}
           path: ${{ steps.build.outputs.output-directory }}
           if-no-files-found: error
           retention-days: 0

@@ -4,7 +4,8 @@ FROM scratch AS ctx
 COPY build /
 
 # Base Image from https://github.com/orgs/ublue-os/packages
-FROM ghcr.io/ublue-os/bazzite-nvidia:stable
+ARG BASE_IMAGE=ghcr.io/ublue-os/bazzite:stable
+FROM ${BASE_IMAGE}
 
 COPY rootfs /
 
