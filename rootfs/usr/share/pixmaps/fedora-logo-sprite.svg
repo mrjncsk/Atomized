@@ -25,7 +25,7 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="1.0734922"
-     inkscape:cx="384.72565"
+     inkscape:cx="189.10245"
      inkscape:cy="214.71977"
      inkscape:window-width="1554"
      inkscape:window-height="896"
@@ -55,19 +55,19 @@
   </defs>
   <text
      xml:space="preserve"
-     style="font-size:207.619px;text-align:center;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#076dff;fill-opacity:1;stroke-width:17.3016"
-     x="244.07169"
-     y="187.84477"
+     style="font-size:184.5px;text-align:center;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#076dff;fill-opacity:1;stroke-width:15.375"
+     x="281.24811"
+     y="175.21628"
      id="text3"
-     transform="scale(0.97298657,1.0277634)"><tspan
+     transform="scale(0.90843378,1.1007957)"><tspan
        sodipodi:role="line"
        id="tspan3"
-       x="244.07169"
-       y="187.84477"
-       style="stroke-width:17.3016">hypr</tspan><tspan
+       x="281.24808"
+       y="175.21628"
+       style="stroke-width:15.375">ATOM</tspan><tspan
        sodipodi:role="line"
-       x="244.07169"
-       y="447.36853"
-       style="stroke-width:17.3016"
-       id="tspan4">blue</tspan></text>
+       x="281.24811"
+       y="405.84131"
+       style="stroke-width:15.375"
+       id="tspan4">IZED</tspan></text>
 </svg>
