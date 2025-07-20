@@ -86,14 +86,14 @@ jobs:
         run: |
           echo "Using version: $VERSION"
           pwd
-          mv /home/runner/work/atomized/atomized/output/bootiso/install.iso /home/runner/work/atomized/atomized/output/${BASE_TAG}_${VERSION}.iso
+          sudo mv ./output/bootiso/install.iso ./output/${BASE_TAG}_${VERSION}.iso
 
       - name: Create Checksums
         env:
           VERSION: ${{ steps.tag.outputs.tag }}
           BASE_TAG: ${{ matrix.base_tag }}
         run: |
-          sha256sum /home/runner/work/atomized/atomized/output/${BASE_TAG}_${VERSION}.iso > /home/runner/work/atomized/atomized/output/${BASE_TAG}_${VERSION}.iso.sha256
+          sudo sha256sum ./output/${BASE_TAG}_${VERSION}.iso > ./output/${BASE_TAG}_${VERSION}.iso.sha256
 
       - name: Create GitHub Release and upload ISO
         if: github.event_name != 'pull_request'
@@ -104,7 +104,7 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            /home/runner/work/atomized/atomized/output/${{ matrix.base_tag }}_${{ steps.tag.outputs.tag }}.iso
-            /home/runner/work/atomized/atomized/output/${{ matrix.base_tag }}_${{ steps.tag.outputs.tag }}.iso.sha256
+            ./output/${{ matrix.base_tag }}_${{ steps.tag.outputs.tag }}.iso
+            ./output/${{ matrix.base_tag }}_${{ steps.tag.outputs.tag }}.iso.sha256
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
