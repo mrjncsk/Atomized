@@ -1,19 +1,18 @@
-# Allow build scripts to be referenced without being copied into the final image
+# Stage 1: Nur das Skript ins Image kopieren
 FROM scratch AS ctx
+COPY build/ /ctx/
 
-COPY build /
-
-# Base Image from https://github.com/orgs/ublue-os/packages
+# Stage 2: Basis-Image als Grundlage
 ARG BASE_IMAGE=ghcr.io/ublue-os/bazzite:stable
 FROM ${BASE_IMAGE}
 
-COPY rootfs /
+# Skript aus Stage 1 mounten und ausführen
+RUN --mount=type=bind,from=ctx,source=/ctx,target=/ctx \
+    /ctx/system.sh
 
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-    --mount=type=cache,dst=/var/cache \
-    --mount=type=cache,dst=/var/log \
-    --mount=type=tmpfs,dst=/tmp \
-    /ctx/system.sh && \
-    ostree container commit
-
+# Hier dann weitere Befehle, z.B. ostree commit, bootc lint etc.
+RUN ostree container commit
 RUN bootc container lint
+
+# Falls noch rootfs nötig, dann kopieren
+COPY rootfs/ /
