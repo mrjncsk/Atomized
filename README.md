@@ -16,7 +16,6 @@ My personalized Atomic OS Images for Desk/Laptop
 - Lutris
 - Boxbuddy
 
-
 ## Additions
 
 - kitty
