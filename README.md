@@ -31,12 +31,13 @@ My personalized Atomic OS Images for Desk/Laptop
 
 ### Download
 
-https://github.com/mrjncsk/Atomized/releases
+https://github.com/mrjncsk/atomized/releases
 
 ### Rebase
 
 Switch from other Fadora Atomic Installation
 
 ```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized(-nvidia)
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized-nvidia
 ```
