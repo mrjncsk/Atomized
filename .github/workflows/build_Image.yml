@@ -66,8 +66,6 @@ jobs:
         with:
           tags: |
             type=raw,value=${{ env.DEFAULT_TAG }}
-            type=raw,value=${{ env.DEFAULT_TAG }}-${{ matrix.variant.name }}-${{ steps.date.outputs.date }}
-            type=raw,value=${{ matrix.variant.name }}-${{ steps.date.outputs.date }}
             type=sha,enable=${{ github.event_name == 'pull_request' }}
             type=ref,event=pr
           labels: |
