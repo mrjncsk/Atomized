@@ -32,6 +32,17 @@ dnf5 -y install \
 dnf5 -y copr disable ublue-os/staging
 dnf5 -y copr disable solopasha/hyprland
 
+# OS Realease
+sudo sed -i \
+-e 's/^NAME=.*/NAME="Atomized"/' \
+-e 's/^ID=.*/ID="atomized"/' \
+-e 's/^PRETTY_NAME=.*/PRETTY_NAME="Atomized (FROM Ublue)"/' \
+-e 's/^LOGO=.*/LOGO=atomized-logo-icon/' \
+-e 's/^DEFAULT_HOSTNAME=.*/DEFAULT_HOSTNAME="atomized"/' \
+-e 's/^HOME_URL=.*/HOME_URL="https:\/\/github.com\/mrjncsk\/Atomized"/' \
+-e 's/^BOOTLOADER_NAME=.*/BOOTLOADER_NAME="atomized"/' \
+/usr/lib/os-release
+
 # Services
 systemctl enable podman.socket
 
