@@ -1,4 +1,4 @@
-name: Image Build and Push
+name: Image Workflow
 
 on:
   pull_request:
@@ -112,7 +112,7 @@ jobs:
         if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         run: |
           IMAGE_FULL="${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}"
-          for tag in ${{ steps.metadata.outputs.tags }}; do
+          echo "${{ steps.metadata.outputs.tags }}" | tr ' ' '\n' | while read -r tag; do
             cosign sign -y --key env://COSIGN_PRIVATE_KEY "$IMAGE_FULL:$tag"
           done
         env:
