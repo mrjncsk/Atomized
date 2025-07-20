@@ -55,7 +55,6 @@ jobs:
           builder-image: ${{ env.BIB_IMAGE }}
           config-file: ./disk/disk.toml
           image: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-          chown: ${{ env.USER_UID }}:${{ env.USER_GID }}
           types: qcow2
           additional-args: --use-librepo=True --rootfs=ext4
 
