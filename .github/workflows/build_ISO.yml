@@ -65,11 +65,6 @@ jobs:
           types: anaconda-iso
           additional-args: --use-librepo=True --rootfs=ext4
 
-      - name: Generate checksums
-        run: |
-          cd "${{ steps.build.outputs.output-directory }}"
-          sha256sum *.iso > SHA256SUMS
-
       - name: Determine next tag
         id: version
         run: |
