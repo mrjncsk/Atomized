@@ -59,7 +59,6 @@ jobs:
           builder-image: ${{ env.BIB_IMAGE }}
           config-file: ./disk/iso.toml
           image: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-          chown: ${{ env.USER_UID }}:${{ env.USER_GID }}
           types: anaconda-iso
           additional-args: --use-librepo=True --rootfs=ext4
 
@@ -73,3 +72,17 @@ jobs:
           retention-days: 0
           compression-level: 0
           overwrite: true
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: github.event_name == 'workflow_dispatch' || github.event_name == 'push'
+        with:
+          tag_name: ${{ steps.date.outputs.date }}
+          name: Release ${{ steps.date.outputs.date }}
+          draft: false
+          prerelease: false
+          files: |
+            output/atomized.iso
+            output/atomized-nvidia.iso
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
