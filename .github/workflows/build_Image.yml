@@ -43,8 +43,12 @@ jobs:
     steps:
       - name: Prepare environment
         run: |
-          echo "IMAGE_REGISTRY=${IMAGE_REGISTRY,,}" >> ${GITHUB_ENV}
-          echo "IMAGE_NAME=${IMAGE_NAME,,}" >> ${GITHUB_ENV}
+          IMAGE_NAME="${GITHUB_REPOSITORY##*/}"
+          if [[ "${{ matrix.variant.name }}" == "bazzite-nvidia" ]]; then
+            IMAGE_NAME="${IMAGE_NAME}-nvidia"
+          fi
+          echo "IMAGE_REGISTRY=${IMAGE_REGISTRY,,}" >> $GITHUB_ENV
+          echo "IMAGE_NAME=${IMAGE_NAME,,}" >> $GITHUB_ENV
 
       - name: Checkout
         uses: actions/checkout@v4
