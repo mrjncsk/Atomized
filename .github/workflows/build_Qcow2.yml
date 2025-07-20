@@ -24,9 +24,9 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        base_tag: [atomized, atomized-nvidia]
+        base_tag: [atomized, atomized-nvidia, atomized-nvidia-open]
     env:
-      IMAGE_NAME: ${{ github.event.repository.name }}${{ matrix.base_tag == 'atomized-nvidia' && '-nvidia' || '' }}
+      IMAGE_NAME: ${{ github.event.repository.name }}${{ matrix.base_tag == 'atomized-nvidia' && '-nvidia' || matrix.base_tag == 'atomized-nvidia-open' && '-nvidia-open' || '' }}
 
     permissions:
       contents: read

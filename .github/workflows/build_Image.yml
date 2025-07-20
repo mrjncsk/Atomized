@@ -24,6 +24,8 @@ jobs:
             base_image: ghcr.io/ublue-os/bazzite:stable
           - name: nvidia
             base_image: ghcr.io/ublue-os/bazzite-nvidia:stable
+          - name: nvidia-open
+            base_image: ghcr.io/ublue-os/bazzite-nvidia-open:stable # Neu für atomized-nvidia-open
 
     permissions:
       contents: read
@@ -31,7 +33,6 @@ jobs:
       id-token: write
 
     env:
-      BASE_IMAGE: ${{ matrix.variant.base_image }}
       IMAGE_DESC: "Personalized Atomic OS Image"
       IMAGE_KEYWORDS: "bootc,ublue,universal-blue"
       IMAGE_LOGO_URL: "https://avatars.githubusercontent.com/u/103059356?s=200&v=4"
@@ -44,6 +45,8 @@ jobs:
           IMAGE_NAME="${{ github.event.repository.name }}"
           if [[ "${{ matrix.variant.name }}" == "nvidia" ]]; then
             IMAGE_NAME="${IMAGE_NAME}-nvidia"
+          elif [[ "${{ matrix.variant.name }}" == "nvidia-open" ]]; then
+            IMAGE_NAME="${IMAGE_NAME}-nvidia-open"
           fi
           echo "IMAGE_NAME=${IMAGE_NAME,,}" >> $GITHUB_ENV
           echo "IMAGE_REGISTRY=${IMAGE_REGISTRY,,}" >> $GITHUB_ENV
@@ -85,7 +88,7 @@ jobs:
           labels: ${{ steps.metadata.outputs.labels }}
           oci: false
           build-args: |
-            BASE_IMAGE=${{ env.BASE_IMAGE }}
+            BASE_IMAGE=${{ matrix.variant.base_image }}
 
       - name: Login to GitHub Container Registry
         if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
