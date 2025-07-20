@@ -71,6 +71,16 @@ jobs:
           types: anaconda-iso
           additional-args: --use-librepo=True --rootfs=ext4
 
+      - name: Rename ISOs with version tag
+        run: |
+          version=${{ steps.date.outputs.date }}  # z. B. "v0.1.0"
+          mv ./output/anaconda-iso/install.iso ./output/atomized-${version}.iso
+          mv ./output/anaconda-iso/install.sha256 ./output/atomized-${version}.sha256
+          mv ./output/anaconda-iso/install.md5 ./output/atomized-${version}.md5
+          mv ./output/anaconda-iso/install-nvidia.iso ./output/atomized-nvidia-${version}.iso
+          mv ./output/anaconda-iso/install-nvidia.sha256 ./output/atomized-nvidia-${version}.sha256
+          mv ./output/anaconda-iso/install-nvidia.shamd5 ./output/atomized-nvidia-${version}.md5
+
       - name: Create GitHub Release and upload ISO
         uses: softprops/action-gh-release@v2
         if: github.event_name != 'pull_request'
