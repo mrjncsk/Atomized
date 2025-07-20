@@ -38,5 +38,5 @@ https://github.com/mrjncsk/Atomized/releases
 Switch from other Fadora Atomic Installation
 
 ```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/Atomized
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized
 ```
