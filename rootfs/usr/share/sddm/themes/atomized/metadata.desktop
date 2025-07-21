@@ -1,0 +1,10 @@
+[SddmGreeterTheme]
+Name=Atomized
+Website=https://github.com/sddm/sddm
+Screenshot=preview.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Theme-Id=atomized
+Theme-API=2.0
+QtVersion=6
