@@ -26,21 +26,27 @@ My personalized Atomic OS Images for Desk/Laptop
 - nvim
 - mc
 
-### Personalisations
+## Personalisations
 
 - Logos
 - Wallpapers
 
 ![Logo](images/Logo.png)
 
-### Installation
+## Build ISO
 
-Any Fedora Atomic ISO
+```bash
+sudo dnf install bootc-image-builder
+
+bootc-image-builder iso ghcr.io/mrjncsk/atomized:latest -o atomized.iso
+```
+
+## Rebase from other Atomic System
+
+Install any Fedora Atomic ISO
 
 - https://fedoraproject.org/atomic-desktops/kinoite/download
 - https://universal-blue.org/
-
-Rebase with:
 
 ```bash
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized
