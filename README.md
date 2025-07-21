@@ -35,15 +35,17 @@ My personalized Atomic OS Images for Desk/Laptop
 
 ### Installation
 
-Any Fedora Atomic
+Any Fedora Atomic ISO
 
-- https://fedoraproject.org/atomic-desktops/
+- https://fedoraproject.org/atomic-desktops/kinoite/download
 - https://universal-blue.org/
 
 Rebase with:
 
 ```bash
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized
+# or
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized-nvidia
+# or
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized-nvidia-open
 ```
