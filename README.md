@@ -12,12 +12,16 @@ My personalized Atomic OS Images for Desk/Laptop
 ## Bazzite
 
 - KDE Plasma
+- BTRFS
+- Bazzar
 - Steam
 - Lutris
 - Boxbuddy
+- Waydroid
 
 ## Additions
 
+- Hyprland
 - kitty
 - nvim
 - mc
