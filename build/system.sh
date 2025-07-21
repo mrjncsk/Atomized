@@ -7,7 +7,6 @@ dnf5 -y copr enable solopasha/hyprland
 
 # Install Software
 dnf5 -y install \
-    bootc-image-builder \
     hyprland \
     hyprland-qtutils \
     hypridle \
