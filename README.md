@@ -1,6 +1,6 @@
 early test Version!
 
-![Banner](images/Banner.png)
+![Title](images/Title.png)
 
 My personalized Atomic OS Images for Desk/Laptop
 
