@@ -1,5 +1,3 @@
-early test Version!
-
 ![Title](images/Title.png)
 
 My personalized Atomic OS Images for Desk/Laptop
@@ -31,7 +29,7 @@ My personalized Atomic OS Images for Desk/Laptop
 - Logos
 - Wallpapers
 
-![Logo](images/Logo.png)
+![Logo](images/Logo.png)![Logo](images/Logo.png)![Logo](images/Logo.png)![Logo](images/Logo.png)![Logo](images/Logo.png)![Logo](images/Logo.png)
 
 ## Build ISO
 
