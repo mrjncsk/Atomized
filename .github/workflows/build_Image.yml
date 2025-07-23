@@ -16,16 +16,15 @@ jobs:
     name: Build and push ${{ matrix.variant.name }}
     runs-on: ubuntu-24.04
     strategy:
+      fail-fast: false
       matrix:
         variant:
           - name: atomized
-            base_image: ghcr.io/ublue-os/bazzite:stable
+            base_image: ghcr.io/ublue-os/bazzite:latest
           - name: atomized-nvidia
-            base_image: ghcr.io/ublue-os/bazzite-nvidia:stable
+            base_image: ghcr.io/ublue-os/bazzite-nvidia:latest
           - name: atomized-nvidia-open
-            base_image: ghcr.io/ublue-os/bazzite-nvidia-open:stable
-          - name: atomized-hardened
-            base_image: ghcr.io/secureblue/kinoite-main-hardened:latest
+            base_image: ghcr.io/ublue-os/bazzite-nvidia-open:latest
 
     permissions:
       contents: read
