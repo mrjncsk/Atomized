@@ -35,7 +35,6 @@ My personalized Atomic OS Images for Desk/Laptop
 
 ```bash
 sudo dnf install bootc-image-builder
-
 bootc-image-builder iso ghcr.io/mrjncsk/atomized:latest -o atomized.iso
 ```
 
@@ -48,8 +47,4 @@ Install any Fedora Atomic ISO
 
 ```bash
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized
-# or
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized-nvidia
-# or
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized-nvidia-open
 ```
