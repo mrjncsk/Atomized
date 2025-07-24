@@ -36,8 +36,6 @@ rm /usr/share/color-schemes/*.colors
 # Remove Steam Autostart
 rm /etc/skel/.config/autostart/steam.desktop
 
-
-
 # OS Release
 sed -i \
 -e 's/^NAME=.*/NAME="Atomized"/' \
