@@ -31,7 +31,7 @@ systemctl enable podman.socket
 
 # Remove Steam Wallpapers
 rm /usr/share/wallpapers/*.*
-rm /usr/share/color-schemes/*.colors
+#rm /usr/share/color-schemes/*.colors
 
 # Remove Steam Autostart
 rm /etc/skel/.config/autostart/steam.desktop
