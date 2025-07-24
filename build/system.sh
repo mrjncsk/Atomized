@@ -30,7 +30,7 @@ dnf5 -y copr disable solopasha/hyprland
 systemctl enable podman.socket
 
 # Remove Steam Wallpapers
-rm /usr/share/wallpapers/*.jpg
+rm /usr/share/wallpapers/*.*
 
 # Remove Steam Autostart
 rm /etc/skel/.config/autostart/steam.desktop
@@ -38,10 +38,10 @@ rm /etc/skel/.config/autostart/steam.desktop
 # OS Release
 sed -i \
 -e 's/^NAME=.*/NAME="Atomized"/' \
--e 's/^PRETTY_NAME=.*/PRETTY_NAME="Atomized (FROM Ublue)"/' \
+-e 's/^PRETTY_NAME=.*/PRETTY_NAME="Atomized (from Ublue)"/' \
 -e 's/^LOGO=.*/LOGO=atomized-logo-icon/' \
 -e 's/^DEFAULT_HOSTNAME=.*/DEFAULT_HOSTNAME="atomized"/' \
--e 's/^HOME_URL=.*/HOME_URL="https:\/\/github.com\/mrjncsk\/Atomized"/' \
+-e 's/^HOME_URL=.*/HOME_URL="https:\/\/github.com\/mrjncsk\/atomized"/' \
 -e 's/^BOOTLOADER_NAME=.*/BOOTLOADER_NAME="atomized"/' \
 /usr/lib/os-release
 
