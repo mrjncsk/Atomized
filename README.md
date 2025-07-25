@@ -1,4 +1,4 @@
-![Title](images/Logo2.png)
+![Logo](images/Logo.png)
 
 My personalized Atomic OS Images for Desk/Laptop
 
