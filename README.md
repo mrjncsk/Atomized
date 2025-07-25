@@ -1,4 +1,4 @@
-![Title](images/Title.png)
+![Title](images/Logo2.png)
 
 My personalized Atomic OS Images for Desk/Laptop
 
@@ -47,4 +47,4 @@ Install any Fedora Atomic ISO
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized
 ```
 
-![Logo](images/Logo.png)
+![Title](images/Title.png)
