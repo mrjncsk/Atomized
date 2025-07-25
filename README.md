@@ -29,8 +29,6 @@ My personalized Atomic OS Images for Desk/Laptop
 - Logos
 - Wallpapers
 
-![Logo](images/Logo.png)![Logo](images/Logo.png)![Logo](images/Logo.png)![Logo](images/Logo.png)![Logo](images/Logo.png)![Logo](images/Logo.png)
-
 ## Build ISO
 
 ```bash
@@ -48,3 +46,5 @@ Install any Fedora Atomic ISO
 ```bash
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized
 ```
+
+![Logo](images/Logo.png)
