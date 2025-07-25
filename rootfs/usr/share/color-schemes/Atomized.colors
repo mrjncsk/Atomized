@@ -19,8 +19,8 @@ IntensityAmount=0
 IntensityEffect=0
 
 [Colors:Button]
-BackgroundAlternate=74,74,74
-BackgroundNormal=50,50,50
+BackgroundAlternate=39,50,74
+BackgroundNormal=3,22,50
 DecorationFocus=255,255,255
 DecorationHover=65,65,65
 ForegroundActive=255,255,255
@@ -76,7 +76,7 @@ ForegroundVisited=255,255,255
 
 [Colors:Selection]
 BackgroundAlternate=92,92,92
-BackgroundNormal=82,82,82
+BackgroundNormal=4,40,62
 DecorationFocus=255,255,255
 DecorationHover=65,65,65
 ForegroundActive=255,255,255
@@ -89,8 +89,8 @@ ForegroundPositive=42,200,141
 ForegroundVisited=255,255,255
 
 [Colors:Tooltip]
-BackgroundAlternate=10,10,10
-BackgroundNormal=0,0,0
+BackgroundAlternate=5,10,21
+BackgroundNormal=2,8,20
 DecorationFocus=255,255,255
 DecorationHover=65,65,65
 ForegroundActive=255,255,255
@@ -104,7 +104,7 @@ ForegroundVisited=255,255,255
 
 [Colors:View]
 BackgroundAlternate=35,35,35
-BackgroundNormal=25,25,25
+BackgroundNormal=7,13,25
 DecorationFocus=255,255,255
 DecorationHover=65,65,65
 ForegroundActive=255,255,255
@@ -117,8 +117,8 @@ ForegroundPositive=42,200,141
 ForegroundVisited=255,255,255
 
 [Colors:Window]
-BackgroundAlternate=42,42,42
-BackgroundNormal=32,32,32
+BackgroundAlternate=10,27,42
+BackgroundNormal=10,17,32
 DecorationFocus=255,255,255
 DecorationHover=65,65,65
 ForegroundActive=255,255,255
@@ -131,9 +131,9 @@ ForegroundPositive=42,200,141
 ForegroundVisited=255,255,255
 
 [General]
-AccentColor[$d]
 Name=Atomized
 TintFactor=0.24
+TitlebarIsAccentColored=true
 shadeSortColumn=true
 
 [KDE]
