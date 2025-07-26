@@ -29,13 +29,6 @@ dnf5 -y copr disable solopasha/hyprland
 # Services
 systemctl enable podman.socket
 
-# Remove Steam Wallpapers
-rm /usr/share/wallpapers/*.*
-#rm /usr/share/color-schemes/*.colors
-
-# Remove Steam Autostart
-rm /etc/skel/.config/autostart/steam.desktop
-
 # OS Release
 sed -i \
 -e 's/^NAME=.*/NAME="Atomized"/' \
@@ -45,6 +38,29 @@ sed -i \
 -e 's/^HOME_URL=.*/HOME_URL="https:\/\/github.com\/mrjncsk\/atomized"/' \
 -e 's/^BOOTLOADER_NAME=.*/BOOTLOADER_NAME="atomized"/' \
 /usr/lib/os-release
+
+# Remove Steam Autostart
+rm /etc/skel/.config/autostart/steam.desktop
+
+# Remove Steam Wallpapers
+rm /usr/share/wallpapers/*.*
+rm /usr/share/hypr/wall2.png
+#rm /usr/share/color-schemes/*.colors
+
+# Remove Color Schemes
+rm /usr/share/color-schemes/VGUI.colors
+rn /usr/share/color-schemes/Vapor.colors
+
+# Remove Themes
+rm -Rf /usr/share/plasma/look-and-feel/com.valve.vapor.desktop
+rm -Rf /usr/share/plasma/look-and-feel/com.valve.vgui.desktop
+rm -Rf /usr/share/plasma/look-and-feel/org.fedoraproject.dedpra.desktop
+rm -Rf /usr/share/sddm/themes/01-breeze-fedora
+rm -Rf /usr/share/plymouth/themes/bgrt
+rm -Rf /usr/share/plymouth/themes/charge
+rm -Rf /usr/share/plymouth/themes/details
+rm -Rf /usr/share/plymouth/themes/text
+rm -Rf /usr/share/plymouth/themes/tribar
 
 # Rebuild Initramfs
 echo "::group::Executing build-initramfs"
