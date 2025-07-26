@@ -1,16 +1,16 @@
 ![Logo](images/Logo.png)
 
-Personalized Atomic OS Images for my Gaming Desktop (bazzite-nvidia) & Thinkpad (aurora)
+Personalized Atomic OS Images for my Gaming Desktop (bazzite-nvidia) & Thinkpad (bazzite)
 
 ## Template
 
 This is build of the Ublue Template:
 
-- Template: https://github.com/ublue-os/image-template
+https://github.com/ublue-os/image-template
 
-## Gaming Image (atomized-game)
+## Based on Bazzite Image
 
-Based of https://github.com/ublue-os/bazzite-nivida
+https://github.com/ublue-os/bazzite
 
 - KDE Plasma
 - Bazaar
@@ -23,20 +23,7 @@ Based of https://github.com/ublue-os/bazzite-nivida
 - Distrobox
 - Boxbuddy
 
-## Laptop Image (atomized)
-
-Based of https://github.com/ublue-os/aurora
-
-- KDE Plasma
-- Bazaar
-- Homebrew
-- ujust
-- BTRFS
-- Waydroid
-- Distrobox
-- Boxbuddy
-
-## Atoimzed Additions
+## Atomized Additions
 
 Software
 
@@ -58,7 +45,7 @@ sudo dnf install bootc-image-builder
 bootc-image-builder iso ghcr.io/mrjncsk/atomized:latest -o atomized.iso
 ```
 
-## Rebase from other Atomic System
+## Rebase from any Atomic System
 
 Install any Fedora Atomic ISO
 
