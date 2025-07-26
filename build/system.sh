@@ -26,9 +26,6 @@ dnf5 -y install \
 dnf5 -y copr disable ublue-os/staging
 dnf5 -y copr disable solopasha/hyprland
 
-# Services
-systemctl enable podman.socket
-
 # OS Release
 sed -i \
 -e 's/^NAME=.*/NAME="Atomized"/' \
@@ -62,8 +59,6 @@ rm -Rf /usr/share/plymouth/themes/text
 rm -Rf /usr/share/plymouth/themes/tribar
 
 # Rebuild Initramfs
-echo "::group::Executing build-initramfs"
-trap 'echo "::endgroup::"' EXIT
 QUALIFIED_KERNEL="$(dnf5 repoquery --installed --queryformat='%{evr}.%{arch}' kernel)"
 /usr/bin/dracut --no-hostonly --kver "$QUALIFIED_KERNEL" --reproducible --zstd -v --add ostree -f "/usr/lib/modules/$QUALIFIED_KERNEL/initramfs.img"
 chmod 0600 "/usr/lib/modules/$QUALIFIED_KERNEL/initramfs.img"
