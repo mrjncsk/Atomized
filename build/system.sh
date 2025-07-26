@@ -37,15 +37,15 @@ sed -i \
 /usr/lib/os-release
 
 # Remove Steam Autostart
-rm /etc/skel/.config/autostart/steam.desktop
+rm -f /etc/skel/.config/autostart/steam.desktop
 
 # Remove Steam Wallpapers
-rm /usr/share/wallpapers/*.*
-rm /usr/share/hypr/wall2.png
+rm -f /usr/share/wallpapers/*.*
+rm -f /usr/share/hypr/wall2.png
 
 # Remove Color Schemes
-rm /usr/share/color-schemes/VGUI.colors
-rm /usr/share/color-schemes/Vapor.colors
+rm -f /usr/share/color-schemes/VGUI.colors
+rm -f /usr/share/color-schemes/Vapor.colors
 
 # Remove Themes
 rm -Rf /usr/share/plasma/look-and-feel/com.valve.vapor.desktop
