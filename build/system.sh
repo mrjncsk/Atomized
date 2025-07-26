@@ -45,7 +45,6 @@ rm /etc/skel/.config/autostart/steam.desktop
 # Remove Steam Wallpapers
 rm /usr/share/wallpapers/*.*
 rm /usr/share/hypr/wall2.png
-#rm /usr/share/color-schemes/*.colors
 
 # Remove Color Schemes
 rm /usr/share/color-schemes/VGUI.colors
