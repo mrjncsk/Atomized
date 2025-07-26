@@ -10,13 +10,14 @@ My personalized Atomic OS Images for Desk/Laptop
 ## Bazzite
 
 - KDE Plasma
+- Bazaar
+- Boxbuddy
+- Homebrew
+- Waydroid
 - ujust
 - BTRFS
-- Bazaar
 - Steam
 - Lutris
-- Boxbuddy
-- Waydroid
 
 ## Additions
 
@@ -28,6 +29,7 @@ My personalized Atomic OS Images for Desk/Laptop
 ## Personalisations
 
 - Logos
+- Themes
 - Wallpapers
 
 ## Build ISO
