@@ -20,11 +20,9 @@ jobs:
       matrix:
         variant:
           - name: atomized
-            base_image: ghcr.io/ublue-os/bazzite:latest
-          - name: atomized-nvidia
+            base_image: ghcr.io/ublue-os/aurora:latest
+          - name: atomized-game
             base_image: ghcr.io/ublue-os/bazzite-nvidia:latest
-          - name: atomized-nvidia-open
-            base_image: ghcr.io/ublue-os/bazzite-nvidia-open:latest
 
     permissions:
       contents: read

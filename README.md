@@ -1,11 +1,12 @@
 ![Logo](images/Logo.png)
 
-My personalized Atomic OS Images for Desk/Laptop
+Personalized Atomic OS Images for Gaming Desktop (bazzite-nvidia) & Thinkpad (aurora)
 
 ## Base
 
 - Template: https://github.com/ublue-os/image-template
-- Base: https://github.com/ublue-os/bazzite
+- Dektopp Base: https://github.com/ublue-os/bazzite
+- Laptop Base:
 
 ## Bazzite
 
