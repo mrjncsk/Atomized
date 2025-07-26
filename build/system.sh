@@ -48,7 +48,7 @@ rm /usr/share/hypr/wall2.png
 
 # Remove Color Schemes
 rm /usr/share/color-schemes/VGUI.colors
-rn /usr/share/color-schemes/Vapor.colors
+rm /usr/share/color-schemes/Vapor.colors
 
 # Remove Themes
 rm -Rf /usr/share/plasma/look-and-feel/com.valve.vapor.desktop
