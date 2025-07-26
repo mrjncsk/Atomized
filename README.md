@@ -10,8 +10,9 @@ My personalized Atomic OS Images for Desk/Laptop
 ## Bazzite
 
 - KDE Plasma
+- ujust
 - BTRFS
-- Bazzar
+- Bazaar
 - Steam
 - Lutris
 - Boxbuddy
