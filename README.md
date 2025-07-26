@@ -11,13 +11,14 @@ My personalized Atomic OS Images for Desk/Laptop
 
 - KDE Plasma
 - Bazaar
-- Boxbuddy
 - Homebrew
-- Waydroid
 - ujust
 - BTRFS
 - Steam
 - Lutris
+- Waydroid
+- Distrobox
+- Boxbuddy
 
 ## Additions
 
