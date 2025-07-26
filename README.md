@@ -1,14 +1,16 @@
 ![Logo](images/Logo.png)
 
-Personalized Atomic OS Images for Gaming Desktop (bazzite-nvidia) & Thinkpad (aurora)
+Personalized Atomic OS Images for my Gaming Desktop (bazzite-nvidia) & Thinkpad (aurora)
 
-## Base
+## Template
+
+This is build of the Ublue Template:
 
 - Template: https://github.com/ublue-os/image-template
-- Dektopp Base: https://github.com/ublue-os/bazzite
-- Laptop Base:
 
-## Bazzite
+## Gaming Image (atomized-game)
+
+Based of https://github.com/ublue-os/bazzite-nivida
 
 - KDE Plasma
 - Bazaar
@@ -21,14 +23,29 @@ Personalized Atomic OS Images for Gaming Desktop (bazzite-nvidia) & Thinkpad (au
 - Distrobox
 - Boxbuddy
 
-## Additions
+## Laptop Image (atomized)
+
+Based of https://github.com/ublue-os/aurora
+
+- KDE Plasma
+- Bazaar
+- Homebrew
+- ujust
+- BTRFS
+- Waydroid
+- Distrobox
+- Boxbuddy
+
+## Atoimzed Additions
+
+Software
 
 - Hyprland
 - kitty
 - nvim
 - mc
 
-## Personalisations
+Personalisations
 
 - Logos
 - Themes
