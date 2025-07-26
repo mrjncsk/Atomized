@@ -13,7 +13,7 @@ on:
 
 jobs:
   build_and_push:
-    name: Build and push ${{ matrix.variant.name }}
+    name: Build ${{ matrix.variant.name }}
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
