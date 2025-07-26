@@ -52,6 +52,8 @@ Install any Fedora Atomic ISO
 - https://fedoraproject.org/atomic-desktops/kinoite/download
 - https://universal-blue.org/
 
+Rebase:
+
 ```bash
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized
 ```
