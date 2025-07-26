@@ -1,0 +1,48 @@
+### Directory
+#alias cd='z'
+#alias cd..='z ..'
+#alias cd...='z ../..'
+#alias ..='z ..'
+#alias ...='z ../..'
+#alias ....='z ../../..'
+
+### List
+alias ls='ls --color=auto'
+alias l='ls --color -lah'
+alias ll='ls --color -lah'
+
+### grep
+alias grep='grep --color=auto'
+
+### Vim
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias nano='nvim'
+
+### Update
+alias up='ujust update'
+
+### Systemd
+alias sc='sudo systemctl'
+alias status='sudo systemctl status'
+alias start='sudo systemctl start'
+alias stop='sudo systemctl stop'
+alias restart='sudo systemctl restart'
+alias reload='sudo systemctl reload'
+alias enable='sudo systemctl enable'
+alias disable='sudo systemctl disable'
+
+### Shutdown
+alias q='exit'
+alias reboot='sudo systemctl reboot'
+alias halt='sudo systemctl halt'
+alias off='sudo systemctl poweroff'
+alias reload='systemctl daemon-reload'
+
+### Journal
+alias jc='sudo journalctl'
+alias j='sudo journalctl -f -u'
+
+### IP
+alias ipa='ip -c -br a; curl ifconfig.me; echo'
