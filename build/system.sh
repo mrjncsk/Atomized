@@ -25,7 +25,7 @@ dnf5 -y install \
 
 # Install required Software for Caeletia Shell
 # https://github.com/caelestia-dots/caelestia?tab=readme-ov-file
-dnf5 -y install \
+dnf5 -y --skip-unavailable install \
     xdg-desktop-portal-gtk \
     wl-clipboard \
     bluez-utils \
@@ -37,9 +37,8 @@ dnf5 -y install \
     btop \
     jq \
     socat \
-    imagemagick \
-    adw-gtk-theme \
-    adw-gtk-theme \
+    ImageMagick \
+    adw-gtk3-theme \
     qt5ct \
     qt6ct \
     jetbrains-mono-fonts-all
