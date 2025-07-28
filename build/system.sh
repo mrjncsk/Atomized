@@ -4,6 +4,7 @@ set -ouex pipefail
 # Enable Copr
 dnf5 -y copr enable ublue-os/staging
 dnf5 -y copr enable solopasha/hyprland
+dnf5 -y copr enable atim/starship
 
 # Install Software
 dnf5 -y install \
@@ -22,9 +23,31 @@ dnf5 -y install \
     nvim \
     mc
 
+# Install required Software for Caeletia Shell
+# https://github.com/caelestia-dots/caelestia?tab=readme-ov-file
+dnf5 -y install \
+    xdg-desktop-portal-gtk \
+    wl-clipboard \
+    bluez-utils \
+    inotify-tools \
+    wireplumber \
+    trash-cli \
+    foot \
+    starship \
+    btop \
+    jq \
+    socat \
+    imagemagick \
+    adw-gtk-theme \
+    adw-gtk-theme \
+    qt5ct \
+    qt6ct \
+    jetbrains-mono-fonts-all
+
 # Disable Copr
 dnf5 -y copr disable ublue-os/staging
 dnf5 -y copr disable solopasha/hyprland
+dnf5 -y copr disable satim/starship
 
 # OS Release
 sed -i \
