@@ -46,6 +46,7 @@ dnf5 -y install \
     NetworkManager \
     lm_sensors \
     aubio \
+    aubio-devel \
     glibc \
     materia-gtk-theme \
     grim \
