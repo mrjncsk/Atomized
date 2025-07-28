@@ -5,8 +5,9 @@ set -ouex pipefail
 dnf5 -y copr enable ublue-os/staging
 dnf5 -y copr enable solopasha/hyprland
 dnf5 -y copr enable atim/starship
+dnf5 -y copr enable errornointernet/quickshell
 
-# Install Software
+# Install required Software
 dnf5 -y install \
     hyprland \
     hyprland-qtutils \
@@ -21,11 +22,16 @@ dnf5 -y install \
     wofi \
     kitty \
     nvim \
-    mc
-
-# Install required Software for Caeletia Shell
-# https://github.com/caelestia-dots/caelestia?tab=readme-ov-file
-dnf5 -y install \
+    mc \
+    fish \
+    quickshell-git \
+    wireplumber \
+    xdg-desktop-portal-gtk \
+    wl-clipboard \
+    btop \
+    jq \
+    socat \
+    ImageMagick \
     bluez \
     inotify-tools \
     trash-cli \
@@ -34,12 +40,47 @@ dnf5 -y install \
     adw-gtk3-theme \
     qt5ct \
     qt6ct \
-    jetbrains-mono-fonts-all
+    jetbrains-mono-fonts-all \
+    ddcutil \
+    brightnessctl \
+    cava \
+    NetworkManager \
+    lm_sensors \
+    aubio \
+    glibc \
+    materia-gtk-theme \
+    grim \
+    swappy \
+    libqalculate \
+    fuzzel \
+    python3-build \
+    python3-installer \
+    python3-hatchling \
+    python3-hatch-vcs
+    libnotify
 
 # Disable Copr
 dnf5 -y copr disable ublue-os/staging
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable atim/starship
+dnf5 -y copr disable errornointernet/quickshell
+
+cd /tmp
+git clone https://github.com/caelestia-dots/caelestia.git
+git clone https://github.com/caelestia-dots/shell.git
+git clone https://github.com/caelestia-dots/cli.git
+cp -Rf caelestia/hypr /etc/skel/.config/
+mkdir /etc/skel/.config/quickshell/
+cp -Rf /tmp/shell /etc/skel/.config/quickshell/caelestia
+cd /etc/skel/.config/quickshell
+
+#g++ -std=c++17 -Wall -Wextra -I/usr/include/pipewire-0.3 -I/usr/include/spa-0.2 -I/usr/include/aubio -o beat_detector caelestia/assets/beat_detector.cpp -lpipewire-0.3 -laubio
+#mv beat_detector /usr/lib/caelestia/beat_detector
+
+cd /tmp/cli
+#python -m build --wheel
+#python -m installer dist/*.whl
+#cp completions/caelestia.fish /usr/share/fish/vendor_completions.d/caelestia.fish
 
 # OS Release
 sed -i \
