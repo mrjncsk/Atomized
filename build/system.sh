@@ -25,7 +25,7 @@ dnf5 -y install \
 
 # Install required Software for Caeletia Shell
 # https://github.com/caelestia-dots/caelestia?tab=readme-ov-file
-dnf5 -y --skip-unavailable install \
+dnf5 -y install \
     xdg-desktop-portal-gtk \
     wl-clipboard \
     bluez-utils \
