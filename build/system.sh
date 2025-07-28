@@ -10,7 +10,8 @@ dnf5 -y copr enable errornointernet/quickshell
 ### Install required Software
 dnf5 -y install \
     kitty nvim mc \
-    hyprland hyprland-qtutils hypridle hyprshot hyprlock hyprpanel \
+    hyprland hypridle hyprshot hyprlock \
+    hyprland-qtutils hyprpanel \
     xdg-desktop-portal-hyprland \
     xdg-desktop-portal-gtk \
     matugen \
