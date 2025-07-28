@@ -68,8 +68,8 @@ cp -Rf caelestia/hypr /etc/skel/.config/
 mkdir /etc/skel/.config/quickshell/
 cp -Rf /tmp/shell /etc/skel/.config/quickshell/caelestia
 cd /etc/skel/.config/quickshell
-#g++ -std=c++17 -Wall -Wextra -I/usr/include/pipewire-0.3 -I/usr/include/spa-0.2 -I/usr/include/aubio -o beat_detector caelestia/assets/beat_detector.cpp -lpipewire-0.3 -laubio
-#mv beat_detector /usr/lib/caelestia/beat_detector
+g++ -std=c++17 -Wall -Wextra -I/usr/include/pipewire-0.3 -I/usr/include/spa-0.2 -I/usr/include/aubio -o beat_detector caelestia/assets/beat_detector.cpp -lpipewire-0.3 -laubio
+mv beat_detector /usr/lib/caelestia/beat_detector
 cd /tmp/cli
 #python -m build --wheel
 #python -m installer dist/*.whl
