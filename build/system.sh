@@ -57,6 +57,8 @@ dnf5 -y install \
     python3-installer \
     python3-hatchling \
     python3-hatch-vcs \
+    pipewire-libs \
+    qt6-qtdeclarative  \
     libnotify
 
 ### Setup Caelestia
