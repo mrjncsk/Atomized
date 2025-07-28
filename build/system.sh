@@ -56,7 +56,7 @@ dnf5 -y install \
     python3-build \
     python3-installer \
     python3-hatchling \
-    python3-hatch-vcs
+    python3-hatch-vcs \
     libnotify
 
 # Disable Copr
