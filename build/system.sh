@@ -9,24 +9,23 @@ dnf5 -y copr enable errornointernet/quickshell
 
 ### Install required Software
 dnf5 -y install \
+    kitty \
+    nvim \
+    mc \
     hyprland \
     hyprland-qtutils \
     hypridle \
     hyprshot \
     hyprlock \
     xdg-desktop-portal-hyprland \
+    xdg-desktop-portal-gtk \
     hyprpanel \
-    waybar \
     matugen \
     swww \
     wofi \
-    kitty \
-    nvim \
-    mc \
     fish \
     quickshell-git \
     wireplumber \
-    xdg-desktop-portal-gtk \
     wl-clipboard \
     btop \
     jq \
@@ -58,7 +57,8 @@ dnf5 -y install \
     python3-hatchling \
     python3-hatch-vcs \
     pipewire-libs \
-    qt6-qtdeclarative  \
+    pipewire-devel \
+    qt6-qtdeclarative \
     libnotify
 
 ### Setup Caelestia
