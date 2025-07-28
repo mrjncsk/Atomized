@@ -28,7 +28,7 @@ dnf5 -y install \
 dnf5 -y install \
     xdg-desktop-portal-gtk \
     wl-clipboard \
-    bluez-utils \
+    bluez \
     inotify-tools \
     wireplumber \
     trash-cli \
