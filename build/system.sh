@@ -9,17 +9,10 @@ dnf5 -y copr enable errornointernet/quickshell
 
 ### Install required Software
 dnf5 -y install \
-    kitty \
-    nvim \
-    mc \
-    hyprland \
-    hyprland-qtutils \
-    hypridle \
-    hyprshot \
-    hyprlock \
+    kitty nvim mc \
+    hyprland hyprland-qtutils hypridle hyprshot hyprlock hyprpanel \
     xdg-desktop-portal-hyprland \
     xdg-desktop-portal-gtk \
-    hyprpanel \
     matugen \
     swww \
     wofi \
@@ -37,29 +30,24 @@ dnf5 -y install \
     foot \
     starship \
     adw-gtk3-theme \
-    qt5ct \
-    qt6ct \
+    qt5ct qt6ct \
+    qt6-qtdeclarative \
     jetbrains-mono-fonts-all \
     ddcutil \
     brightnessctl \
     cava \
     NetworkManager \
     lm_sensors \
-    aubio \
-    aubio-devel \
+    aubio aubio-devel \
     glibc \
     materia-gtk-theme \
     grim \
     swappy \
     libqalculate \
     fuzzel \
-    python3-build \
-    python3-installer \
-    python3-hatchling \
-    python3-hatch-vcs \
-    pipewire-libs \
-    pipewire-devel \
-    qt6-qtdeclarative \
+    python3-build python3-installer \
+    python3-hatchling python3-hatch-vcs \
+    pipewire-libs pipewire-devel \
     libnotify
 
 ### Setup Caelestia
@@ -76,7 +64,7 @@ mkdir /usr/lib/caelestia/
 mv beat_detector /usr/lib/caelestia/beat_detector
 cd /tmp/cli
 python -m build --wheel
-mkdir -p /usr/local/bin
+mkdir -p /var/usrlocal/bin
 python -m installer dist/*.whl
 cp completions/caelestia.fish /usr/share/fish/vendor_completions.d/caelestia.fish
 
