@@ -39,7 +39,7 @@ dnf5 -y install \
 # Disable Copr
 dnf5 -y copr disable ublue-os/staging
 dnf5 -y copr disable solopasha/hyprland
-dnf5 -y copr disable satim/starship
+dnf5 -y copr disable atim/starship
 
 # OS Release
 sed -i \
