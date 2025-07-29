@@ -32,7 +32,7 @@ dnf5 -y install \
     starship \
     adw-gtk3-theme \
     qt5-qtwayland \
-    gt6-qtwayland \
+    qt6-qtwayland \
     qt5ct qt6ct \
     qt6-qtdeclarative \
     jetbrains-mono-fonts-all \
