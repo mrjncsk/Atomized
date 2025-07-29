@@ -69,7 +69,7 @@ g++ -std=c++17 -Wall -Wextra \
     -I/usr/include/aubio \
     -lpipewire-0.3 -laubio \
     -o /usr/lib/caelestia/beat_detector \
-    assets/beat_detector.cpp
+    shell/assets/beat_detector.cpp
 
 ### Build Caelestia CLI & Fish Completion
 cd /tmp/cli
