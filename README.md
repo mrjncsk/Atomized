@@ -1,4 +1,4 @@
-![Logo](images/Logo.png)
+![Logo](Logo.png)
 
 Personalized Atomic OS Images for my Gaming Desktop (bazzite-nvidia) & Thinkpad (bazzite)
 
@@ -58,4 +58,4 @@ Rebase:
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized
 ```
 
-![Title](images/Title.png)
+![Title](Title.png)
