@@ -42,7 +42,7 @@ dnf5 -y install \
     glibc \
     materia-gtk-theme \
     material-design-dark \
-    material-icons-fonts \    
+    material-icons-fonts \
     grim \
     swappy \
     libqalculate \
