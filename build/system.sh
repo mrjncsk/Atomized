@@ -40,9 +40,6 @@ dnf5 -y install \
     lm_sensors \
     aubio aubio-devel \
     glibc \
-    materia-gtk-theme \
-    material-design-dark \
-    material-icons-fonts \
     grim \
     swappy \
     libqalculate \
@@ -66,13 +63,21 @@ wget https://github.com/marella/material-symbols/raw/refs/heads/main/material-sy
 cp -Rf /tmp/caelestia/hypr /etc/skel/.config/
 cp -Rf /tmp/material* /usr/share/fonts/material-symbols
 cp -Rf /tmp/shell /etc/skel/.config/quickshell/caelestia
+
+### Build Caelestia CLI & Fish Completion
 cd /tmp/cli
 python -m build --wheel
 pip install --prefix=/usr --root-user-action=ignore dist/*.whl
 cp completions/caelestia.fish /usr/share/fish/vendor_completions.d/caelestia.fish
-cd /etc/skel/.config/quickshell
-g++ -std=c++17 -Wall -Wextra -I/usr/include/pipewire-0.3 -I/usr/include/spa-0.2 -I/usr/include/aubio -o beat_detector caelestia/assets/beat_detector.cpp -lpipewire-0.3 -laubio
-mv beat_detector /usr/lib/caelestia/beat_detector
+
+### Build Caelestia Beat Detector
+g++ -std=c++17 -Wall -Wextra \
+    -I/usr/include/pipewire-0.3 \
+    -I/usr/include/spa-0.2 \
+    -I/usr/include/aubio \
+    -lpipewire-0.3 -laubio \
+    -o /usr/lib/caelestia/beat_detector \
+    /tmp/shell/assets/beat_detector.cpp
 
 ### Remove Build Software
 dnf5 -y remove \
@@ -111,12 +116,12 @@ rm -Rf /usr/share/plymouth/themes/tribar
 
 ### OS Release
 sed -i \
--e 's/^NAME=.*/NAME="Atomized"/' \
--e 's/^PRETTY_NAME=.*/PRETTY_NAME="Atomized (from Ublue)"/' \
--e 's/^LOGO=.*/LOGO=atomized-logo-icon/' \
--e 's/^DEFAULT_HOSTNAME=.*/DEFAULT_HOSTNAME="atomized"/' \
--e 's/^HOME_URL=.*/HOME_URL="https:\/\/github.com\/mrjncsk\/atomized"/' \
--e 's/^BOOTLOADER_NAME=.*/BOOTLOADER_NAME="atomized"/' \
+    -e 's/^NAME=.*/NAME="Atomized"/' \
+    -e 's/^PRETTY_NAME=.*/PRETTY_NAME="Atomized (from Ublue)"/' \
+    -e 's/^LOGO=.*/LOGO=atomized-logo-icon/' \
+    -e 's/^DEFAULT_HOSTNAME=.*/DEFAULT_HOSTNAME="atomized"/' \
+    -e 's/^HOME_URL=.*/HOME_URL="https:\/\/github.com\/mrjncsk\/atomized"/' \
+    -e 's/^BOOTLOADER_NAME=.*/BOOTLOADER_NAME="atomized"/' \
 /usr/lib/os-release
 
 ### Rebuild Initramfs
