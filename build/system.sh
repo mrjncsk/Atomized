@@ -48,13 +48,7 @@ dnf5 -y install \
     python3-build python3-installer \
     python3-hatchling python3-hatch-vcs \
     pipewire-libs pipewire-devel \
-    libnotify \
-    qt5-qtwayland \
-    qt5-qtbase-gui \
-    qt5-qtx11extras \
-    xcb-util \
-    xcb-util-cursor\
-    libxcb
+    libnotify
 
 ### Setup Caelestia
 cd /tmp
