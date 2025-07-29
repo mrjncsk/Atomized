@@ -64,7 +64,7 @@ mkdir /usr/lib/caelestia/
 mv beat_detector /usr/lib/caelestia/beat_detector
 cd /tmp/cli
 python -m build --wheel
-python -m installer --prefix=/usr dist/*.whl
+pip install --prefix=/usr dist/*.whl
 cp completions/caelestia.fish /usr/share/fish/vendor_completions.d/caelestia.fish
 
 ### Remove Build Software
