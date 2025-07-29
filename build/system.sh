@@ -41,6 +41,8 @@ dnf5 -y install \
     aubio aubio-devel \
     glibc \
     materia-gtk-theme \
+    material-design-dark \
+    material-icons-fonts \    
     grim \
     swappy \
     libqalculate \
