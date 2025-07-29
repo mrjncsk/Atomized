@@ -50,25 +50,17 @@ dnf5 -y install \
     libnotify
 
 ### Setup Caelestia
-mkdir /usr/lib/caelestia/
-mkdir /usr/share/fonts/material-symbols
-mkdir /etc/skel/.config/quickshell/
 cd /tmp
 git clone --depth 1 https://github.com/caelestia-dots/caelestia.git
 git clone --depth 1 https://github.com/caelestia-dots/shell.git
 git clone --depth 1 https://github.com/caelestia-dots/cli.git
-wget https://github.com/marella/material-symbols/raw/refs/heads/main/material-symbols/material-symbols-rounded.woff2
-wget https://github.com/marella/material-symbols/raw/refs/heads/main/material-symbols/material-symbols-outlined.woff2
-wget https://github.com/marella/material-symbols/raw/refs/heads/main/material-symbols/material-symbols-sharp.woff2
+wget --no-hsts https://github.com/marella/material-symbols/raw/refs/heads/main/material-symbols/material-symbols-rounded.woff2
+wget --no-hsts https://github.com/marella/material-symbols/raw/refs/heads/main/material-symbols/material-symbols-outlined.woff2
+wget --no-hsts https://github.com/marella/material-symbols/raw/refs/heads/main/material-symbols/material-symbols-sharp.woff2
+mkdir /usr/lib/caelestia/ /usr/share/fonts/material-symbols /etc/skel/.config/quickshell/
 cp -Rf /tmp/caelestia/hypr /etc/skel/.config/
-cp -Rf /tmp/material* /usr/share/fonts/material-symbols
 cp -Rf /tmp/shell /etc/skel/.config/quickshell/caelestia
-
-### Build Caelestia CLI & Fish Completion
-cd /tmp/cli
-python -m build --wheel
-pip install --prefix=/usr --root-user-action=ignore dist/*.whl
-cp completions/caelestia.fish /usr/share/fish/vendor_completions.d/caelestia.fish
+cp -Rf /tmp/material* /usr/share/fonts/material-symbols
 
 ### Build Caelestia Beat Detector
 g++ -std=c++17 -Wall -Wextra \
@@ -77,7 +69,13 @@ g++ -std=c++17 -Wall -Wextra \
     -I/usr/include/aubio \
     -lpipewire-0.3 -laubio \
     -o /usr/lib/caelestia/beat_detector \
-    /tmp/shell/assets/beat_detector.cpp
+    assets/beat_detector.cpp
+
+### Build Caelestia CLI & Fish Completion
+cd /tmp/cli
+python -m build --wheel
+pip install --prefix=/usr --root-user-action=ignore dist/*.whl
+cp completions/caelestia.fish /usr/share/fish/vendor_completions.d/caelestia.fish
 
 ### Remove Build Software
 dnf5 -y remove \
