@@ -54,8 +54,7 @@ dnf5 -y install \
     qt5-qtx11extras \
     xcb-util \
     xcb-util-cursor\
-    libxcb \
-    libxcb-cursor
+    libxcb
 
 ### Setup Caelestia
 cd /tmp
