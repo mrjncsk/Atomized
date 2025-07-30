@@ -121,8 +121,8 @@ rm -Rf /usr/share/plymouth/themes/tribar
 
 ### Hyprland Configs
 sed -i \
-    -e 's|exec-once = .*/polkit-.*authentication-agent.*$|exec-once = /usr/libexec/kf6/polkit-kde-authentication-agent-1|' \
-    -e 's|exec-once = gnome-keyring-daemon --start --components=secrets|exec-once = /usr/bin/kwalletd6|' \
+  -e '/exec-once.*polkit/ s|=.*|= /usr/libexec/kf6/polkit-kde-authentication-agent-1|' \
+  -e '/exec-once.*keyring/ s|=.*|= /usr/bin/kwalletd6|' \
 /etc/skel/.config/hypr/hyprland/execs.conf
 
 ### OS Release
