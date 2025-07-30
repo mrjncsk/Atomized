@@ -14,7 +14,7 @@ dnf5 -y install \
     hyprland-qtutils hyprpanel \
     xdg-desktop-portal-hyprland \
     xdg-desktop-portal-gtk \
-    polkit-gnome \
+    polkit-kde \
     gnome-keyring \
     matugen \
     swww \
