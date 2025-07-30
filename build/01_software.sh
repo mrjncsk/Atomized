@@ -14,6 +14,8 @@ dnf5 -y install \
     hyprland-qtutils hyprpanel \
     xdg-desktop-portal-hyprland \
     xdg-desktop-portal-gtk \
+    polkit-gnome \
+    gnome-keyring \
     matugen \
     swww \
     wofi \
@@ -30,8 +32,6 @@ dnf5 -y install \
     trash-cli \
     starship \
     adw-gtk3-theme \
-    qt5-qtwayland \
-    qt6-qtwayland \
     qt5ct qt6ct \
     qt6-qtdeclarative \
     jetbrains-mono-fonts-all \
@@ -40,13 +40,13 @@ dnf5 -y install \
     cava \
     NetworkManager \
     lm_sensors \
-    aubio aubio-devel \
     glibc \
     grim \
     swappy \
     libqalculate \
     fuzzel \
-    python3-build python3-installer \
-    python3-hatchling python3-hatch-vcs \
+    libnotify \
+    aubio aubio-devel \
     pipewire-libs pipewire-devel \
-    libnotify
+    python3-build python3-installer \
+    python3-hatchling python3-hatch-vcs
