@@ -1,6 +1,9 @@
 #!/bin/bash
 set -ouex pipefail
 
+### Hyprland Config
+sed -i 's|^exec-once = .*/polkit-.*authentication-agent.*$|exec-once = /usr/libexec/kf6/polkit-kde-authentication-agent-1|' /etc/skel/.config/hypr/hyprland/exec.conf
+
 ### OS Release
 sed -i \
     -e 's/^NAME=.*/NAME="Atomized"/' \
