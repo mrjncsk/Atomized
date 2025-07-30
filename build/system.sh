@@ -68,7 +68,7 @@ cp -Rf /tmp/shell /etc/skel/.config/quickshell/caelestia
 cp -Rf /tmp/material* /usr/share/fonts/material-symbols
 
 ### Install app2unit
-python3 -m pip install --no-user --prefix=/usr/ ./app2unit
+install -Dm755 app2unit/app2unit /usr/bin/app2unit
 
 ### Build Caelestia Beat Detector
 g++ -std=c++17 -Wall -Wextra \
