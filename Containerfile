@@ -3,6 +3,9 @@ FROM scratch AS ctx
 COPY build/ /ctx/
 FROM ${BASE_IMAGE}
 COPY rootfs/ /
-RUN --mount=type=bind,from=ctx,source=/ctx,target=/ctx /ctx/system.sh
+RUN --mount=type=bind,from=ctx,source=/ctx,target=/ctx /ctx/01_software.sh
+RUN --mount=type=bind,from=ctx,source=/ctx,target=/ctx /ctx/02_caelestia.sh
+RUN --mount=type=bind,from=ctx,source=/ctx,target=/ctx /ctx/03_cleanup.sh
+RUN --mount=type=bind,from=ctx,source=/ctx,target=/ctx /ctx/04_boot.sh
 RUN ostree container commit
 RUN bootc container lint
