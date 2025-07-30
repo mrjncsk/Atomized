@@ -28,7 +28,6 @@ dnf5 -y install \
     bluez \
     inotify-tools \
     trash-cli \
-    foot \
     starship \
     adw-gtk3-theme \
     qt5-qtwayland \
