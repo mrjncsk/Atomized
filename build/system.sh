@@ -121,7 +121,7 @@ rm -Rf /usr/share/plymouth/themes/text
 rm -Rf /usr/share/plymouth/themes/tribar
 
 ### Hyprland Config
-sed -i 's|^exec-once = .*/polkit-.*authentication-agent.*$|exec-once = /usr/libexec/kf6/polkit-kde-authentication-agent-1|' /etc/skel/.config/hypr/hyprland/exec.conf
+sed -i 's|^exec-once = .*/polkit-.*authentication-agent.*$|exec-once = /usr/libexec/kf6/polkit-kde-authentication-agent-1|' /etc/skel/.config/hypr/hyprland/execs.conf
 
 ### OS Release
 sed -i \
