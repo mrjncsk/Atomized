@@ -61,9 +61,11 @@ wget --no-hsts https://github.com/marella/material-symbols/raw/refs/heads/main/m
 wget --no-hsts https://github.com/marella/material-symbols/raw/refs/heads/main/material-symbols/material-symbols-outlined.woff2
 wget --no-hsts https://github.com/marella/material-symbols/raw/refs/heads/main/material-symbols/material-symbols-sharp.woff2
 mkdir /usr/lib/caelestia/ /usr/share/fonts/material-symbols /etc/skel/.config/quickshell/
-cp -Rf /tmp/caelestia/hypr /etc/skel/.config/
+cp -Rf /tmp/caelestia /etc/skel/.local/share/
+ln -s ../.local/share/caelestia/hypr /etc/skel/.config/hypr
 cp -Rf /tmp/shell /etc/skel/.config/quickshell/caelestia
 cp -Rf /tmp/material* /usr/share/fonts/material-symbols
+pip install --prefix=/usr app2unit
 
 ### Build Caelestia Beat Detector
 g++ -std=c++17 -Wall -Wextra \
