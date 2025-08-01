@@ -62,7 +62,7 @@ mkdir /usr/lib/caelestia/ /usr/share/fonts/material-symbols /etc/skel/.config/qu
 cp -Rf /tmp/caelestia /etc/skel/.local/share/
 ln -s ../.local/share/caelestia/hypr /etc/skel/.config/hypr
 cp -Rf /tmp/shell /etc/skel/.config/quickshell/caelestia
-cp -Rf /tmp/material* /usr/share/fonts/material-symbols
+cp -Rf /tmp/material-symbols-*.woff2 /usr/share/fonts/material-symbols
 
 ### Install app2unit
 install -Dm755 app2unit/app2unit /usr/bin/app2unit
@@ -102,13 +102,16 @@ dnf5 -y copr disable errornointernet/quickshell
 ### Remove Steam Autostart
 rm -f /etc/skel/.config/autostart/steam.desktop
 
-### Remove Steam Wallpapers
+### Remove Wallpapers
 rm -f /usr/share/wallpapers/*.*
 rm -f /usr/share/hypr/wall2.png
 
 ### Remove Color Schemes
 rm -f /usr/share/color-schemes/VGUI.colors
 rm -f /usr/share/color-schemes/Vapor.colors
+
+### Remove default Wayland Session
+rm -f /usr/share/wayland-session/hyprland.desktop
 
 ### Remove Themes
 rm -Rf /usr/share/plasma/look-and-feel/com.valve.vapor.desktop
