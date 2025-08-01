@@ -69,13 +69,18 @@ cp -Rf /tmp/material* /usr/share/fonts/material-symbols
 install -Dm755 app2unit/app2unit /usr/bin/app2unit
 
 ### Build Caelestia Beat Detector
-g++ -std=c++17 -Wall -Wextra \
+if pkg-config --exists pipewire-0.3 aubio; then
+  echo "Building beat detector"
+  g++ -std=c++17 -Wall -Wextra \
     -I/usr/include/pipewire-0.3 \
     -I/usr/include/spa-0.2 \
     -I/usr/include/aubio \
     -lpipewire-0.3 -laubio \
     -o /usr/lib/caelestia/beat_detector \
     shell/assets/beat_detector.cpp
+else
+  echo "Skipping beat detector – dependencies not found"
+fi
 
 ### Build Caelestia CLI & Fish Completion
 cd /tmp/cli
