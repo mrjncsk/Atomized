@@ -111,7 +111,7 @@ rm -f /usr/share/color-schemes/VGUI.colors
 rm -f /usr/share/color-schemes/Vapor.colors
 
 ### Remove default Wayland Session
-rm -f /usr/share/wayland-session/hyprland.desktop
+rm -f /usr/share/wayland-sessions/hyprland.desktop
 
 ### Remove Themes
 rm -Rf /usr/share/plasma/look-and-feel/com.valve.vapor.desktop
