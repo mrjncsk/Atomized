@@ -8,7 +8,7 @@ This is build of the Ublue Template:
 
 https://github.com/ublue-os/image-template
 
-## Based on Bazzite Image
+## Based on Bazzite
 
 https://github.com/ublue-os/bazzite
 
@@ -27,9 +27,8 @@ https://github.com/ublue-os/bazzite
 
 Software
 
-- Hyprland
-  - Caelestia
-  - Hyprpanel
+- Hyprland with Caelesia Shell
+- Hyprland with Hyprpanel
 - kitty
 - nvim
 - mc
