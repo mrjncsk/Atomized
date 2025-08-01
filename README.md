@@ -28,6 +28,8 @@ https://github.com/ublue-os/bazzite
 Software
 
 - Hyprland
+  - Caelestia
+  - Hyprpanel
 - kitty
 - nvim
 - mc
