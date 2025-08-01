@@ -2,7 +2,7 @@ ARG BASE_IMAGE=ghcr.io/ublue-os/bazzite:stable
 FROM scratch AS ctx
 COPY build/ /ctx/
 FROM ${BASE_IMAGE}
-COPY rootfs/ /
 RUN --mount=type=bind,from=ctx,source=/ctx,target=/ctx /ctx/system.sh
+COPY rootfs/ /
 RUN ostree container commit
 RUN bootc container lint
