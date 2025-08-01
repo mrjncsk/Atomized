@@ -59,4 +59,11 @@ Rebase:
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized
 ```
 
+## Configuration
+
+- New Users
+  - Default Configs will be copied from /etc/skel
+- Existing Users
+  - manually copy Configs from /etc/skel
+
 ![Title](Title.png)
