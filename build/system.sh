@@ -45,8 +45,7 @@ dnf5 -y install \
     libnotify \
     aubio aubio-devel \
     python3-build python3-installer \
-    python3-hatchling python3-hatch-vcs \
-    pipewire-libs pipewire-devel
+    python3-hatchling python3-hatch-vcs
 
 ### Get Caelestia Files
 cd /tmp
