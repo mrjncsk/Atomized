@@ -2,7 +2,6 @@
 set -ouex pipefail
 
 ### Enable Copr
-dnf5 -y copr enable ublue-os/staging
 dnf5 -y copr enable solopasha/hyprland
 dnf5 -y copr enable atim/starship
 dnf5 -y copr enable errornointernet/quickshell
@@ -46,7 +45,8 @@ dnf5 -y install \
     libnotify \
     aubio aubio-devel \
     python3-build python3-installer \
-    python3-hatchling python3-hatch-vcs
+    python3-hatchling python3-hatch-vcs \
+    pipewire-libs pipewire-devel
 
 ### Get Caelestia Files
 cd /tmp
@@ -96,7 +96,6 @@ dnf5 -y remove \
     pipewire-devel
 
 ### Disable Copr
-dnf5 -y copr disable ublue-os/staging
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable atim/starship
 dnf5 -y copr disable errornointernet/quickshell
