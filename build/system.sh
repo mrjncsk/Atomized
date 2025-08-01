@@ -45,7 +45,7 @@ dnf5 -y install \
     fuzzel \
     libnotify \
     aubio aubio-devel \
-    pipewire-libs pipewire-devel \
+    pipewire-devel \
     python3-build python3-installer \
     python3-hatchling python3-hatch-vcs
 
