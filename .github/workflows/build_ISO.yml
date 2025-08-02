@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_netinstall_iso:
-    name: Build ISO for ${{ matrix.variant.name }}
+  build_and_release:
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -19,21 +18,21 @@ jobs:
           - name: atomized-nvidia
             bootc_image: ghcr.io/mrjncsk/atomized-nvidia:latest
 
+    env:
+      BASE_VERSION: "v0.1"
+
     steps:
+      - name: Set RELEASE_TAG
+        id: set_release_tag
+        run: |
+          # Erhöhe die Buildnummer basierend auf github.run_number
+          echo "RELEASE_TAG=${BASE_VERSION}.${{ github.run_number }}" >> $GITHUB_ENV
+          echo "Release-Tag ist ${{ env.RELEASE_TAG }}"
+
       - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Detect Anaconda version from builder image
-        id: version
-        run: |
-          container_id=$(docker create ghcr.io/lorbuschris/bootc-image-builder:20250608)
-          docker cp "$container_id":/etc/os-release ./os-release
-          docker rm "$container_id"
-          anaconda_version=$(grep '^VERSION_ID=' ./os-release | cut -d= -f2 | tr -d '"')
-          echo "RELEASE_TAG=$anaconda_version" >> $GITHUB_ENV
-          echo "Detected Anaconda version: $anaconda_version"
-
-      - name: Build ISO for ${{ matrix.variant.name }}
+      - name: Build ISO ${{ matrix.variant.name }}
         uses: osbuild/bootc-image-builder-action@main
         with:
           builder-image: ghcr.io/lorbuschris/bootc-image-builder:20250608
@@ -43,30 +42,39 @@ jobs:
           build-args: |
             BOOTC_IMAGE=${{ matrix.variant.bootc_image }}
 
+      - name: Prepare output folder
+        run: mkdir -p ./output
+
       - name: Rename ISO for ${{ matrix.variant.name }}
         run: |
-          sudo mv ./output/bootiso/install.iso ./output/${{ matrix.variant.name }}-netinstall-anaconda-${{ env.RELEASE_TAG }}.iso
+          mv ./output/bootiso/install.iso ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso
 
-      - name: Generate SHA256 checksum
+      - name: Create SHA256 checksum
         run: |
-          iso_file="./output/${{ matrix.variant.name }}-netinstall-anaconda-${{ env.RELEASE_TAG }}.iso"
-          sha256sum "$iso_file" > "$iso_file.sha256"
+          sha256sum ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso > ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso.sha256
 
-      - name: Upload ISO to GitHub Release
+      - name: Create Release if not exists
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          release_name: Release ${{ env.RELEASE_TAG }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload ISO and checksum to Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}
-          name: "Anaconda ${{ env.RELEASE_TAG }} Netinstall ISOs"
+          name: "${{ matrix.variant.name }} Netinstall ISO ${{ env.RELEASE_TAG }}"
           body: |
-            Minimal Netinstall ISO using Anaconda ${{ env.RELEASE_TAG }} and bootc.
+            Minimal Anaconda Netinstall ISO for `${{ matrix.variant.name }}`.
+            Installs latest Bootc-Image `${{ matrix.variant.bootc_image }}`.
 
-            Variant: `${{ matrix.variant.name }}`
-            Image: `${{ matrix.variant.bootc_image }}`
-
-            SHA256 Checksum:
-            ```
-            ${{ steps.checksum.outputs.sha }}
-            ```
           files: |
-            ./output/${{ matrix.variant.name }}-netinstall-anaconda-${{ env.RELEASE_TAG }}.iso
-            ./output/${{ matrix.variant.name }}-netinstall-anaconda-${{ env.RELEASE_TAG }}.iso.sha256
+            ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso
+            ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso.sha256
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
