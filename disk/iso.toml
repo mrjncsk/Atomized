@@ -1,11 +1,12 @@
+[customizations.installer]
+name = "Atomized Net-Installer"
+description = "Anaconda Netinstall with Bootc"
+
 [customizations.installer.kickstart]
 contents = """
 %post
 echo "Switching to image: ${BOOTC_IMAGE}"
 bootc switch --mutate-in-place --transport registry ${BOOTC_IMAGE}
-
-mkdir -p /etc
-cp /run/initramfs/disk/bootc-image.conf /etc/bootc-image.conf
 %end
 """
 
@@ -20,4 +21,9 @@ disable = [
     "org.fedoraproject.Anaconda.Modules.Services",
     "org.fedoraproject.Anaconda.Modules.Subscription",
     "org.fedoraproject.Anaconda.Modules.Timezone",
+]
+
+[customizations.installer.files]
+files = [
+    { src = "rootfs/usr/share/pixmaps/system-logo-white.png", dest = "/usr/share/pixmaps/system-logo-white.png" },
 ]
