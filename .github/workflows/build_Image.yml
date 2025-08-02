@@ -7,11 +7,11 @@ on:
     branches: [main]
     paths-ignore:
       - ".github/workflows/build_ISO.yml"
-      - "disk/build_ISO.yml"
+      - "disk/iso.toml"
       - "*.png"
       - "**/README.md"
   schedule:
-    - cron: "55 5 * * *"
+    - cron: "5 5 * * *"
   workflow_dispatch:
 
 jobs:

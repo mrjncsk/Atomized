@@ -3,6 +3,9 @@ contents = """
 %post
 echo "Switching to image: ${BOOTC_IMAGE}"
 bootc switch --mutate-in-place --transport registry ${BOOTC_IMAGE}
+
+mkdir -p /etc
+cp /run/initramfs/disk/bootc-image.conf /etc/bootc-image.conf
 %end
 """
 

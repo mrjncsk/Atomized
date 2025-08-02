@@ -1,6 +1,8 @@
 name: Build Netinstall ISOs
 
 on:
+  schedule:
+    - cron: "3 2 1 * *"
   workflow_dispatch:
 
 jobs:
@@ -45,6 +47,8 @@ jobs:
           types: anaconda-iso
           build-args: |
             BOOTC_IMAGE=${{ matrix.variant.bootc_image }}
+          extra-volumes: |
+            ./disk/dynamic:/run/initramfs/disk:ro
 
       - name: Prepare output folder
         run: mkdir -p ./output
