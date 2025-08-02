@@ -31,6 +31,11 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
+      - name: Generate bootc image config for ISO
+        run: |
+          mkdir -p disk/dynamic
+          echo "BOOTC_IMAGE=${{ matrix.variant.bootc_image }}" > disk/dynamic/bootc-image.conf
+
       - name: Build ISO ${{ matrix.variant.name }}
         uses: osbuild/bootc-image-builder-action@main
         with:
