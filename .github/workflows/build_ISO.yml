@@ -45,6 +45,10 @@ jobs:
           extra-volumes: |
             ./rootfs/usr/share/pixmaps:/run/initramfs/pixmaps:ro
 
+      - name: Fix ownership of output files
+        run: |
+          sudo chown -R $USER:$USER ./output
+
       - name: Prepare output folder
         run: mkdir -p ./output
 
