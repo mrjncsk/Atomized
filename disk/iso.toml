@@ -1,7 +1,3 @@
-[customizations.installer]
-name = "Atomized Net-Installer"
-description = "Anaconda Netinstall with Bootc"
-
 [customizations.installer.kickstart]
 contents = """
 %post
