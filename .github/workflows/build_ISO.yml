@@ -1,0 +1,72 @@
+name: Build Netinstall ISOs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_netinstall_iso:
+    name: Build ISO for ${{ matrix.variant.name }}
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        variant:
+          - name: atomized
+            bootc_image: ghcr.io/mrjncsk/atomized:latest
+          - name: atomized-nvidia
+            bootc_image: ghcr.io/mrjncsk/atomized-nvidia:latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Detect Anaconda version from builder image
+        id: version
+        run: |
+          container_id=$(docker create ghcr.io/lorbuschris/bootc-image-builder:20250608)
+          docker cp "$container_id":/etc/os-release ./os-release
+          docker rm "$container_id"
+          anaconda_version=$(grep '^VERSION_ID=' ./os-release | cut -d= -f2 | tr -d '"')
+          echo "RELEASE_TAG=$anaconda_version" >> $GITHUB_ENV
+          echo "Detected Anaconda version: $anaconda_version"
+
+      - name: Build ISO for ${{ matrix.variant.name }}
+        uses: osbuild/bootc-image-builder-action@main
+        with:
+          builder-image: ghcr.io/lorbuschris/bootc-image-builder:20250608
+          config-file: ./disk/iso.toml
+          image: ${{ matrix.variant.bootc_image }}
+          types: anaconda-iso
+          build-args: |
+            BOOTC_IMAGE=${{ matrix.variant.bootc_image }}
+
+      - name: Rename ISO for ${{ matrix.variant.name }}
+        run: |
+          sudo mv ./output/bootiso/install.iso ./output/${{ matrix.variant.name }}-netinstall-anaconda-${{ env.RELEASE_TAG }}.iso
+
+      - name: Generate SHA256 checksum
+        run: |
+          iso_file="./output/${{ matrix.variant.name }}-netinstall-anaconda-${{ env.RELEASE_TAG }}.iso"
+          sha256sum "$iso_file" > "$iso_file.sha256"
+
+      - name: Upload ISO to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: "Anaconda ${{ env.RELEASE_TAG }} Netinstall ISOs"
+          body: |
+            Minimal Netinstall ISO using Anaconda ${{ env.RELEASE_TAG }} and bootc.
+
+            Variant: `${{ matrix.variant.name }}`
+            Image: `${{ matrix.variant.bootc_image }}`
+
+            SHA256 Checksum:
+            ```
+            ${{ steps.checksum.outputs.sha }}
+            ```
+          files: |
+            ./output/${{ matrix.variant.name }}-netinstall-anaconda-${{ env.RELEASE_TAG }}.iso
+            ./output/${{ matrix.variant.name }}-netinstall-anaconda-${{ env.RELEASE_TAG }}.iso.sha256

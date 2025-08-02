@@ -1,0 +1,20 @@
+[customizations.installer.kickstart]
+contents = """
+%post
+echo "Switching to image: ${BOOTC_IMAGE}"
+bootc switch --mutate-in-place --transport registry ${BOOTC_IMAGE}
+%end
+"""
+
+[customizations.installer.modules]
+enable = [
+    "org.fedoraproject.Anaconda.Modules.Storage",
+    "org.fedoraproject.Anaconda.Modules.Network",
+    "org.fedoraproject.Anaconda.Modules.Users",
+]
+disable = [
+    "org.fedoraproject.Anaconda.Modules.Security",
+    "org.fedoraproject.Anaconda.Modules.Services",
+    "org.fedoraproject.Anaconda.Modules.Subscription",
+    "org.fedoraproject.Anaconda.Modules.Timezone",
+]
