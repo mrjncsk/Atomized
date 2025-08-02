@@ -25,7 +25,6 @@ jobs:
       - name: Set RELEASE_TAG
         id: set_release_tag
         run: |
-          # Erhöhe die Buildnummer basierend auf github.run_number
           echo "RELEASE_TAG=${BASE_VERSION}.${{ github.run_number }}" >> $GITHUB_ENV
           echo "Release-Tag ist ${{ env.RELEASE_TAG }}"
 
