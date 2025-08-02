@@ -21,6 +21,3 @@ disable = [
     "org.fedoraproject.Anaconda.Modules.Subscription",
     "org.fedoraproject.Anaconda.Modules.Timezone",
 ]
-
-[customizations.additional-files]
-"/etc/bootc-image.conf" = "disk/dynamic/bootc-image.conf"
