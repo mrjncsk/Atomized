@@ -1,4 +1,4 @@
-![Logo](files/usr/share/atomized/...png) ![Logo](files/usr/share/atomized/Logo.png) ![Logo](files/usr/share/atomized/...png)
+![Logo](files/usr/share/atomized/...png)![Logo](files/usr/share/atomized/Logo.png)![Logo](files/usr/share/atomized/...png)
 
 Personalized Atomic OS Images for my Gaming Desktop (bazzite-nvidia) & Thinkpad (bazzite)
 
