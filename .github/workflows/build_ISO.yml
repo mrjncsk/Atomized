@@ -79,8 +79,8 @@ jobs:
       - name: Upload ISO and logo to archive.org
         run: |
           ARCHIVE_ID="${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}"
-          TITLE="${{ matrix.variant.name }} ISO ${{ env.RELEASE_TAG }}"
-          DESCRIPTION="${{ matrix.variant.name }} Installation ISO"
+          TITLE="${{ matrix.variant.name }} ${{ env.RELEASE_TAG }} Installation ISO"
+          DESCRIPTION="${{ matrix.variant.name }} ${{ env.RELEASE_TAG }} Atomic Linux Installation ISO"
 
           ia upload "${ARCHIVE_ID}" \
             ./output/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}.iso \
