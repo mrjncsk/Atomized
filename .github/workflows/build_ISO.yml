@@ -85,11 +85,12 @@ jobs:
           ia upload "${ARCHIVE_ID}" \
             ./output/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}.iso \
             ./output/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}.iso.sha256 \
-            ./rootfs/usr/share/icons/hicolor/256x256/apps/atomized-logo-icon.png \
+            ./files/usr/share/atomized/Logo.png \
+            ./files/usr/share/atomized/Title.png \
             --metadata="title:${TITLE}" \
             --metadata="mediatype:software" \
             --metadata="collection:opensource" \
-            --metadata="logo=atomized-logo-icon.png" \
+            --metadata="logo=Logo.png" \
             --metadata="description:${DESCRIPTION}"
 
       - name: Print archive.org URL

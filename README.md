@@ -1,4 +1,4 @@
-![Logo](Logo.png)
+![Logo](rootfs/usr/share/atomized/...png) ![Logo](rootfs/usr/share/atomized/Logo.png) ![Logo](rootfs/usr/share/atomized/...png)
 
 Personalized Atomic OS Images for my Gaming Desktop (bazzite-nvidia) & Thinkpad (bazzite)
 
@@ -43,4 +43,4 @@ Personalisations
 
 https://archive.org/details/@mrjncsk
 
-![Title](Title.png)
+![Logo](rootfs/usr/share/atomized/...png) ![Title](rootfs/usr/share/atomized/Title.png) ![Logo](rootfs/usr/share/atomized/...png)
