@@ -6,10 +6,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_and_release:
+  build_and_upload:
     runs-on: ubuntu-24.04
     permissions:
-      contents: write
+      contents: read
 
     strategy:
       fail-fast: false
@@ -27,8 +27,8 @@ jobs:
       - name: Set RELEASE_TAG
         id: set_release_tag
         run: |
-          echo "RELEASE_TAG=${BASE_VERSION}.${GITHUB_RUN_NUMBER}" >> $GITHUB_ENV
-          echo "Release-Tag ist $RELEASE_TAG"
+          echo "RELEASE_TAG=${BASE_VERSION}.${{ github.run_number }}" >> $GITHUB_ENV
+          echo "Release-Tag ist ${{ env.RELEASE_TAG }}"
 
       - name: Checkout source
         uses: actions/checkout@v4
@@ -50,49 +50,34 @@ jobs:
         run: sudo chown -R $USER:$USER ./output
 
       - name: Rename ISO for ${{ matrix.variant.name }}
-        run: mv ./output/bootiso/install.iso ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso
+        run: |
+          mv ./output/bootiso/install.iso ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso
 
       - name: Create SHA256 checksum
-        run: sha256sum ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso > ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso.sha256
-
-      - name: Check if tag exists
-        id: check_tag
         run: |
-          if git ls-remote --tags origin | grep -q "refs/tags/${RELEASE_TAG}$"; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-          fi
+          sha256sum ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso > ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso.sha256
 
-      - name: Create Git tag if not exists
-        if: steps.check_tag.outputs.exists == 'false'
+      - name: Install Internet Archive CLI
+        run: pip install internetarchive
+
+      - name: Configure Internet Archive credentials
+        run: ia configure "${{ secrets.ARCHIVE_ACCESS_KEY }}" "${{ secrets.ARCHIVE_SECRET_KEY }}"
+
+      - name: Upload ISO to archive.org
+        env:
+          ARCHIVE_ACCESS_KEY: ${{ secrets.ARCHIVE_ACCESS_KEY }}
+          ARCHIVE_SECRET_KEY: ${{ secrets.ARCHIVE_SECRET_KEY }}
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git tag $RELEASE_TAG
-          git push origin $RELEASE_TAG
+          ARCHIVE_ID="${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}"
+          ia upload "$ARCHIVE_ID" \
+            ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso \
+            ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso.sha256 \
+            --retries 3 \
+            --metadata="title=Netinstall ISO ${{ env.RELEASE_TAG }} (${matrix.variant.name})" \
+            --metadata="collection=opensource" \
+            --metadata="mediatype=software" \
+            --verbose
 
-      - name: Create Release if not exists
-        if: steps.check_tag.outputs.exists == 'false'
-        uses: actions/create-release@v1
-        with:
-          tag_name: ${{ env.RELEASE_TAG }}
-          release_name: Release ${{ env.RELEASE_TAG }}
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload ISO and checksum to Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ env.RELEASE_TAG }}
-          name: "${{ matrix.variant.name }} Netinstall ISO ${{ env.RELEASE_TAG }}"
-          body: |
-            Minimal Anaconda Netinstall ISO for `${{ matrix.variant.name }}`.
-            Installs latest Bootc-Image `${{ matrix.variant.bootc_image }}`.
-          files: |
-            ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso
-            ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso.sha256
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print archive.org URL
+        run: |
+          echo "ISO und Checksumme hochgeladen nach https://archive.org/details/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}"
