@@ -43,4 +43,4 @@ Personalisations
 
 https://archive.org/details/@mrjncsk
 
-![Logo](files/usr/share/atomized/...png) ![Title](files/usr/share/atomized/Title.png) ![Logo](files/usr/share/atomized/...png)
+![Logo](files/usr/share/atomized/...png)![Title](files/usr/share/atomized/Title.png)![Logo](files/usr/share/atomized/...png)
