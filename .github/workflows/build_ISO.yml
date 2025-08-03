@@ -60,8 +60,15 @@ jobs:
       - name: Install Internet Archive CLI
         run: pip install internetarchive
 
-      - name: Configure Internet Archive credentials
-        run: ia configure "${{ secrets.ARCHIVE_ACCESS_KEY }}" "${{ secrets.ARCHIVE_SECRET_KEY }}"
+      - name: Configure Internet Archive CLI with S3 credentials
+        run: |
+          mkdir -p ~/.config
+          echo "[s3]" > ~/.config/ia.ini
+          echo "access = $ARCHIVE_ACCESS_KEY" >> ~/.config/ia.ini
+          echo "secret = $ARCHIVE_SECRET_KEY" >> ~/.config/ia.ini
+        env:
+          ARCHIVE_ACCESS_KEY: ${{ secrets.ARCHIVE_ACCESS_KEY }}
+          ARCHIVE_SECRET_KEY: ${{ secrets.ARCHIVE_SECRET_KEY }}
 
       - name: Upload ISO to archive.org
         env:
@@ -72,10 +79,12 @@ jobs:
           ia upload "$ARCHIVE_ID" \
             ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso \
             ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso.sha256 \
+            ./Logo.png
             --retries 3 \
-            --metadata="title=Netinstall ISO ${{ env.RELEASE_TAG }} (${matrix.variant.name})" \
+            --metadata="title=${matrix.variant.name} Netinstall ISO ${{ env.RELEASE_TAG }}" \
             --metadata="collection=opensource" \
             --metadata="mediatype=software" \
+            --metadata "cover=Logo.png" \
             --verbose
 
       - name: Print archive.org URL
