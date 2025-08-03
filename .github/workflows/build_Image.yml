@@ -15,7 +15,7 @@ on:
 
 jobs:
   build_and_push:
-    name: Build ${{ matrix.variant.name }}
+    name: Build Image ${{ matrix.variant.name }}
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
