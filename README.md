@@ -2,7 +2,7 @@
 
 Personalized Atomic OS Images for my Gaming Desktop (bazzite-nvidia) & Thinkpad (bazzite)
 
-## Template
+## Code Template
 
 This is build of the Ublue Template:
 
