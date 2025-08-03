@@ -70,19 +70,20 @@ jobs:
           ARCHIVE_ACCESS_KEY: ${{ secrets.ARCHIVE_ACCESS_KEY }}
           ARCHIVE_SECRET_KEY: ${{ secrets.ARCHIVE_SECRET_KEY }}
 
-      - name: Upload ISO to archive.org
+      - name: Upload ISO and logo to archive.org
         run: |
           ARCHIVE_ID="${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}"
-          ia upload "$ARCHIVE_ID" \
+          TITLE="${{ matrix.variant.name }} Netinstall ISO ${{ env.RELEASE_TAG }}"
+          DESCRIPTION="Minimal Netinstall ISO for ${{ matrix.variant.name }}. Includes Bootc image ${{ matrix.variant.bootc_image }}."
+
+          ia upload "${ARCHIVE_ID}" \
             ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso \
             ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso.sha256 \
-            ./Logo.png
-            --retries 3 \
-            --metadata="title=${matrix.variant.name} Netinstall ISO ${{ env.RELEASE_TAG }}" \
-            --metadata="collection=opensource" \
-            --metadata="mediatype=software" \
-            --metadata "cover=Logo.png" \
-            --verbose
+            ./Logo.png \
+            --metadata="title:${TITLE}" \
+            --metadata="mediatype:software" \
+            --metadata="collection:my-collection" \
+            --metadata="description:${DESCRIPTION}"
 
       - name: Print archive.org URL
         run: |
