@@ -27,8 +27,8 @@ jobs:
       - name: Set RELEASE_TAG
         id: set_release_tag
         run: |
-          echo "RELEASE_TAG=${BASE_VERSION}.${{ github.run_number }}" >> $GITHUB_ENV
-          echo "Release-Tag ist ${{ env.RELEASE_TAG }}"
+          echo "RELEASE_TAG=${BASE_VERSION}.${GITHUB_RUN_NUMBER}" >> $GITHUB_ENV
+          echo "Release-Tag ist $RELEASE_TAG"
 
       - name: Checkout source
         uses: actions/checkout@v4
@@ -40,28 +40,40 @@ jobs:
           config-file: ./disk/iso.toml
           image: quay.io/fedora/fedora-bootc:latest
           types: anaconda-iso
-          build-args: |
-            BOOTC_IMAGE=${{ matrix.variant.bootc_image }}
-          extra-volumes: |
-            ./rootfs/usr/share/pixmaps:/run/initramfs/pixmaps:ro
+        env:
+          BOOTC_IMAGE: ${{ matrix.variant.bootc_image }}
 
       - name: Prepare output folder
         run: mkdir -p ./output
 
       - name: Fix ownership of output files
-        run: |
-          sudo chown -R $USER:$USER ./output
+        run: sudo chown -R $USER:$USER ./output
 
       - name: Rename ISO for ${{ matrix.variant.name }}
-        run: |
-          mv ./output/bootiso/install.iso ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso
+        run: mv ./output/bootiso/install.iso ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso
 
       - name: Create SHA256 checksum
+        run: sha256sum ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso > ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso.sha256
+
+      - name: Check if tag exists
+        id: check_tag
         run: |
-          sha256sum ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso > ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso.sha256
+          if git ls-remote --tags origin | grep -q "refs/tags/${RELEASE_TAG}$"; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Git tag if not exists
+        if: steps.check_tag.outputs.exists == 'false'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git tag $RELEASE_TAG
+          git push origin $RELEASE_TAG
 
       - name: Create Release if not exists
-        id: create_release
+        if: steps.check_tag.outputs.exists == 'false'
         uses: actions/create-release@v1
         with:
           tag_name: ${{ env.RELEASE_TAG }}
@@ -79,7 +91,6 @@ jobs:
           body: |
             Minimal Anaconda Netinstall ISO for `${{ matrix.variant.name }}`.
             Installs latest Bootc-Image `${{ matrix.variant.bootc_image }}`.
-
           files: |
             ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso
             ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso.sha256

@@ -1,8 +1,6 @@
 [customizations.installer.kickstart]
 contents = """
 %post
-mkdir -p /mnt/sysroot/usr/share/
-cp -a /run/initramfs/pixmaps /mnt/sysroot/usr/share/
 echo "Switching to image: ${BOOTC_IMAGE}"
 chroot /mnt/sysroot bootc switch --mutate-in-place --transport registry ${BOOTC_IMAGE}
 %end
