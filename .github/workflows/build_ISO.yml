@@ -45,12 +45,12 @@ jobs:
           extra-volumes: |
             ./rootfs/usr/share/pixmaps:/run/initramfs/pixmaps:ro
 
+      - name: Prepare output folder
+        run: mkdir -p ./output
+
       - name: Fix ownership of output files
         run: |
           sudo chown -R $USER:$USER ./output
-
-      - name: Prepare output folder
-        run: mkdir -p ./output
 
       - name: Rename ISO for ${{ matrix.variant.name }}
         run: |
