@@ -38,7 +38,7 @@ jobs:
         with:
           builder-image: ghcr.io/lorbuschris/bootc-image-builder:20250608
           config-file: ./disk/iso.toml
-          image: quay.io/fedora/fedora-bootc:latest
+          image: ${{ matrix.variant.bootc_image }}
           types: anaconda-iso
         env:
           BOOTC_IMAGE: ${{ matrix.variant.bootc_image }}
@@ -79,11 +79,11 @@ jobs:
           ia upload "${ARCHIVE_ID}" \
             ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso \
             ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso.sha256 \
-            ./rootfs/usr/share/icons/hicolor/256x256/apps/atomized-logo-icon.png.png \
+            ./rootfs/usr/share/icons/hicolor/256x256/apps/atomized-logo-icon.png \
             --metadata="title:${TITLE}" \
             --metadata="mediatype:software" \
             --metadata="collection:opensource" \
-            --metadata="logo=atomized-logo-icon.png.png" \
+            --metadata="logo=atomized-logo-icon.png" \
             --metadata="description:${DESCRIPTION}"
 
       - name: Print archive.org URL
