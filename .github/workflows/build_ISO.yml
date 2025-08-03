@@ -71,9 +71,6 @@ jobs:
           ARCHIVE_SECRET_KEY: ${{ secrets.ARCHIVE_SECRET_KEY }}
 
       - name: Upload ISO to archive.org
-        env:
-          ARCHIVE_ACCESS_KEY: ${{ secrets.ARCHIVE_ACCESS_KEY }}
-          ARCHIVE_SECRET_KEY: ${{ secrets.ARCHIVE_SECRET_KEY }}
         run: |
           ARCHIVE_ID="${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}"
           ia upload "$ARCHIVE_ID" \
