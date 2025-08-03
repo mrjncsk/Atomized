@@ -39,31 +39,10 @@ Personalisations
 - Themes
 - Wallpapers
 
-## Build ISO
+## Netinstall ISO
 
-```bash
-sudo dnf install bootc-image-builder
-bootc-image-builder iso ghcr.io/mrjncsk/atomized:latest -o atomized.iso
-```
+A minimal Fedore Bootc Image that installs latest Atomic Image
 
-## Rebase from any Atomic System
-
-Install any Fedora Atomic ISO
-
-- https://fedoraproject.org/atomic-desktops/kinoite/download
-- https://universal-blue.org/
-
-Rebase:
-
-```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized
-```
-
-## Configuration
-
-- New Users
-  - Default Configs will be copied from /etc/skel
-- Existing Users
-  - manually copy Configs from /etc/skel
+- https://archive.org/details/@mrjncsk
 
 ![Title](Title.png)
