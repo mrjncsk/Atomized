@@ -74,7 +74,7 @@ jobs:
         run: |
           ARCHIVE_ID="${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}"
           TITLE="${{ matrix.variant.name }} Netinstall ISO ${{ env.RELEASE_TAG }}"
-          DESCRIPTION="Minimal Netinstall ISO for ${{ matrix.variant.name }}. Includes Bootc image ${{ matrix.variant.bootc_image }}."
+          DESCRIPTION="Minimal Netinstall ISO for ${{ matrix.variant.name }} uses Bootc image ${{ matrix.variant.bootc_image }}."
 
           ia upload "${ARCHIVE_ID}" \
             ./output/${{ matrix.variant.name }}-netinstall-${{ env.RELEASE_TAG }}.iso \
@@ -82,7 +82,7 @@ jobs:
             ./Logo.png \
             --metadata="title:${TITLE}" \
             --metadata="mediatype:software" \
-            --metadata="collection:my-collection" \
+            --metadata="collection:opensource" \
             --metadata="description:${DESCRIPTION}"
 
       - name: Print archive.org URL
