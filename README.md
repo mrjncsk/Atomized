@@ -39,9 +39,7 @@ Personalisations
 - Themes
 - Wallpapers
 
-## Netinstall ISO
-
-A minimal Fedore Bootc Image that installs latest Atomic Image
+## Installation ISO
 
 - https://archive.org/details/@mrjncsk
 
