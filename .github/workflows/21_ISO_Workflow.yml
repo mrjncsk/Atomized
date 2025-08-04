@@ -43,4 +43,6 @@ jobs:
         with:
           workflow: build.yml
           inputs: |
-            release_tag: "${{ steps.set_tag.outputs.release_tag }}"
+            {
+              "release_tag": "${{ steps.set_tag.outputs.release_tag }}"
+            }
