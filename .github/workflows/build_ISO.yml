@@ -5,12 +5,12 @@ on:
     - cron: "3 2 1 * *"
   workflow_dispatch:
 
+env:
+  BASE_VERSION: "v0.2"
+
 jobs:
-  build_and_upload:
-    name: Build ISO ${{ matrix.variant.name }}
+  build_and_release:
     runs-on: ubuntu-24.04
-    permissions:
-      contents: read
     strategy:
       fail-fast: false
       matrix:
@@ -20,26 +20,40 @@ jobs:
           - name: atomized-nvidia
             bootc_image: ghcr.io/mrjncsk/atomized-nvidia:latest
 
-    env:
-      BASE_VERSION: "v0.1"
-
     steps:
-      - name: Set RELEASE_TAG
-        id: set_release_tag
-        run: |
-          echo "RELEASE_TAG=${BASE_VERSION}.${{ github.run_number }}" >> $GITHUB_ENV
-          echo "Release-Tag ist ${{ env.RELEASE_TAG }}"
-
       - name: Checkout source
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Needed to fetch tags
 
       - name: Maximize build space
-        if: inputs.platform != 'arm64'
-        uses: ublue-os/remove-unwanted-software@cc0becac701cf642c8f0a6613bbdaf5dc36b259e # v9
+        uses: ublue-os/remove-unwanted-software@cc0becac701cf642c8f0a6613bbdaf5dc36b259e
         with:
           remove-codeql: true
 
-      - name: Build ISO ${{ matrix.variant.name }}
+      - name: Fetch all git tags
+        run: git fetch --tags
+
+      - name: Determine next release tag (semver-style)
+        id: set_tag
+        run: |
+          latest=$(git tag | grep "^${BASE_VERSION}\." | sed "s/^${BASE_VERSION}\.//" | sort -V | tail -n 1)
+          if [ -z "$latest" ]; then
+            next=0
+          else
+            next=$((latest + 1))
+          fi
+          TAG="${BASE_VERSION}.${next}"
+          echo "RELEASE_TAG=$TAG" >> $GITHUB_ENV
+          echo "release_tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub release (if not exists)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view "$RELEASE_TAG" || gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes "Atomized ISO Downloads:"
+
+      - name: Build ISO for ${{ matrix.variant.name }}
         uses: osbuild/bootc-image-builder-action@main
         with:
           builder-image: ghcr.io/lorbuschris/bootc-image-builder:20250608
@@ -55,7 +69,7 @@ jobs:
       - name: Fix ownership of output files
         run: sudo chown -R $USER:$USER ./output
 
-      - name: Rename ISO for ${{ matrix.variant.name }}
+      - name: Rename ISO
         run: |
           mv ./output/bootiso/install.iso ./output/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}.iso
 
@@ -63,10 +77,18 @@ jobs:
         run: |
           sha256sum ./output/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}.iso > ./output/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}.iso.sha256
 
+      - name: Upload assets to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          files: |
+            ./output/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}.iso
+            ./output/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}.iso.sha256
+
       - name: Install Internet Archive CLI
         run: pip install internetarchive
 
-      - name: Configure Internet Archive CLI with S3 credentials
+      - name: Configure Internet Archive CLI
         run: |
           mkdir -p ~/.config
           echo "[s3]" > ~/.config/ia.ini
@@ -93,6 +115,6 @@ jobs:
             --metadata="logo=Logo.png" \
             --metadata="description:${DESCRIPTION}"
 
-      - name: Print archive.org URL
+      - name: Print archive.org link
         run: |
-          echo "ISO und Checksumme hochgeladen nach https://archive.org/details/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}"
+          echo "Archive.org URL: https://archive.org/details/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}"
