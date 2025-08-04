@@ -92,5 +92,5 @@ jobs:
         run: |
           TAG="$RELEASE_TAG"
           OLD_NOTES=$(gh release view "$TAG" --json body -q .body)
-          NEW_LINK="Download: https://archive.org/details/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}"
+          NEW_LINK="- https://archive.org/details/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}"
           gh release edit "$TAG" --notes "$OLD_NOTES"$'\n'"$NEW_LINK"

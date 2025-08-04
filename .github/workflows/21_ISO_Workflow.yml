@@ -36,7 +36,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release view "$RELEASE_TAG" || gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes "Atomized Installation ISO Downloads:"
+          gh release view "$RELEASE_TAG" || gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes "Atomized Installation ISOs"
 
       - name: Trigger build workflow
         uses: benc-uk/workflow-dispatch@v1
