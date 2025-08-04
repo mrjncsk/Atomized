@@ -9,28 +9,12 @@ env:
   BASE_VERSION: "v0.2"
 
 jobs:
-  build_and_release:
-    runs-on: ubuntu-24.04
-    strategy:
-      fail-fast: false
-      matrix:
-        variant:
-          - name: atomized
-            bootc_image: ghcr.io/mrjncsk/atomized:latest
-          - name: atomized-nvidia
-            bootc_image: ghcr.io/mrjncsk/atomized-nvidia:latest
-
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      release_tag: ${{ steps.set_tag.outputs.release_tag }}
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Needed to fetch tags
-
-      - name: Maximize build space
-        uses: ublue-os/remove-unwanted-software@cc0becac701cf642c8f0a6613bbdaf5dc36b259e
-        with:
-          remove-codeql: true
-
+      - uses: actions/checkout@v4
       - name: Fetch all git tags
         run: git fetch --tags
 
@@ -44,14 +28,38 @@ jobs:
             next=$((latest + 1))
           fi
           TAG="${BASE_VERSION}.${next}"
-          echo "RELEASE_TAG=$TAG" >> $GITHUB_ENV
           echo "release_tag=$TAG" >> $GITHUB_OUTPUT
+          echo "RELEASE_TAG=$TAG" >> $GITHUB_ENV
+          echo "Release Tag: $TAG"
 
       - name: Create GitHub release (if not exists)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release view "$RELEASE_TAG" || gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes "Atomized ISO Downloads:"
+
+  build:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        variant:
+          - name: atomized
+            bootc_image: ghcr.io/mrjncsk/atomized:latest
+          - name: atomized-nvidia
+            bootc_image: ghcr.io/mrjncsk/atomized-nvidia:latest
+    env:
+      RELEASE_TAG: ${{ needs.prepare.outputs.release_tag }}
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history, tags included
+
+      - name: Maximize build space
+        uses: ublue-os/remove-unwanted-software@cc0becac701cf642c8f0a6613bbdaf5dc36b259e
+        with:
+          remove-codeql: true
 
       - name: Build ISO for ${{ matrix.variant.name }}
         uses: osbuild/bootc-image-builder-action@main
