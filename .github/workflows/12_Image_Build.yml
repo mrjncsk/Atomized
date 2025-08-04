@@ -67,7 +67,7 @@ jobs:
           image: ${{ env.IMAGE_NAME }}
           tags: |
             ${{ steps.metadata.outputs.tags }}
-            ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            latest
           labels: ${{ steps.metadata.outputs.labels }}
           oci: false
           build-args: |
