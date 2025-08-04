@@ -1,4 +1,4 @@
-name: Create Release and Trigger Build
+name: ISO Workflow 1 Release
 
 on:
   schedule:
