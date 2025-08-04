@@ -1,4 +1,4 @@
-name: Image Workflow 2 Build
+name: Image Workflow 1 Build
 
 on:
   workflow_dispatch:
@@ -30,8 +30,8 @@ jobs:
       IMAGE_KEYWORDS: "bootc,ublue,universal-blue"
       IMAGE_LOGO_URL: "https://avatars.githubusercontent.com/u/103059356?s=200&v=4"
       IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
-      DEFAULT_TAG: latest
       IMAGE_NAME: ${{ matrix.variant.name }}
+      DEFAULT_TAG: ${{ github.event.inputs.release_tag }}
 
     steps:
       - name: Checkout
@@ -50,13 +50,11 @@ jobs:
         with:
           tags: |
             type=raw,value=${{ env.DEFAULT_TAG }}
-            type=sha,enable=${{ github.event_name == 'pull_request' }}
-            type=ref,event=pr
           labels: |
             org.opencontainers.image.title=${{ env.IMAGE_NAME }}
             org.opencontainers.image.source=https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/blob/main/Containerfile
             org.opencontainers.image.created=${{ steps.date.outputs.date }}
-            org.opencontainers.image.version=${{ env.DEFAULT_TAG }}.${{ steps.date.outputs.date }}
+            org.opencontainers.image.version=${{ env.DEFAULT_TAG }}
             org.opencontainers.image.description=${{ env.IMAGE_DESC }}
             io.artifacthub.package.logo-url=${{ env.IMAGE_LOGO_URL }}
             io.artifacthub.package.keywords=${{ env.IMAGE_KEYWORDS }}
@@ -73,7 +71,6 @@ jobs:
             BASE_IMAGE=${{ matrix.variant.base_image }}
 
       - name: Login to GitHub Container Registry
-        if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -81,7 +78,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push To GHCR
-        if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         uses: redhat-actions/push-to-registry@v2
         with:
           registry: ${{ env.IMAGE_REGISTRY }}
@@ -91,11 +87,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Cosign
-        if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         uses: sigstore/cosign-installer@v3.9.2
 
       - name: Sign container image
-        if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         run: |
           IMAGE_FULL="${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}"
           for tag in ${{ steps.metadata.outputs.tags }}; do

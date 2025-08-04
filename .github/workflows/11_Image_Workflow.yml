@@ -22,7 +22,8 @@ jobs:
     outputs:
       release_tag: ${{ steps.set_tag.outputs.release_tag }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Fetch all git tags
         run: git fetch --tags
@@ -44,9 +45,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release view "$RELEASE_TAG" || gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes "Atomized ISO Downloads:"
+          if ! gh release view "$RELEASE_TAG" &>/dev/null; then
+            gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes "Container Image Release: $RELEASE_TAG"
+          fi
 
-      - name: Trigger build workflow
+      - name: Trigger image build workflow
         uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: 12_Image_Build.yml
