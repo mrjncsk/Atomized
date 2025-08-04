@@ -108,5 +108,5 @@ jobs:
         run: |
           TAG="$RELEASE_TAG"
           OLD_NOTES=$(gh release view "$TAG" --json body -q .body)
-          NEW_LINK="- https://github.com/mrjncsk/atomized/pkgs/container/${{ matrix.variant.name }}"
+          NEW_LINK="- ghcr.io/mrjncsk/${{ matrix.variant.name }}:$RELEASE_TAG"
           gh release edit "$TAG" --notes "$OLD_NOTES"$'\n'"$NEW_LINK"
