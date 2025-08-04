@@ -87,7 +87,8 @@ jobs:
 
       - name: Append archive.org link to GitHub Release Notes
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          RELEASE_TAG: ${{ github.event.inputs.release_tag }}
         run: |
           TAG="$RELEASE_TAG"
           OLD_NOTES=$(gh release view "$TAG" --json body -q .body)
