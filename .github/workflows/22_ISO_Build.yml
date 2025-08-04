@@ -1,7 +1,7 @@
 name: ISO Workflow 2 Build
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       release_tag:
         required: true
