@@ -51,6 +51,7 @@ jobs:
         with:
           tags: |
             type=raw,value=${{ env.DEFAULT_TAG }}
+            type=raw,value=latest
           labels: |
             org.opencontainers.image.title=${{ env.IMAGE_NAME }}
             org.opencontainers.image.source=https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/blob/main/Containerfile
@@ -65,9 +66,7 @@ jobs:
         with:
           containerfiles: ./Containerfile
           image: ${{ env.IMAGE_NAME }}
-          tags: |
-            ${{ steps.metadata.outputs.tags }}
-            latest
+          tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
           oci: false
           build-args: |
