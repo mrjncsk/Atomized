@@ -65,7 +65,9 @@ jobs:
         with:
           containerfiles: ./Containerfile
           image: ${{ env.IMAGE_NAME }}
-          tags: ${{ steps.metadata.outputs.tags }}
+          tags: |
+            ${{ steps.metadata.outputs.tags }}
+            ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           labels: ${{ steps.metadata.outputs.labels }}
           oci: false
           build-args: |
