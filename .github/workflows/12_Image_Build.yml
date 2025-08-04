@@ -104,5 +104,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TAG: ${{ github.event.inputs.release_tag }}
         run: |
-          LINK="https://github.com/${{ github.repository_owner }}?tab=packages&repo_name=${{ github.event.repository.name }}"
-          gh release edit "$RELEASE_TAG" --notes "$LINK" --append
+          TAG="$RELEASE_TAG"
+          OLD_NOTES=$(gh release view "$TAG" --json body -q .body)
+          NEW_LINK="Package: https://github.com/${{ github.repository_owner }}?tab=packages&repo_name=${{ github.event.repository.name }}"
+          gh release edit "$TAG" --notes "$OLD_NOTES"$'\n'"$NEW_LINK"

@@ -89,6 +89,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ARCHIVE_URL="https://archive.org/details/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}"
-          echo "- [${{ matrix.variant.name }} ISO]($ARCHIVE_URL)" >> note.md
-          gh release edit "$RELEASE_TAG" --notes-file note.md --append
+          TAG="$RELEASE_TAG"
+          OLD_NOTES=$(gh release view "$TAG" --json body -q .body)
+          NEW_LINK="Download: https://archive.org/details/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}"
+          gh release edit "$TAG" --notes "$OLD_NOTES"$'\n'"$NEW_LINK"
