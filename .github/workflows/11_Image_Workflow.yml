@@ -46,7 +46,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if ! gh release view "$RELEASE_TAG" &>/dev/null; then
-            gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes "Container Image Release: $RELEASE_TAG"
+            gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes "Atomized Container Image $RELEASE_TAG"
           fi
 
       - name: Trigger image build workflow

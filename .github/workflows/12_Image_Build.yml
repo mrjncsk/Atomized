@@ -99,21 +99,10 @@ jobs:
         env:
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
 
-      - name: Add package download link to GitHub release
-        if: env.RELEASE_TAG != ''
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          LINK="https://example.com/downloads/${RELEASE_TAG}/my-package.tar.zst"
-          TEXT="Download package:\n$LINK"
-
-          # Anhängen oder ersetzen des Release-Textes
-          gh release edit "$RELEASE_TAG" --notes "$TEXT"
-
       - name: Set GitHub release notes to package link only
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TAG: ${{ github.event.inputs.release_tag }}
         run: |
           LINK="https://github.com/${{ github.repository_owner }}?tab=packages&repo_name=${{ github.event.repository.name }}"
-          gh release edit "$RELEASE_TAG" --notes "📦 View package:\n$LINK"
+          gh release edit "$RELEASE_TAG" --notes "$LINK" --append
