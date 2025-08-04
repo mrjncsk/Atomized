@@ -1,4 +1,4 @@
-name: Image Workflow 1 Build
+name: Image Workflow 2 Build
 
 on:
   workflow_dispatch:
@@ -32,6 +32,7 @@ jobs:
       IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
       IMAGE_NAME: ${{ matrix.variant.name }}
       DEFAULT_TAG: ${{ github.event.inputs.release_tag }}
+      RELEASE_TAG: ${{ inputs.release_tag }}
 
     steps:
       - name: Checkout
@@ -97,3 +98,22 @@ jobs:
           done
         env:
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
+
+      - name: Add package download link to GitHub release
+        if: env.RELEASE_TAG != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          LINK="https://example.com/downloads/${RELEASE_TAG}/my-package.tar.zst"
+          TEXT="Download package:\n$LINK"
+
+          # Anhängen oder ersetzen des Release-Textes
+          gh release edit "$RELEASE_TAG" --notes "$TEXT"
+
+      - name: Set GitHub release notes to package link only
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ github.event.inputs.release_tag }}
+        run: |
+          LINK="https://github.com/${{ github.repository_owner }}?tab=packages&repo_name=${{ github.event.repository.name }}"
+          gh release edit "$RELEASE_TAG" --notes "📦 View package:\n$LINK"
