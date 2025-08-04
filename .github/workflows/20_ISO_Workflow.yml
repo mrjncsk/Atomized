@@ -1,0 +1,46 @@
+name: Create Release and Trigger Build
+
+on:
+  schedule:
+    - cron: "3 2 1 * *"
+  workflow_dispatch:
+
+env:
+  BASE_VERSION: "v0.2"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    outputs:
+      release_tag: ${{ steps.set_tag.outputs.release_tag }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch all git tags
+        run: git fetch --tags
+
+      - name: Determine next release tag (semver-style)
+        id: set_tag
+        run: |
+          latest=$(git tag | grep "^${BASE_VERSION}\." | sed "s/^${BASE_VERSION}\.//" | sort -V | tail -n 1)
+          if [ -z "$latest" ]; then
+            next=0
+          else
+            next=$((latest + 1))
+          fi
+          TAG="${BASE_VERSION}.${next}"
+          echo "release_tag=$TAG" >> $GITHUB_OUTPUT
+          echo "RELEASE_TAG=$TAG" >> $GITHUB_ENV
+
+      - name: Create GitHub release (if not exists)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view "$RELEASE_TAG" || gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes "Atomized ISO Downloads:"
+
+      - name: Trigger build workflow
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: build.yml
+          inputs: |
+            release_tag: "${{ steps.set_tag.outputs.release_tag }}"
