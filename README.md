@@ -1,6 +1,6 @@
 ![Logo](files/usr/share/atomized/Logo.png)
 
-Personalized Atomic OS Images for my Gaming Desktop (bazzite-nvidia) & Thinkpad (bazzite)
+Personalized Atomic OS Images for my Gaming Desktop (bazzite-nvidia) & Thinkpad (aurora)
 
 ## Code Template
 
@@ -8,7 +8,19 @@ This is build of the Ublue Template:
 
 https://github.com/ublue-os/image-template
 
-## Based on Bazzite
+## Laptop Imgage based on Aurora
+
+https://github.com/ublue-os/aurora
+
+- KDE Plasma
+- Homebrew
+- ujust
+- BTRFS
+- Waydroid
+- Distrobox
+- Boxbuddy
+
+## Gaming PC Image based on Bazzite wirh Nvidia Drivers
 
 https://github.com/ublue-os/bazzite
 
@@ -17,11 +29,11 @@ https://github.com/ublue-os/bazzite
 - Homebrew
 - ujust
 - BTRFS
-- Steam
-- Lutris
 - Waydroid
 - Distrobox
 - Boxbuddy
+- Steam
+- Lutris
 
 ## Atomized Additions
 
@@ -42,5 +54,13 @@ Personalisations
 ## Installation ISO Download
 
 https://archive.org/details/@mrjncsk
+
+## Rebase from other Atomic OS
+
+```bash
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized(-nvidia)
+```
+
+Note that existing Users may copy Atomized spezific configs from /etc/skel
 
 ![Title](files/usr/share/atomized/Title.png)
