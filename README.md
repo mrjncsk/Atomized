@@ -16,7 +16,6 @@ https://github.com/ublue-os/aurora
 - Homebrew
 - ujust
 - BTRFS
-- Waydroid
 - Distrobox
 - Boxbuddy
 
@@ -29,7 +28,6 @@ https://github.com/ublue-os/bazzite
 - Homebrew
 - ujust
 - BTRFS
-- Waydroid
 - Distrobox
 - Boxbuddy
 - Steam
