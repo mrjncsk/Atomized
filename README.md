@@ -59,6 +59,8 @@ https://archive.org/details/@mrjncsk
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized(-nvidia)
 ```
 
-Note that existing Users may copy Atomized spezific configs from /etc/skel
+Note that when rebasing existing Users may need Atomized spezific configs from /etc/skel
+
+- mrjn
 
 ![Title](files/usr/share/atomized/Title.png)
