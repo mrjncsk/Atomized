@@ -8,7 +8,7 @@ This is build of the Ublue Template:
 
 https://github.com/ublue-os/image-template
 
-## Laptop Imgage based on Aurora
+## Laptop Image based on Aurora
 
 https://github.com/ublue-os/aurora
 
@@ -19,7 +19,7 @@ https://github.com/ublue-os/aurora
 - Distrobox
 - Boxbuddy
 
-## Gaming PC Image based on Bazzite wirh Nvidia Drivers
+## Gaming Image based on Bazzite wirh Nvidia Drivers
 
 https://github.com/ublue-os/bazzite
 
