@@ -5,11 +5,11 @@ set -ouex pipefail
 dnf5 -y install \
     kitty nvim mc \
     wireplumber \
-    sddm sddm-x11 sddm-kcm qt6-qtgraphicaleffects qt6-qtsvg qt6-qtquickcontrols2 \
+    sddm sddm-wayland-generic sddm-wayland-plasma sddm-kcm qt6-qtgraphicaleffects qt6-qtsvg qt6-qtquickcontrols2 \
+    qt6-qtbase qt6-qtdeclarative qt6-qtbase-gui qt6-qtquick \
     bluez \
     fastfetch \
     inotify-tools \
-    qt6-qtdeclarative \
     ddcutil \
     cava \
     lm_sensors \
