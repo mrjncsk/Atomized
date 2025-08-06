@@ -6,7 +6,7 @@ dnf5 -y copr enable solopasha/hyprland
 dnf5 -y copr enable atim/starship
 dnf5 -y copr enable errornointernet/quickshell
 
-### Install required Software
+### Install Software
 dnf5 -y install \
     hyprland hypridle hyprshot hyprlock \
     hyprland-qtutils hyprpanel \

@@ -1,17 +1,14 @@
 #!/bin/bash
 set -ouex pipefail
 
-### Install required Software
+### Install Base Software
 dnf5 -y install \
     kitty nvim mc \
     wireplumber \
     bluez \
+    fastfetch \
     inotify-tools \
-    trash-cli \
-    adw-gtk3-theme \
-    qt5ct qt6ct \
     qt6-qtdeclarative \
-    jetbrains-mono-fonts-all \
     ddcutil \
     cava \
     lm_sensors \

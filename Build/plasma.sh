@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ouex pipefail
 
-### Install required Software
+### Install Software
 dnf5 -y install \
     plasma-desktop \
     dolphin \
