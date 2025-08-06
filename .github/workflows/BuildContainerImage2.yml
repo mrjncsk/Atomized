@@ -15,9 +15,9 @@ jobs:
       fail-fast: false
       matrix:
         variant:
-          # - name: atomized
-          #   desktop: plasma
-          #   base_image: ghcr.io/ublue-os/base-main:latest
+          - name: atomized
+            desktop: plasma
+            base_image: ghcr.io/ublue-os/base-main:latest
           - name: atomized-nvidia
             desktop: plasma
             base_image: ghcr.io/ublue-os/bazzite-nvidia:latest

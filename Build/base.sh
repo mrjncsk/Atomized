@@ -5,7 +5,7 @@ set -ouex pipefail
 dnf5 -y install \
     kitty nvim mc \
     wireplumber \
-    sddm \
+    sddm sddm-x11 sddm-kcm qt6-qtgraphicaleffects qt6-qtsvg qt6-qtquickcontrols2 \
     bluez \
     fastfetch \
     inotify-tools \
