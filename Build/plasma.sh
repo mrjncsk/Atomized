@@ -7,6 +7,7 @@ dnf5 -y install \
     dolphin \
     systemsettings \
     kwin \
+    kwin-wayland \
     plasma-workspace \
     kde-settings \
     plasma-nm \
