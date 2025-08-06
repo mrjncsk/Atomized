@@ -40,7 +40,7 @@ Based on https://github.com/ublue-os/bazzite
 
 Base: https://github.com/ublue-os/main
 
-Configurtation https://github.com/caelestia-dots/shell
+Code: https://github.com/caelestia-dots/shell
 
 - Hyprland
 - Quickshell
@@ -51,7 +51,7 @@ Configurtation https://github.com/caelestia-dots/shell
 
 Base: https://github.com/ublue-os/main
 
-https://github.com/Jas-SinghFSU/HyprPanel
+Code: https://github.com/Jas-SinghFSU/HyprPanel
 
 - Hyprland
 - Hyprpanel

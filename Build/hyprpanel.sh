@@ -4,7 +4,6 @@ set -ouex pipefail
 ### Enable Copr
 dnf5 -y copr enable solopasha/hyprland
 dnf5 -y copr enable heus-sueh/packages
-dnf5 config-manager --save --setopt=copr:copr.fedorainfracloud.org:heus-sueh:packages.priority=200
 
 ### Install Software
 dnf5 -y install hyprland xdg-desktop-portal-hyprland hyprpanel thunar
