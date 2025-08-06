@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Hyprland (Hyprpanel)
-Comment=An intelligent dynamic tiling Wayland compositor
-Exec=Hyprland -c .config/hyprland/hyprland.conf
-Type=Application
-DesktopNames=Hyprland
-Keywords=tiling;wayland;compositor;
