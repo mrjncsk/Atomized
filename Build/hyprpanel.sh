@@ -30,7 +30,7 @@ dnf5 -y install \
     wl-clipboard \
     brightnessctl \
     gnome-bluetooth \
-    aylurs-gtk-shell \
+    aylurs-gtk-shell2 \
     power-profiles-daemon \
     gvfs \
     nodejs \
