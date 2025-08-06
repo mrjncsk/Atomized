@@ -39,7 +39,6 @@ dnf5 -y install \
     greetd tuigreet \
     --allowerasing
 pip install --prefix=/usr --root-user-action=ignore gpustat pywal
-npm install --prefix /usr -g sass
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
