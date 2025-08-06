@@ -13,8 +13,6 @@ dnf5 -y install \
     xdg-desktop-portal-hyprland \
     xdg-desktop-portal-gtk \
     thunar \
-    greetd \
-    tuigreet \
     matugen \
     swww \
     wofi \
@@ -105,6 +103,3 @@ dnf5 -y remove \
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable atim/starship
 dnf5 -y copr disable errornointernet/quickshell
-
-### Setup Greetd
-systemctl enable greetd

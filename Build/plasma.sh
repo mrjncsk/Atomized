@@ -10,7 +10,4 @@ dnf5 -y install \
     plasma-workspace \
     kde-settings \
     plasma-nm \
-    kscreen \
-    sddm
-
-systemctl enable sddm
+    kscreen

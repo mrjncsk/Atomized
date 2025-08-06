@@ -5,6 +5,7 @@ set -ouex pipefail
 dnf5 -y install \
     kitty nvim mc \
     wireplumber \
+    sddm \
     bluez \
     fastfetch \
     inotify-tools \
@@ -18,3 +19,6 @@ dnf5 -y install \
     libqalculate \
     fuzzel \
     libnotify
+
+### Enable Sddm
+systemctl enable sddm

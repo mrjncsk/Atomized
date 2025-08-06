@@ -36,13 +36,9 @@ dnf5 -y install \
     nodejs \
     wf-recorder \
     python python3-pip \
-    greetd tuigreet \
     --allowerasing
 pip install --prefix=/usr --root-user-action=ignore gpustat pywal
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable heus-sueh/packages
-
-### Setup Greetd
-systemctl enable greetd
