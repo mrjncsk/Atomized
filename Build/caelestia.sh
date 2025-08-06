@@ -43,6 +43,7 @@ dnf5 -y install \
     fuzzel \
     libnotify \
     aubio aubio-devel \
+    python3 python3-pip \
     python3-build python3-installer \
     python3-hatchling python3-hatch-vcs
 

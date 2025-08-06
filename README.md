@@ -56,7 +56,7 @@ https://archive.org/details/@mrjncsk
 ## Rebase from other Atomic OS
 
 ```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized(-nvidia)
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized(-desktop)(-nvidia)
 ```
 
 when rebasing existing Users may need Atomized spezific configs from /etc/skel
