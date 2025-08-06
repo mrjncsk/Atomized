@@ -7,7 +7,7 @@ dnf5 -y install \
     wireplumber \
     sddm sddm-wayland-plasma sddm-kcm qt6-qtsvg qt6-qtquickcontrols2 \
     qt6-qtbase qt6-qtdeclarative qt6-qtbase-gui \
-    qt5ct q6ct \
+    qt5ct qt6ct \
     bluez \
     fastfetch \
     inotify-tools \
