@@ -46,7 +46,7 @@ Configurtation https://github.com/caelestia-dots/shell
 - fish
 - food
 
-## Hyprland with Hayrpanel
+## Hyprland with Hyprpanel
 
 Base: https://github.com/ublue-os/main
 https://github.com/Jas-SinghFSU/HyprPanel
