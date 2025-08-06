@@ -12,6 +12,9 @@ dnf5 -y install \
     hyprland-qtutils hyprpanel \
     xdg-desktop-portal-hyprland \
     xdg-desktop-portal-gtk \
+    thunar \
+    greetd \
+    tuigreet \
     matugen \
     swww \
     wofi \
@@ -27,8 +30,6 @@ dnf5 -y install \
     inotify-tools \
     trash-cli \
     starship \
-    adw-gtk3-theme \
-    qt5ct qt6ct \
     qt6-qtdeclarative \
     jetbrains-mono-fonts-all \
     ddcutil \
@@ -53,16 +54,28 @@ git clone --depth 1 https://github.com/caelestia-dots/caelestia.git
 git clone --depth 1 https://github.com/caelestia-dots/shell.git
 git clone --depth 1 https://github.com/caelestia-dots/cli.git
 git clone --depth 1 https://github.com/Vladimir-csp/app2unit.git
-wget --no-hsts https://github.com/marella/material-symbols/raw/refs/heads/main/material-symbols/material-symbols-rounded.woff2
-wget --no-hsts https://github.com/marella/material-symbols/raw/refs/heads/main/material-symbols/material-symbols-outlined.woff2
-wget --no-hsts https://github.com/marella/material-symbols/raw/refs/heads/main/material-symbols/material-symbols-sharp.woff2
 
 ### Copy Caelestia Files
-mkdir -p /usr/lib/caelestia /usr/share/fonts/material-symbols /etc/skel/.config/quickshell /etc/skel/.local
+mkdir -p /usr/lib/caelestia /etc/skel/.config/quickshell /etc/skel/.local
 cp -Rf /tmp/caelestia /etc/skel/.local/share/
-ln -s ../.local/share/caelestia/hypr /etc/skel/.config/hypr
+ln -s ../.local/share/caelestia/hypr      /etc/skel/.config/hypr
+ln -s ../.local/share/caelestia/btop      /etc/skel/.config/btop
+ln -s ../.local/share/caelestia/fastfetch /etc/skel/.config/fastfetvh
+ln -s ../.local/share/caelestia/fish      /etc/skel/.config/fish
+ln -s ../.local/share/caelestia/food      /etc/skel/.config/food
+ln -s ../.local/share/caelestia/uwsm      /etc/skel/.config/uwsm
+ln -s ../.local/share/caelestia/starship.toml /etc/skel/.config/starship.toml
+
+
+ln -s ../.local/share/caelestia/hypr /etc/skel/.config/
+ln -s ../.local/share/caelestia/hypr /etc/skel/.config/
+
+
+
+
+
+
 cp -Rf /tmp/shell /etc/skel/.config/quickshell/caelestia
-cp -Rf /tmp/material-symbols-*.woff2 /usr/share/fonts/material-symbols
 
 ### Install app2unit
 install -Dm755 app2unit/app2unit /usr/bin/app2unit
@@ -101,3 +114,6 @@ dnf5 -y remove \
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable atim/starship
 dnf5 -y copr disable errornointernet/quickshell
+
+### Enable Greeter
+systemctl enable --now greetd
