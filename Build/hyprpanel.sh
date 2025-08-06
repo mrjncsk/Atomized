@@ -44,5 +44,6 @@ pip install --prefix=/usr --root-user-action=ignore gpustat pywal
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable heus-sueh/packages
 
-### Enable Greeter
+### Setup Greetd
+useradd -m -s /bin/bash greeter
 systemctl enable greetd
