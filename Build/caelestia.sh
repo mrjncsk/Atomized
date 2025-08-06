@@ -107,4 +107,4 @@ dnf5 -y copr disable atim/starship
 dnf5 -y copr disable errornointernet/quickshell
 
 ### Enable Greeter
-systemctl enable --now greetd
+systemctl enable greetd

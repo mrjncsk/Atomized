@@ -21,4 +21,4 @@ dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable heus-sueh/packages
 
 system### Enable Greeter
-ctl enable --now greetd
+ctl enable greetd
