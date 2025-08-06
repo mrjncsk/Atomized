@@ -7,6 +7,8 @@ dnf5 -y install \
     wireplumber \
     sddm sddm-wayland-plasma sddm-kcm qt6-qtsvg qt6-qtquickcontrols2 \
     qt6-qtbase qt6-qtdeclarative qt6-qtbase-gui \
+    qt5-qtwayland \
+    qt6-qtwayland \
     qt5ct qt6ct \
     bluez \
     fastfetch \
