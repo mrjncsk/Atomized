@@ -45,5 +45,4 @@ dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable heus-sueh/packages
 
 ### Setup Greetd
-useradd -m -s /bin/bash greeter
 systemctl enable greetd
