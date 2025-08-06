@@ -6,7 +6,7 @@ dnf5 -y install \
     kitty nvim mc \
     wireplumber \
     sddm sddm-wayland-plasma sddm-kcm qt6-qtsvg qt6-qtquickcontrols2 \
-    qt6-qtbase qt6-qtdeclarative qt6-qtbase-gui qt6-qtquick \
+    qt6-qtbase qt6-qtdeclarative qt6-qtbase-gui \
     bluez \
     fastfetch \
     inotify-tools \
