@@ -38,7 +38,7 @@ dnf5 -y install \
     python python3-pip \
     greetd tuigreet \
     --allowerasing
-pip install gpustat pywal
+pip install --prefix=/usr gpustat pywal
 npm install -g sass
 
 ### Disable Copr
