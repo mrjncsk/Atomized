@@ -12,7 +12,4 @@ dnf5 -y install \
     kde-settings \
     plasma-nm \
     kscreen \
-    vulcan-tools \
-    wayland-tools \
-    wlroots \
-    xsettingsd
+    wlroots
