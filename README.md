@@ -13,13 +13,6 @@ https://github.com/ublue-os/image-template
 
 ## Atomized Plasma
 
-Atomized Personalisations
-
-- Logos
-- Themes
-- Wallpapers
-
-Aurora:
 Based on https://github.com/ublue-os/aurora
 
 - KDE Plasma
@@ -32,7 +25,6 @@ Based on https://github.com/ublue-os/aurora
 - Nvim
 - MC
 
-Nvidia Variant:
 Based on https://github.com/ublue-os/bazzite with
 
 - Steam
@@ -43,7 +35,7 @@ Based on https://github.com/ublue-os/bazzite with
 
 https://github.com/caelestia-dots/shell
 
-## Hyprlanf with Hayppanel
+## Hyprlanf with Hayrpanel
 
 https://github.com/Jas-SinghFSU/HyprPanel
 
