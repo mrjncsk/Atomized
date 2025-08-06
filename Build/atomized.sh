@@ -1,27 +1,6 @@
 #!/bin/bash
 set -ouex pipefail
 
-### Install required Software
-dnf5 -y install \
-    kitty nvim mc \
-    wireplumber \
-    bluez \
-    inotify-tools \
-    trash-cli \
-    adw-gtk3-theme \
-    qt5ct qt6ct \
-    qt6-qtdeclarative \
-    jetbrains-mono-fonts-all \
-    ddcutil \
-    cava \
-    lm_sensors \
-    glibc \
-    grim \
-    swappy \
-    libqalculate \
-    fuzzel \
-    libnotify
-
 ### Remove Steam Autostart
 rm -f /etc/skel/.config/autostart/steam.desktop
 
@@ -32,9 +11,6 @@ rm -f /usr/share/hypr/wall2.png
 ### Remove Color Schemes
 rm -f /usr/share/color-schemes/VGUI.colors
 rm -f /usr/share/color-schemes/Vapor.colors
-
-### Remove default Wayland Session
-rm -f /usr/share/wayland-sessions/hyprland.desktop
 
 ### Remove Themes
 rm -Rf /usr/share/plasma/look-and-feel/com.valve.vapor.desktop
