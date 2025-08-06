@@ -5,6 +5,9 @@ set -ouex pipefail
 dnf5 -y copr enable solopasha/hyprland
 dnf5 -y copr enable heus-sueh/packages
 
+### Remove conflicting Software
+dnf remove -y tuned tuned-ppd
+
 ### Install Software
 dnf5 -y install hyprland xdg-desktop-portal-hyprland hyprpanel thunar
 dnf5 -y install wireplumber upower libgtop2 bluez bluez-tools grimblast hyprpicker btop NetworkManager wl-clipboard swww brightnessctl gnome-bluetooth aylurs-gtk-shell power-profiles-daemon gvfs nodejs wf-recorder
