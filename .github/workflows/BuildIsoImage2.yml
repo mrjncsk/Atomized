@@ -1,4 +1,4 @@
-name: ISO Workflow 2 Build
+name: Build ISO 2
 
 on:
   workflow_dispatch:
@@ -18,6 +18,14 @@ jobs:
             bootc_image: ghcr.io/mrjncsk/atomized:latest
           - name: atomized-nvidia
             bootc_image: ghcr.io/mrjncsk/atomized-nvidia:latest
+          - name: atomized-caelestia
+            bootc_image: ghcr.io/mrjncsk/atomized-caelestia:latest
+          - name: atomized-caelestia-nvidia
+            bootc_image: ghcr.io/mrjncsk/atomized-caelestia-nvidia:latest
+          - name: atomized-hyprpanel
+            bootc_image: ghcr.io/mrjncsk/atomized-hyprpanel:latest
+          - name: atomized-hyprpanel-nvidia
+            bootc_image: ghcr.io/mrjncsk/atomized-hyprpanel-nvidia:latest
     env:
       RELEASE_TAG: ${{ inputs.release_tag }}
 
@@ -36,7 +44,7 @@ jobs:
         uses: osbuild/bootc-image-builder-action@main
         with:
           builder-image: ghcr.io/lorbuschris/bootc-image-builder:20250608
-          config-file: ./disk/iso.toml
+          config-file: ./Build/iso.toml
           image: ${{ matrix.variant.bootc_image }}
           types: anaconda-iso
         env:

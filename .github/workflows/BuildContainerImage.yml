@@ -1,12 +1,20 @@
-name: ISO Workflow 1 Release
+name: Build Image
 
 on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    paths-ignore:
+      - ".github/workflows/BuildIso*.yml"
+      - "Build/iso.toml"
+      - "**/README.md"
   schedule:
-    - cron: "3 2 1 * *"
+    - cron: "5 5 * * 1,5"
   workflow_dispatch:
 
 env:
-  BASE_VERSION: "v0.2"
+  BASE_VERSION: "v0.3"
 
 jobs:
   release:
@@ -14,7 +22,8 @@ jobs:
     outputs:
       release_tag: ${{ steps.set_tag.outputs.release_tag }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Fetch all git tags
         run: git fetch --tags
@@ -36,12 +45,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release view "$RELEASE_TAG" || gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes "Atomized Installation ISO Downloads"
+          if ! gh release view "$RELEASE_TAG" &>/dev/null; then
+            gh release create "$RELEASE_TAG" --title "$RELEASE_TAG" --notes "Atomized Container Images"
+          fi
 
-      - name: Trigger build workflow
+      - name: Trigger image build workflow
         uses: benc-uk/workflow-dispatch@v1
         with:
-          workflow: 22_ISO_Build.yml
+          workflow: 12_Image_Build.yml
           inputs: |
             {
               "release_tag": "${{ steps.set_tag.outputs.release_tag }}"
