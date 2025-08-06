@@ -2,7 +2,7 @@
 
 # Atomized Desktop Environments
 
-Bring some Desktop Environments to Fedora Atomic OS
+Atomizing some Desktop Environments with Fedora Atomic bootable OS Images
 
 ## Code Template
 
@@ -38,15 +38,17 @@ Based on https://github.com/ublue-os/bazzite
 
 ## Caelestia Hyprland
 
-https://github.com/caelestia-dots/shell
+Base: https://github.com/ublue-os/main
+Configurtation https://github.com/caelestia-dots/shell
 
 - Hyprland
 - Quickshell
 - fish
 - food
 
-## Hyprlanf with Hayrpanel
+## Hyprland with Hayrpanel
 
+Base: https://github.com/ublue-os/main
 https://github.com/Jas-SinghFSU/HyprPanel
 
 - Hyprland
