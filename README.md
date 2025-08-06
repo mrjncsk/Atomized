@@ -1,6 +1,8 @@
 ![Logo](files/usr/share/atomized/Logo.png)
 
-Personalized Atomic OS Images for my Gaming Desktop (bazzite-nvidia) & Thinkpad (aurora)
+# Atomizing Desktop Environments
+
+Bring popular Desktop Environments to Fedora Atomic OS
 
 ## Code Template
 
@@ -8,46 +10,42 @@ This is build of the Ublue Template:
 
 https://github.com/ublue-os/image-template
 
-## Laptop Image based on Aurora
 
-https://github.com/ublue-os/aurora
+## Atomized Plasma
 
-- KDE Plasma
-- Homebrew
-- ujust
-- BTRFS
-- Distrobox
-- Boxbuddy
-
-## Gaming Image based on Bazzite wirh Nvidia Drivers
-
-https://github.com/ublue-os/bazzite
-
-- KDE Plasma
-- Bazaar
-- Homebrew
-- ujust
-- BTRFS
-- Distrobox
-- Boxbuddy
-- Steam
-- Lutris
-
-## Atomized Additions
-
-Software
-
-- Hyprland with Caelesia Shell
-- Hyprland with Hyprpanel
-- kitty
-- nvim
-- mc
-
-Personalisations
+Atomized Personalisations
 
 - Logos
 - Themes
 - Wallpapers
+
+Aurora:
+Based on https://github.com/ublue-os/aurora
+
+- KDE Plasma
+- Homebrew
+- ujust
+- BTRFS
+- Distrobox
+- Boxbuddy
+- Kitty
+- Nvim
+- MC
+
+Nvidia Variant:
+Based on https://github.com/ublue-os/bazzite with
+
+- Steam
+- Lutris
+- Bazaar
+
+## Caelestia Hyprland
+
+https://github.com/caelestia-dots/shell
+
+## Hyprlanf with Hayppanel
+
+https://github.com/Jas-SinghFSU/HyprPanel
 
 ## Installation ISO Download
 
