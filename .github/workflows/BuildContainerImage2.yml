@@ -9,7 +9,7 @@ on:
 
 jobs:
   build_and_push:
-    name: Build Image ${{ matrix.variant.name }}
+    name: Build ${{ matrix.variant.name }}
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
@@ -27,12 +27,12 @@ jobs:
           - name: atomized-caelestia-nvidia
             desktop: caelestia
             base_image: ghcr.io/ublue-os/base-nvidia:latest
-          # - name: atomized-hyprpanel
-          #   desktop: hyprpanel
-          #   base_image: ghcr.io/ublue-os/base-main:latest
-          # - name: atomized-hyprpanel-nvidia
-          #   desktop: hyprpanel
-          #   base_image: ghcr.io/ublue-os/base-nvidia:latest
+          - name: atomized-hyprpanel
+            desktop: hyprpanel
+            base_image: ghcr.io/ublue-os/base-main:latest
+          - name: atomized-hyprpanel-nvidia
+            desktop: hyprpanel
+            base_image: ghcr.io/ublue-os/base-nvidia:latest
 
     permissions:
       contents: read

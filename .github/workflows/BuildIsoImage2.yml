@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Build ISO ${{ matrix.variant.name }}
+    name: Build ${{ matrix.variant.name }}
     runs-on: ubuntu-24.04
     strategy:
       matrix:
