@@ -1,4 +1,4 @@
-![Logo](files/usr/share/atomized/Logo.png)
+![Logo](Data/atomized/usr/share/atomized/Logo.png)
 
 # Atomizing Desktop Environments
 
@@ -61,4 +61,4 @@ when rebasing existing Users may need Atomized spezific configs from /etc/skel
 
 - mrjn
 
-![Title](files/usr/share/atomized/Title.png)
+![Title](Data/atomized/usr/share/atomized/Title.png)
