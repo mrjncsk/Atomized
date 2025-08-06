@@ -52,7 +52,7 @@ jobs:
       - name: Trigger image build workflow
         uses: benc-uk/workflow-dispatch@v1
         with:
-          workflow: 12_Image_Build.yml
+          workflow: BuildContainerImage2.yml
           inputs: |
             {
               "release_tag": "${{ steps.set_tag.outputs.release_tag }}"

@@ -41,7 +41,7 @@ jobs:
       - name: Trigger build workflow
         uses: benc-uk/workflow-dispatch@v1
         with:
-          workflow: 22_ISO_Build.yml
+          workflow: BuildIsoImage2.yml
           inputs: |
             {
               "release_tag": "${{ steps.set_tag.outputs.release_tag }}"
