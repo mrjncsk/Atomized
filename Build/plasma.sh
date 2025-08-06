@@ -13,4 +13,4 @@ dnf5 -y install \
     kscreen \
     sddm
 
-sudo systemctl enable sddm
+systemctl enable sddm
