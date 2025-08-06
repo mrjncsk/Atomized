@@ -90,8 +90,10 @@ cp completions/caelestia.fish /usr/share/fish/vendor_completions.d/caelestia.fis
 ### Remove Build Software
 dnf5 -y remove \
     python3-pip \
-    python3-build python3-installer \
-    python3-hatchling python3-hatch-vcs \
+    python3-build \
+    python3-installer \
+    python3-hatchling \
+    python3-hatch-vcs \
     aubio-devel \
     pipewire-devel
 
