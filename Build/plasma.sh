@@ -11,4 +11,8 @@ dnf5 -y install \
     plasma-workspace \
     kde-settings \
     plasma-nm \
-    kscreen
+    kscreen \
+    vulcan-tools \
+    wayland-tools \
+    wlroots \
+    xsettingsd

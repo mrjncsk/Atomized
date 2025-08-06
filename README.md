@@ -21,7 +21,7 @@ Based on https://github.com/ublue-os/aurora
 - Distrobox
 - Boxbuddy
 
-## Atomized Plasma Nvidia
+## Plasma Nvidia
 
 Based on https://github.com/ublue-os/bazzite
 
