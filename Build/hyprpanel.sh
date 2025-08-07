@@ -6,7 +6,7 @@ dnf5 -y copr enable solopasha/hyprland
 dnf5 -y copr enable heus-sueh/packages
 
 ### Install Software
-dnf5 -y --allowerasing install \
+dnf5 -y install \
     kitty \
     nvim \
     mc \
@@ -40,7 +40,8 @@ dnf5 -y --allowerasing install \
     nodejs \
     wf-recorder \
     python \
-    python3-pip
+    python3-pip \
+    --allowerasing
 
 pip install --prefix=/usr --root-user-action=ignore gpustat pywal
 
