@@ -14,6 +14,8 @@ dnf5 -y install \
     hyprshot \
     hyprpicker \
     hyprland-qtutils \
+    greetd \
+    tuigreet \
     wofi \
     matugen \
     swww \

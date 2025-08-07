@@ -16,6 +16,8 @@ dnf5 -y install \
     hyprpanel \
     xdg-desktop-portal-hyprland \
     xdg-desktop-portal-gtk \
+    greetd \
+    tuigreet \
     thunar \
     matugen \
     swww \
