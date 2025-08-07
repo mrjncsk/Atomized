@@ -21,7 +21,7 @@ dnf5 -y install \
     thunar \
     matugen \
     swww \
-    foo
+    foot \
     wofi \
     fish \
     quickshell-git \
