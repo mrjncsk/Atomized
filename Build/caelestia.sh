@@ -21,6 +21,7 @@ dnf5 -y install \
     thunar \
     matugen \
     swww \
+    foo
     wofi \
     fish \
     quickshell-git \
@@ -59,7 +60,7 @@ dnf5 -y install \
 ### Get Caelestia Files
 cd /tmp
 git clone --depth 1 https://github.com/caelestia-dots/caelestia.git
-#git clone --depth 1 https://github.com/caelestia-dots/shell.git
+git clone --depth 1 https://github.com/caelestia-dots/shell.git
 git clone --depth 1 https://github.com/caelestia-dots/cli.git
 git clone --depth 1 https://github.com/Vladimir-csp/app2unit.git
 
@@ -67,14 +68,15 @@ git clone --depth 1 https://github.com/Vladimir-csp/app2unit.git
 mkdir -p /usr/lib/caelestia /etc/skel/.config/quickshell /etc/skel/.local
 cp -Rf /tmp/caelestia /etc/skel/.local/share/
 rm -Rf /etc/skel/.config/hypr
+rm -Rf /etc/skel/.config/starship.toml
 ln -s ../.local/share/caelestia/hypr      /etc/skel/.config/hypr
 ln -s ../.local/share/caelestia/btop      /etc/skel/.config/btop
 ln -s ../.local/share/caelestia/fastfetch /etc/skel/.config/fastfetvh
 ln -s ../.local/share/caelestia/fish      /etc/skel/.config/fish
-ln -s ../.local/share/caelestia/food      /etc/skel/.config/food
+#ln -s ../.local/share/caelestia/foot      /etc/skel/.config/foot
 ln -s ../.local/share/caelestia/uwsm      /etc/skel/.config/uwsm
-#ln -s ../.local/share/caelestia/starship.toml /etc/skel/.config/starship.toml
-#cp -Rf /tmp/shell /etc/skel/.config/quickshell/caelestia
+ln -s ../.local/share/caelestia/starship.toml /etc/skel/.config/starship.toml
+cp -Rf /tmp/shell /etc/skel/.config/quickshell/caelestia
 
 ### Install app2unit
 install -Dm755 app2unit/app2unit /usr/bin/app2unit
