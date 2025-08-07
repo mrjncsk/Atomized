@@ -5,6 +5,7 @@ set -ouex pipefail
 dnf5 -y install \
     kitty nvim mc \
     wireplumber \
+    layer-shell-qt5 \
     qt6-qtsvg \
     qt6-qtquickcontrols2 \
     qt6-qtbase \
