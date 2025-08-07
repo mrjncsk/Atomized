@@ -3,6 +3,23 @@ set -ouex pipefail
 
 ### Install Base Software
 dnf5 -y install \
+    mesa-dri-drivers \
+    mesa-vulkan-drivers \
+    vulkan-loader \
+    libglvnd \
+    libva \
+    libva-utils \
+    libvdpau \
+    libdrm \
+    libX11 \
+    xorg-x11-server-Xorg \
+    xorg-x11-drv-amdgpu \
+    xorg-x11-drv-ati \
+    xorg-x11-drv-intel \
+    xorg-x11-drv-nouveau \
+    xorg-x11-drv-vesa \
+    xorg-x11-drv-vmware \
+    glx-utils \
     kitty nvim mc \
     wireplumber \
     qt6-qtsvg \
