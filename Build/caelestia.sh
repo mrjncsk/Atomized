@@ -73,7 +73,7 @@ ln -s ../.local/share/caelestia/fastfetch /etc/skel/.config/fastfetvh
 ln -s ../.local/share/caelestia/fish      /etc/skel/.config/fish
 ln -s ../.local/share/caelestia/food      /etc/skel/.config/food
 ln -s ../.local/share/caelestia/uwsm      /etc/skel/.config/uwsm
-ln -s ../.local/share/caelestia/starship.toml /etc/skel/.config/starship.toml
+#ln -s ../.local/share/caelestia/starship.toml /etc/skel/.config/starship.toml
 #cp -Rf /tmp/shell /etc/skel/.config/quickshell/caelestia
 
 ### Install app2unit
