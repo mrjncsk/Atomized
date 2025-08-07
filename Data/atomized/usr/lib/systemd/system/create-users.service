@@ -1,8 +1,0 @@
-[Unit]
-Description=Ensure required system users exist
-Before=sddm.service
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/systemd-sysusers
-[Install]
-WantedBy=multi-user.target

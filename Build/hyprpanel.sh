@@ -6,7 +6,7 @@ dnf5 -y copr enable solopasha/hyprland
 dnf5 -y copr enable heus-sueh/packages
 
 ### Install Software
-dnf5 -y install \
+dnf5 -y --allowerasing install \
     kitty \
     nvim \
     mc \
@@ -43,6 +43,9 @@ dnf5 -y install \
     python3-pip
 
 pip install --prefix=/usr --root-user-action=ignore gpustat pywal
+
+### Remove Build Software
+dnf5 -y remove python3-pip
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
