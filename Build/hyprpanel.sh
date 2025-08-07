@@ -7,6 +7,10 @@ dnf5 -y copr enable heus-sueh/packages
 
 ### Install Software
 dnf5 -y install \
+    kitty \
+    nvim \
+    mc \
+    fastfetch \
     hyprland \
     hypridle \
     hyprlock \
@@ -14,8 +18,6 @@ dnf5 -y install \
     hyprshot \
     hyprpicker \
     hyprland-qtutils \
-    greetd \
-    tuigreet \
     wofi \
     matugen \
     swww \
@@ -38,13 +40,10 @@ dnf5 -y install \
     nodejs \
     wf-recorder \
     python \
-    python3-pip \
-    --allowerasing
+    python3-pip
+
 pip install --prefix=/usr --root-user-action=ignore gpustat pywal
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable heus-sueh/packages
-
-### Enable greetd
-#systemctl enable greetd

@@ -8,6 +8,10 @@ dnf5 -y copr enable errornointernet/quickshell
 
 ### Install Software
 dnf5 -y install \
+    kitty \
+    nvim \
+    mc \
+    fastfetch \
     hyprland \
     hypridle \
     hyprshot \
@@ -16,8 +20,6 @@ dnf5 -y install \
     hyprpanel \
     xdg-desktop-portal-hyprland \
     xdg-desktop-portal-gtk \
-    greetd \
-    tuigreet \
     thunar \
     matugen \
     swww \
@@ -115,6 +117,3 @@ dnf5 -y remove \
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable atim/starship
 dnf5 -y copr disable errornointernet/quickshell
-
-### Enable greetd
-#systemctl enable greetd
