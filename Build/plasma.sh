@@ -9,7 +9,9 @@ dnf5 -y install \
     kwin \
     kwin-wayland \
     plasma-workspace \
+    sddm \
     sddm-wayland-plasma \
+    sddm-kcm \
     kde-settings \
     plasma-nm \
     kscreen \
