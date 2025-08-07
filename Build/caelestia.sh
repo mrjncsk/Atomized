@@ -8,8 +8,12 @@ dnf5 -y copr enable errornointernet/quickshell
 
 ### Install Software
 dnf5 -y install \
-    hyprland hypridle hyprshot hyprlock \
-    hyprland-qtutils hyprpanel \
+    hyprland \
+    hypridle \
+    hyprshot \
+    hyprlock \
+    hyprland-qtutils \
+    hyprpanel \
     xdg-desktop-portal-hyprland \
     xdg-desktop-portal-gtk \
     thunar \
@@ -41,10 +45,14 @@ dnf5 -y install \
     libqalculate \
     fuzzel \
     libnotify \
-    aubio aubio-devel \
-    python3 python3-pip \
-    python3-build python3-installer \
-    python3-hatchling python3-hatch-vcs
+    aubio\
+    aubio-devel \
+    python3 \
+    python3-pip \
+    python3-build \
+    python3-installer \
+    python3-hatchling \
+    python3-hatch-vcs
 
 ### Get Caelestia Files
 cd /tmp
@@ -103,3 +111,6 @@ dnf5 -y remove \
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable atim/starship
 dnf5 -y copr disable errornointernet/quickshell
+
+### Enable greetd
+systemctl enable greetd

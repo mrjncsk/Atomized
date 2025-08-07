@@ -35,10 +35,14 @@ dnf5 -y install \
     gvfs \
     nodejs \
     wf-recorder \
-    python python3-pip \
+    python \
+    python3-pip \
     --allowerasing
 pip install --prefix=/usr --root-user-action=ignore gpustat pywal
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable heus-sueh/packages
+
+### Enable greetd
+systemctl enable greetd

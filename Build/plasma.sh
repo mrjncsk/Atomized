@@ -9,7 +9,11 @@ dnf5 -y install \
     kwin \
     kwin-wayland \
     plasma-workspace \
+    sddm-wayland-plasma \
     kde-settings \
     plasma-nm \
     kscreen \
     wlroots
+
+### Enable Sddm
+systemctl enable sddm
