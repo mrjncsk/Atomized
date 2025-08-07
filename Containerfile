@@ -8,5 +8,6 @@ ARG DESKTOP
 RUN --mount=type=bind,from=ctx,source=/ctx,target=/ctx /ctx/${DESKTOP}.sh
 COPY Data/${DESKTOP}/ /etc/skel
 RUN --mount=type=bind,from=ctx,source=/ctx,target=/ctx /ctx/atomized.sh
+RUN systemd-sysusers
 RUN ostree container commit
 RUN bootc container lint
