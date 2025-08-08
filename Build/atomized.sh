@@ -8,6 +8,7 @@ dnf5 -y install \
     fastfetch \
     cmatrix \
     kitty \
+    btop \
     nvim \
     tmux \
     mc 
