@@ -5,7 +5,7 @@ set -ouex pipefail
 rm -f /etc/skel/.config/autostart/steam.desktop
 
 ### Remove Wallpapers
-rm -f /usr/share/wallpapers/*.*
+rm -f /usr/share/wallpapers/Steam*.*
 rm -f /usr/share/hypr/wall2.png
 
 ### Remove Color Schemes
