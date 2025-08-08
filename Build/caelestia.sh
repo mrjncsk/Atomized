@@ -13,7 +13,6 @@ dnf5 -y install \
     hyprshot \
     hyprlock \
     hyprland-qtutils \
-    hyprpanel \
     xdg-desktop-portal-hyprland \
     xdg-desktop-portal-gtk \
     thunar \
