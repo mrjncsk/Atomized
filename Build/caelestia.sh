@@ -62,7 +62,7 @@ git clone --depth 1 https://github.com/caelestia-dots/cli.git
 git clone --depth 1 https://github.com/Vladimir-csp/app2unit.git
 
 ### Copy Caelestia Files
-mkdir -p /usr/lib/caelestia /etc/skel/.config/quickshell /etc/skel/.local
+mkdir -p /usr/lib/caelestia /etc/skel/.config/quickshell /etc/skel/.local/share
 cp -Rf /tmp/caelestia /etc/skel/.local/share/
 rm -Rf /etc/skel/.config/hypr
 rm -Rf /etc/skel/.config/starship.toml
