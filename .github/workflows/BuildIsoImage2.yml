@@ -86,8 +86,8 @@ jobs:
           ia upload "${ARCHIVE_ID}" \
             ./output/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}.iso \
             ./output/${{ matrix.variant.name }}-${{ env.RELEASE_TAG }}.iso.sha256 \
-            ./files/usr/share/atomized/Logo.png \
-            ./files/usr/share/atomized/Title.png \
+            ./Data/atomized/usr/share/atomized/Logo.png \
+            ./Data/atomized/usr/share/atomized/Title.png \
             --metadata="title:${TITLE}" \
             --metadata="mediatype:software" \
             --metadata="collection:opensource" \
