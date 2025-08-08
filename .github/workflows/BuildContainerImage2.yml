@@ -33,6 +33,9 @@ jobs:
           # - name: atomized-hyprpanel-nvidia
           #   desktop: hyprpanel
           #   base_image: ghcr.io/ublue-os/bazzite-nvidia:latest
+          - name: atomized-testing
+            desktop: plasma
+            base_image: ghcr.io/ublue-os/aurora:latest
           - name: atomized-caelestia-testing
             desktop: caelestia
             base_image: ghcr.io/wayblueorg/hyprland:latest
