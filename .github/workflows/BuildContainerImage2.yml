@@ -15,33 +15,33 @@ jobs:
       fail-fast: false
       matrix:
         variant:
-          # - name: atomized
-          #   desktop: plasma
-          #   base_image: ghcr.io/ublue-os/aurora:latest
-          # - name: atomized-nvidia
-          #   desktop: plasma
-          #   base_image: ghcr.io/ublue-os/bazzite-nvidia:latest
-          # - name: atomized-caelestia
-          #   desktop: caelestia
-          #   base_image: ghcr.io/ublue-os/aurora:latest
-          # - name: atomized-caelestia-nvidia
-          #   desktop: caelestia
-          #   base_image: ghcr.io/ublue-os/bazzite-nvidia:latest
-          # - name: atomized-hyprpanel
-          #   desktop: hyprpanel
-          #   base_image: ghcr.io/ublue-os/aurora:latest
-          # - name: atomized-hyprpanel-nvidia
-          #   desktop: hyprpanel
-          #   base_image: ghcr.io/ublue-os/bazzite-nvidia:latest
-          - name: atomized-testing
+          - name: atomized
             desktop: plasma
             base_image: ghcr.io/ublue-os/aurora:latest
-          - name: atomized-caelestia-testing
+          - name: atomized-nvidia
+            desktop: plasma
+            base_image: ghcr.io/ublue-os/bazzite-nvidia:latest
+          - name: atomized-caelestia
             desktop: caelestia
-            base_image: ghcr.io/wayblueorg/hyprland:latest
-          - name: atomized-hyprpanel-testing
+            base_image: ghcr.io/ublue-os/aurora:latest
+          - name: atomized-caelestia-nvidia
+            desktop: caelestia
+            base_image: ghcr.io/ublue-os/bazzite-nvidia:latest
+          - name: atomized-hyprpanel
             desktop: hyprpanel
-            base_image: ghcr.io/wayblueorg/hyprland:latest
+            base_image: ghcr.io/ublue-os/aurora:latest
+          - name: atomized-hyprpanel-nvidia
+            desktop: hyprpanel
+            base_image: ghcr.io/ublue-os/bazzite-nvidia:latest
+          # - name: atomized-testing
+          #   desktop: plasma
+          #   base_image: ghcr.io/ublue-os/aurora:latest
+          # - name: atomized-caelestia-testing
+          #   desktop: caelestia
+          #   base_image: ghcr.io/wayblueorg/hyprland:latest
+          # - name: atomized-hyprpanel-testing
+          #   desktop: hyprpanel
+          #   base_image: ghcr.io/wayblueorg/hyprland:latest
 
     permissions:
       contents: read
