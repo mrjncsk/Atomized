@@ -6,8 +6,13 @@ dnf5 -y copr enable solopasha/hyprland
 dnf5 -y copr enable atim/starship
 dnf5 -y copr enable errornointernet/quickshell
 
+### Remove SDDM
+dnf5 -y remove sddm
+
 ### Install Software
 dnf5 -y install \
+    greetd \
+    tuigreet \
     hyprland \
     hypridle \
     hyprshot \
