@@ -46,11 +46,11 @@ cd /tmp
 git clone --depth 1 https://github.com/basecamp/omarchy
 ls -Rla /tmp/omarchy
 mkdir -p /etc/skel/.config /etc/skel/.local/bin
-cp -Rf /tmp/basecamp/omarchy/config /etc/skel/.config
-cp -Rf /tmp/basecamp/omarchy/bin /etc/skel/.local/bin
-#cp -Rf /tmp/basecamp/omarchy/applications
-#cp -Rf /tmp/basecamp/omarchy/themes
-#cp -Rf /tmp/basecamp/omarchy/default
+cp -Rf /tmp/omarchy/config /etc/skel/.config
+cp -Rf /tmp/omarchy/bin /etc/skel/.local/bin
+#cp -Rf /tmp/omarchy/applications
+#cp -Rf /tmp/omarchy/themes
+#cp -Rf /tmp/omarchy/default
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland

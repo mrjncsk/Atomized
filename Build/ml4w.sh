@@ -71,13 +71,11 @@ dnf5 -y install \
 ### Get ML4W Files
 cd /tmp
 git clone --depth 1 https://github.com/mylinuxforwork/dotfiles
-ls -Rla /tmp/mylinuxforwork
 mkdir -p /etc/skel/.config/
-cp -Rf /tmp/mylinuxforwork/dotfiles/dotfiles /etc/skel/.config
+cp -Rf /tmp/dotfiles/dotfiles /etc/skel/.config
 
 #bibata-cursor-theme
-
-
+########
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
