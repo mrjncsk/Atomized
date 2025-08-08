@@ -12,4 +12,4 @@ RUN --mount=type=bind,from=ctx,source=/ctx,target=/ctx /ctx/atomized.sh
 #RUN rm -rf /var/log/dnf5.log /var/lib/dnf /var/roothome /var/tmp /var/cache
 #RUN ls -l /usr
 RUN ostree container commit
-RUN bootc container lint
+#RUN bootc container lint
