@@ -8,13 +8,6 @@ dnf5 -y copr enable errornointernet/quickshell
 
 ### Install Software
 dnf5 -y install \
-    mesa-dri-drivers \
-    mesa-vulkan-drivers \
-    libglvnd \
-    kitty \
-    nvim \
-    mc \
-    fastfetch \
     hyprland \
     hypridle \
     hyprshot \
