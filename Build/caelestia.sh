@@ -8,51 +8,51 @@ dnf5 -y copr enable errornointernet/quickshell
 
 ### Install Software
 dnf5 -y install \
-    hyprland \
-    hypridle \
-    hyprshot \
-    hyprlock \
-    hyprland-qtutils \
-    xdg-desktop-portal-hyprland \
-    xdg-desktop-portal-gtk \
-    thunar \
-    matugen \
-    swww \
-    foot \
-    wofi \
-    fish \
-    quickshell-git \
-    wireplumber \
-    wl-clipboard \
-    btop \
-    jq \
-    socat \
-    ImageMagick \
-    bluez \
-    inotify-tools \
-    trash-cli \
-    starship \
-    qt6-qtdeclarative \
-    jetbrains-mono-fonts-all \
-    ddcutil \
-    brightnessctl \
-    cava \
-    NetworkManager \
-    lm_sensors \
-    glibc \
-    grim \
-    swappy \
-    libqalculate \
-    fuzzel \
-    libnotify \
-    aubio\
-    aubio-devel \
-    python3 \
-    python3-pip \
-    python3-build \
-    python3-installer \
-    python3-hatchling \
-    python3-hatch-vcs
+        hyprland \
+        hypridle \
+        hyprshot \
+        hyprlock \
+        hyprland-qtutils \
+        xdg-desktop-portal-hyprland \
+        xdg-desktop-portal-gtk \
+        thunar \
+        matugen \
+        swww \
+        foot \
+        wofi \
+        fish \
+        quickshell-git \
+        wireplumber \
+        wl-clipboard \
+        btop \
+        jq \
+        socat \
+        ImageMagick \
+        bluez \
+        inotify-tools \
+        trash-cli \
+        starship \
+        qt6-qtdeclarative \
+        jetbrains-mono-fonts-all \
+        ddcutil \
+        brightnessctl \
+        cava \
+        NetworkManager \
+        lm_sensors \
+        glibc \
+        grim \
+        swappy \
+        libqalculate \
+        fuzzel \
+        libnotify \
+        aubio\
+        aubio-devel \
+        python3 \
+        python3-pip \
+        python3-build \
+        python3-installer \
+        python3-hatchling \
+        python3-hatch-vcs
 
 ### Get Caelestia Files
 cd /tmp
