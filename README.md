@@ -6,13 +6,17 @@ Atomizing some Desktop Environments with Fedora Atomic bootable OS Images
 
 ## Code Template
 
-This is build of the Ublue Template:
+This is generated from the Ublue Template:
 
 https://github.com/ublue-os/image-template
 
-## Atomized Plasma
+# Atomized Desktops
+
+## Plasma
 
 Based on https://github.com/ublue-os/aurora
+
+Image ghcr.io/ublue-os/aurora:latest
 
 - KDE Plasma
 - Homebrew
@@ -21,9 +25,11 @@ Based on https://github.com/ublue-os/aurora
 - Distrobox
 - Boxbuddy
 
-## Plasma Nvidia
+## Plasma for Gaming
 
-Based on https://github.com/ublue-os/bazzite
+Base https://github.com/ublue-os/bazzite
+
+Image ghcr.io/ublue-os/bazzite-nvidia:latest
 
 - KDE Plasma
 - Nvidia Drivers
@@ -36,11 +42,15 @@ Based on https://github.com/ublue-os/bazzite
 - Distrobox
 - Boxbuddy
 
-## Caelestia Hyprland
+# Hyprland Desktops
 
 Base: https://github.com/wayblueorg
 
-Code: https://github.com/caelestia-dots/shell
+Image ghcr.io/wayblueorg/hyprland:latest
+
+## Caelestia
+
+Source: https://github.com/caelestia-dots/shell
 
 - Hyprland
 - Quickshell
@@ -49,9 +59,7 @@ Code: https://github.com/caelestia-dots/shell
 
 ## Hyprland with Hyprpanel
 
-Base: https://github.com/wayblueorg
-
-Code: https://github.com/Jas-SinghFSU/HyprPanel
+Source: https://github.com/Jas-SinghFSU/HyprPanel
 
 - Hyprland
 - Hyprpanel
