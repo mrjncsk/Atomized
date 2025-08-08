@@ -87,7 +87,7 @@ cd /tmp
 git clone --depth 1 https://github.com/HyDE-Project/HyDE
 mkdir -p /etc/skel/.config/
 cp -Rf /tmp/HyDE /etc/skel/HyDE
-cp -Rf /tmp/HyDE/Configs    /etc/skel
+cp -Rf /tmp/HyDE/Configs    /etc/skel/.config
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
