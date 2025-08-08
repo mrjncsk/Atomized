@@ -44,10 +44,11 @@ dnf5 -y install \
 ### Get Omarchy Files
 cd /tmp
 git clone --depth 1 https://github.com/basecamp/omarchy
+ls -la /tmp
 mkdir -p /etc/skel/.config /etc/skel/.local/bin
 cp -Rf /tmp/basecamp/omarchy/config /etc/skel/.config
 cp -Rf /tmp/basecamp/omarchy/bin /etc/skel/.local/bin
-#cp -Rf /tmp/basecamp/omarchy/applöications
+#cp -Rf /tmp/basecamp/omarchy/applications
 #cp -Rf /tmp/basecamp/omarchy/themes
 #cp -Rf /tmp/basecamp/omarchy/default
 

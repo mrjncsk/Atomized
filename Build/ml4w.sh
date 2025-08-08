@@ -65,7 +65,8 @@ dnf5 -y install \
         dejavu-fonts-all  \
         nwg-dock-hyprland \
         power-profiles-daemon \
-        vlc
+        vlc \
+        --allowerasing
 
 ### Get ML4W Files
 cd /tmp

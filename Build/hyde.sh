@@ -13,7 +13,7 @@ dnf5 -y install \
         wireplumber \
         pavucontrol \
         pamixer \
-        networkmanager \
+        NetworkManager \
         network-manager-applet \
         bluez \
         bluez-tools \
@@ -64,7 +64,8 @@ dnf5 -y install \
         hypridle \
         python3-requests \
         ddcui \
-        power-profiles-daemon
+        power-profiles-daemon \
+        --allowerasing
 
 # downgrade                # downgrade packages
 # trash-cli-git            # cli to manage trash files
