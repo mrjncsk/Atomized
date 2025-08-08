@@ -45,7 +45,7 @@ Code: https://github.com/caelestia-dots/shell
 - Hyprland
 - Quickshell
 - fish
-- food
+- foot
 
 ## Hyprland with Hyprpanel
 
