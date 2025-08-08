@@ -38,7 +38,7 @@ Based on https://github.com/ublue-os/bazzite
 
 ## Caelestia Hyprland
 
-Base: https://github.com/wayblueorg/hyprland
+Base: https://github.com/wayblueorg
 
 Code: https://github.com/caelestia-dots/shell
 
@@ -49,7 +49,7 @@ Code: https://github.com/caelestia-dots/shell
 
 ## Hyprland with Hyprpanel
 
-Base: https://github.com/wayblueorg/hyprland
+Base: https://github.com/wayblueorg
 
 Code: https://github.com/Jas-SinghFSU/HyprPanel
 
