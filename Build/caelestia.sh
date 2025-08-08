@@ -117,3 +117,7 @@ dnf5 -y remove \
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable atim/starship
 dnf5 -y copr disable errornointernet/quickshell
+
+### Enable Greetd
+systemctl enable greetd
+
