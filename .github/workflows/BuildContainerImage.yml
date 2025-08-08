@@ -3,14 +3,14 @@ name: Build Image
 on:
   pull_request:
     branches: [main]
-  push:
-    branches: [main]
-    paths-ignore:
-      - ".github/workflows/BuildIso*.yml"
-      - "Build/iso.toml"
-      - "**/README.md"
+#  push:
+#    branches: [main]
+#    paths-ignore:
+#      - ".github/workflows/BuildIso*.yml"
+#      - "Build/iso.toml"
+#      - "**/README.md"
   schedule:
-    - cron: "5 5 * * 1,5"
+    - cron: "5 5 * * 5"
   workflow_dispatch:
 
 env:
