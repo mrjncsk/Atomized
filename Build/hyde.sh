@@ -63,7 +63,6 @@ dnf5 -y install \
         fastfetch \
         hypridle \
         python3-requests \
-        ddcui \
         power-profiles-daemon \
         --allowerasing
 
@@ -86,6 +85,7 @@ dnf5 -y install \
 ### Get HyDE Files
 cd /tmp
 git clone --depth 1 https://github.com/HyDE-Project/HyDE
+ls -Rla /tmp/HyDE-Project
 mkdir -p /etc/skel/.config/
 cp -Rf /tmp/HyDE/Configs /etc/skel/.config
 
