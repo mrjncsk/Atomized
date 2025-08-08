@@ -3,9 +3,13 @@ set -ouex pipefail
 
 ### Enable Copr
 dnf5 -y copr enable solopasha/hyprland
+dnf5 -y copr enable errornointernet/quickshell
 
 ### Install Software
-#dnf5 -y install \
+dnf5 -y install \
+hyprland \
+xdg-desktop-portal-hyprland \
+quickshell-git
 
 ### Get end-4 Files
 cd /tmp
@@ -16,3 +20,4 @@ cp -Rf /tmp/dots-hyprland/.local /etc/skel/
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
+dnf5 -y copr disable errornointernet/quickshell
