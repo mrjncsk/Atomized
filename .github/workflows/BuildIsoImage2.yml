@@ -44,7 +44,7 @@ jobs:
         uses: osbuild/bootc-image-builder-action@main
         with:
           builder-image: ghcr.io/lorbuschris/bootc-image-builder:20250608
-          config-file: ./Build/iso.toml
+          config-file: ./Data/iso.toml
           image: ${{ matrix.variant.bootc_image }}
           types: anaconda-iso
         env:
