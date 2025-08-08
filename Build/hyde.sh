@@ -8,8 +8,8 @@ dnf5 -y copr enable solopasha/hyprland
 dnf5 -y install \
         pipewire \
         pipewire-alsa \
-        pipewire-audio \
-        pipewire-jack \
+        pipewire-jack-audio-connection-kit \
+        pipewire-plugin-jack \
         wireplumber \
         pavucontrol \
         pamixer \
@@ -35,7 +35,7 @@ dnf5 -y install \
         hyprpicker \
         slurp \
         hyprsunset \
-        polkit-gnome \
+        polkit \
         xdg-desktop-portal-hyprland \
         xdg-desktop-portal-gtk \
         xdg-user-dirs \
@@ -58,9 +58,7 @@ dnf5 -y install \
         ark \
         unzip \
         vim \
-        code \
         fzf \
-        eza \
         duf \
         fastfetch \
         hypridle \

@@ -32,7 +32,7 @@ dnf5 -y install \
         hyprlock \
         hypridle \
         hyprsunset \
-        polkit-gnome \
+        polkit \
         hyprland-qtutils \
         libqalculate \
         waybar \

@@ -29,7 +29,6 @@ dnf5 -y install \
         qt5-qtwayland \
         qt6-qtwayland \
         fastfetch \
-        eza \
         python3-pip \
         python3-gobject \
         tumbler \
@@ -48,7 +47,7 @@ dnf5 -y install \
         qt6ct \
         waybar \
         rofi-wayland \
-        polkit-gnome \
+        polkit \
         zsh \
         fzf \
         pavucontrol \
@@ -59,7 +58,6 @@ dnf5 -y install \
         gvfs \
         wlogout \
         waypaper \
-        pacseek \
         fontawesome-fonts-all \
         mozilla-fira-sans-fonts  \
         texlive-fira\
