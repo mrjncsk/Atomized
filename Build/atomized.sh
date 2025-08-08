@@ -2,10 +2,12 @@
 set -ouex pipefail
 
 dnf5 -y install \
-    mesa-dri-drivers \
     mesa-vulkan-drivers \
+    mesa-dri-drivers \
     libglvnd \
+    fastfetch \
+    cmatrix \
     kitty \
     nvim \
-    mc \
-    fastfetch
+    tmux \
+    mc 
