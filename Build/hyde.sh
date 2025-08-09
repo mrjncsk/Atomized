@@ -72,6 +72,8 @@ dnf5 -y install \
         duf \
         meson \
         ninja-build \
+        rust \
+        cargo \
         --allowerasing
 
 ### Get HyDE Files
@@ -89,7 +91,7 @@ ninja -C build
 meson install --prefix /usr -C build
 
 ### Remove Build Sowtware
-dnf5 -y remove meson ninja-build
+dnf5 -y remove meson ninja-build rust cargo
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland

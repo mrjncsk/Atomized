@@ -68,7 +68,7 @@ dnf5 -y install \
         nwg-dock-hyprland \
         power-profiles-daemon \
         vlc \
-        gtk-3 \
+        gtk3 \
         golang \
         gsettings-qt \
         gsettings-qt-devel \
