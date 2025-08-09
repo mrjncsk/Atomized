@@ -2,7 +2,7 @@
 
 # Atomized Desktop Environments
 
-Atomizing some Desktop Environments with [Fedora Atomic](https://fedoraproject.org/atomic-desktops/) bootable OS Images.
+Atomizing some Desktop Environments with [Fedora Atomic](https://fedoraproject.org/atomic-desktops) bootable OS Images.
 
 ## Code Template
 
@@ -14,9 +14,9 @@ https://github.com/ublue-os/image-template
 
 ## Plasma
 
-Based on https://github.com/ublue-os/aurora
+Base: https://github.com/ublue-os/aurora
 
-Image ghcr.io/ublue-os/aurora:latest
+Image: ghcr.io/ublue-os/aurora:latest
 
 - KDE Plasma
 - Homebrew
@@ -27,9 +27,9 @@ Image ghcr.io/ublue-os/aurora:latest
 
 ## Plasma for Gaming
 
-Based on https://github.com/ublue-os/bazzite
+Base: https://github.com/ublue-os/bazzite
 
-Image ghcr.io/ublue-os/bazzite-nvidia:latest
+Image: ghcr.io/ublue-os/bazzite-nvidia:latest
 
 - KDE Plasma
 - Nvidia Drivers
@@ -46,7 +46,7 @@ Image ghcr.io/ublue-os/bazzite-nvidia:latest
 
 Base: https://github.com/wayblueorg
 
-Image ghcr.io/wayblueorg/hyprland:latest
+Image: ghcr.io/wayblueorg/hyprland:latest
 
 ## Caelestia
 
