@@ -4,7 +4,7 @@
 
 Atomizing modern Desktop Environments with [Fedora Atomic](https://fedoraproject.org/atomic-desktops) bootable OS Images.
 
-
+-
 
 ## Code Template
 
@@ -12,7 +12,7 @@ This is generated from the Ublue Template:
 
 https://github.com/ublue-os/image-template
 
-
+-
 
 # Atomized Plasma Desktops
 
@@ -31,7 +31,7 @@ Image: ghcr.io/ublue-os/aurora:latest
 
 ![Plasma](Images/Plasma.png)
 
-
+-
 
 ## Plasma for Gaming
 
@@ -52,7 +52,7 @@ Image: ghcr.io/ublue-os/bazzite-nvidia:latest
 
 ![PlasmaGaming](Images/PlasmaGaming.png)
 
-
+-
 
 # Atomized Hyprland Desktops
 
@@ -60,7 +60,7 @@ Base: https://github.com/wayblueorg
 
 Image: ghcr.io/wayblueorg/hyprland:latest
 
-
+-
 
 ## Caelestia (beta)
 
@@ -73,7 +73,7 @@ Source: https://github.com/caelestia-dots/shell
 
 ![Caelestia](Images/Caelestia.png)
 
-
+-
 
 ## Hyprland with HyprPanel (beta)
 
@@ -84,7 +84,7 @@ Source: https://github.com/Jas-SinghFSU/HyprPanel
 
 ![HyprPanel](Images/HyprPanel.png)
 
-
+-
 
 ## ML4W (beta)
 
@@ -95,7 +95,7 @@ Source: https://github.com/mylinuxforwork/dotfiles
 
 ![ML4W](Images/ML4W.png)
 
-
+-
 
 ## Omarchy (alpha)
 
@@ -106,7 +106,7 @@ Source: https://github.com/basecamp/omarchy
 
 ![Omarchy](Images/Omarchy.png)
 
-
+-
 
 ## HyDE (alpha)
 
@@ -117,7 +117,7 @@ Source: https://github.com/HyDE-Project/HyDE
 
 ![HyDE](Images/HyDE.png)
 
-
+-
 
 ## End-4 (alpha)
 
@@ -128,13 +128,13 @@ Source: https://github.com/end-4/dots-hyprland
 
 ![End-4](Images/End-4.png)
 
-
+-
 
 ## Installation ISO Download
 
 https://archive.org/details/@mrjncsk
 
-
+-
 
 ## Rebase from other Atomic OS
 
