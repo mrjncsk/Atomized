@@ -2,7 +2,7 @@
 
 # Atomized Desktop Environments
 
-Atomizing some Desktop Environments with Fedora Atomic bootable OS Images
+Atomizing some Desktop Environments with Fedora Atomic bootable OS Images.
 
 ## Code Template
 
@@ -57,6 +57,34 @@ Source: https://github.com/caelestia-dots/shell
 - fish
 - foot
 
+## Omarchy
+
+Source: https://github.com/basecamp/omarchy
+
+- Hyprland
+- Waybar
+
+## HyDE
+
+Source: https://github.com/HyDE-Project/HyDE
+
+- Hyprland
+- Quickshell
+
+## ML4W
+
+Source: https://github.com/mylinuxforwork/dotfiles
+
+- Hyprland
+- Waybar
+
+## End-4
+
+Source: https://github.com/end-4/dots-hyprland
+
+- Hyprland
+- Quickshell
+
 ## Hyprland with Hyprpanel
 
 Source: https://github.com/Jas-SinghFSU/HyprPanel
@@ -74,7 +102,9 @@ https://archive.org/details/@mrjncsk
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/mrjncsk/atomized(-desktop)(-nvidia)
 ```
 
-when rebasing existing Users may need Atomized spezific configs from /etc/skel
+when Rebasing you have to copy default configurations from /etc/skel
+- Backup existing Configs in ~/.config
+- Copy needet Configs from /etc/skel/.config to ~/.config
 
 - mrjn
 

@@ -6,6 +6,6 @@ RUN --mount=type=bind,from=ctx,source=/ctx,target=/ctx /ctx/atomized.sh
 COPY Data/atomized/ /
 ARG DESKTOP
 RUN --mount=type=bind,from=ctx,source=/ctx,target=/ctx /ctx/${DESKTOP}.sh
-COPY Data/${DESKTOP}/ /etc/skel
+COPY Data/${DESKTOP}/ /
 RUN --mount=type=bind,from=ctx,source=/ctx,target=/ctx /ctx/zedatomi.sh
 RUN ostree container commit

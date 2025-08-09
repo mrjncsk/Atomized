@@ -1,8 +1,9 @@
 #!/bin/bash
 set -ouex pipefail
 
-### Remove Placeholder
+### Remove Placeholders
 rm -f /etc/skel/.placeholder
+rm -f /usr/share/.placeholder
 
 ### Remove Steam Autostart
 rm -f /etc/skel/.config/autostart/steam.desktop
