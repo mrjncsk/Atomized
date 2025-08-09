@@ -2,8 +2,7 @@
 
 # Atomized Desktop Environments
 
-Atomizing some Desktop Environments with ![Fedora Atomic](https://fedoraproject.org/atomic-desktops/) bootable OS Images.
-
+Atomizing some Desktop Environments with [Fedora Atomic](https://fedoraproject.org/atomic-desktops/) bootable OS Images.
 
 ## Code Template
 
@@ -28,7 +27,7 @@ Image ghcr.io/ublue-os/aurora:latest
 
 ## Plasma for Gaming
 
-Base https://github.com/ublue-os/bazzite
+Based on https://github.com/ublue-os/bazzite
 
 Image ghcr.io/ublue-os/bazzite-nvidia:latest
 
