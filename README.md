@@ -2,7 +2,8 @@
 
 # Atomized Desktop Environments
 
-Atomizing some Desktop Environments with Fedora Atomic bootable OS Images.
+Atomizing some Desktop Environments with ![Fedora Atomic](https://fedoraproject.org/atomic-desktops/) bootable OS Images.
+
 
 ## Code Template
 
