@@ -1,4 +1,4 @@
-![Logo](Data/atomized/usr/share/atomized/Logo.png)
+![Logo](Images/Logo.png)
 
 # Atomized Desktop Environments
 
@@ -62,6 +62,7 @@ Source: https://github.com/caelestia-dots/shell
 - fish
 - foot
 
+![Caelestia] (Images/Caelestia.png)
 
 
 ## Hyprland with HyprPanel (beta)
@@ -70,6 +71,8 @@ Source: https://github.com/Jas-SinghFSU/HyprPanel
 
 - Hyprland
 - Hyprpanel
+
+![HyprPanel] (Images/HyprPanel.png)
 
 
 
@@ -80,6 +83,7 @@ Source: https://github.com/mylinuxforwork/dotfiles
 - Hyprland
 - Waybar
 
+![ML4W] (Images/ML4W.png)
 
 
 ## Omarchy (alpha)
@@ -89,6 +93,7 @@ Source: https://github.com/basecamp/omarchy
 - Hyprland
 - Waybar
 
+![Omarchy] (Images/Omarchy.png)
 
 
 ## HyDE (alpha)
@@ -98,6 +103,7 @@ Source: https://github.com/HyDE-Project/HyDE
 - Hyprland
 - Waybar
 
+![HyDE] (Images/HyDE.png)
 
 
 
@@ -107,6 +113,8 @@ Source: https://github.com/end-4/dots-hyprland
 
 - Hyprland
 - Quickshell
+
+![End-4] (Images/End-4.png)
 
 
 
@@ -129,4 +137,4 @@ when Rebasing you have to copy default configurations from /etc/skel
 mrjn
 
 
-![Title](Data/atomized/usr/share/atomized/Title.png)
+![Title](Images/Title.png)
