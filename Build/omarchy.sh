@@ -43,8 +43,7 @@ dnf5 -y install \
         swaybg \
         xdg-desktop-portal-hyprland \
         xdg-desktop-portal-gtk \
-        golang \
-        gcc \
+        vips \
         swayosd
 
 ### Get Omarchy Files
@@ -94,9 +93,6 @@ rm -rf "$TARFILE" "$DIRNAME"
 # export GOPATH=/tmp/go
 # go build -x -o walker
 # cp walker /usr/bin/
-
-### Remove Build Software
-dnf5 -y remove golang gcc
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
