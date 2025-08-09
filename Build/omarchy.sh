@@ -44,13 +44,7 @@ dnf5 -y install \
         xdg-desktop-portal-hyprland \
         xdg-desktop-portal-gtk \
         golang \
-        meson \
-        ninja-build \
-        rust \
-        cargo \
         gcc \
-        glib2-devel \
-        sassc \
         swayosd
 
 ### Get Omarchy Files
@@ -64,23 +58,16 @@ cp -Rf /tmp/omarchy/config /etc/skel/.config
 #cp -Rf /tmp/omarchy/themes
 #cp -Rf /tmp/omarchy/default
 
-# ### Install Sway OSD
-# git clone --depth 1 https://github.com/ErikReider/SwayOSD
-# cd SwayOSD
-# meson setup build
-# ninja -C build
-# meson install --prefix /usr -C build
-
 ### Install Walker
 cd /tmp
 git clone --depth 1 https://github.com/abenz1267/walker
 cd walker/cmd
-export GOCACHE=/tmp/go-build-cache \
+export GOCACHE=/tmp/go-build-cache
 go build -x -o walker
 cp walker /usr/bin/
 
 ### Remove Build Software
-dnf5 -y install meson ninja-build golang rust cargo gcc glib2-devel sassc
+dnf5 -y remove golang gcc
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
