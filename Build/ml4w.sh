@@ -4,7 +4,6 @@ set -ouex pipefail
 ### Enable Copr
 dnf5 -y copr enable solopasha/hyprland
 dnf5 -y copr enable peterwu/rendezvous
-dnf5 -y copr enable wef/cliphist
 dnf5 -y copr enable tofik/nwg-shell
 dnf5 -y copr enable erikreider/SwayNotificationCenter
 
@@ -81,17 +80,16 @@ dnf5 -y install \
         python3-installer \
         python3-setuptools \
         python3-wheel \
-        cliphist \
         nwg-look \
         nwg-displays \
         swaync \
         --allowerasing
 
-# ### Install Flatpaks
-# flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-# flatpak install --system -y \
-#         com.ml4w.calendar \
-#         com.ml4w.hyprlandsettings \
+### Install Flatpaks
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install --system -y \
+        com.ml4w.hyprlandsettings
+
 #         com.ml4w.settings \
 #         com.ml4w.sidebar \
 #         com.ml4w.welcome \
@@ -126,6 +124,12 @@ ln -s ../dotfiles/.config/waylogout /etc/skel/.config/waylogout
 ln -s ../dotfiles/.config/xsettingsd /etc/skel/.config/xsettingsd
 ln -s ../dotfiles/.config/zshrc /etc/skel/.config/zshrc
 
+# ### Inmstall ML4W Calandar
+# cd /tmp
+# git clone --depth 1 https://github.com/mylinuxforwork/dotfiles-calendar/
+# cd dotfiles-calendar
+# ./setup.sh
+
 # ### Build NWG Look
 # cd /tmp
 # git clone --depth 1 https://github.com/nwg-piotr/nwg-look
@@ -151,6 +155,5 @@ dnf5 -y remove \
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable peterwu/rendezvous
-dnf5 -y copr disable wef/cliphist
 dnf5 -y copr disable tofik/nwg-shell
 dnf5 -y copr disable erikreider/SwayNotificationCenter
