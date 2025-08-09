@@ -88,6 +88,12 @@ dnf5 -y install \
 #         com.ml4w.welcome \
 #         com.ml4w.dotfilesinstaller
 
+### Install ML4W Calandar
+# cd /tmp
+# git clone --depth 1 https://github.com/mylinuxforwork/dotfiles-calendar/
+# cd dotfiles-calendar
+# ./setup.sh
+
 ### Get ML4W Files
 cd /tmp
 git clone --depth 1 https://github.com/mylinuxforwork/dotfiles
@@ -120,11 +126,11 @@ ln -s ../dotfiles/.config/zshrc /etc/skel/.config/zshrc
 ### Disable Updates
 #todo
 
-### Install ML4W Calandar
-# cd /tmp
-# git clone --depth 1 https://github.com/mylinuxforwork/dotfiles-calendar/
-# cd dotfiles-calendar
-# ./setup.sh
+### Install grimblast
+cd /tmp
+git clone --depth 1 https://github.com/JManch/grimblast
+cd grimblast
+cp grimblast /usr/bin
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
