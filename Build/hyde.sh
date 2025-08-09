@@ -71,13 +71,6 @@ dnf5 -y install \
         cava \
         bat \
         duf \
-        meson \
-        ninja-build \
-        rust \
-        cargo \
-        gcc \
-        glib2-devel \
-        sassc \
         swayosd \
         --allowerasing
 
@@ -87,16 +80,6 @@ git clone --depth 1 https://github.com/HyDE-Project/HyDE
 mkdir -p /etc/skel/.config/
 cp -Rf /tmp/HyDE /etc/skel/HyDE
 cp -Rf /tmp/HyDE/Configs    /etc/skel/.config
-
-# ### Install Sway OSD
-# git clone --depth 1 https://github.com/ErikReider/SwayOSD
-# cd SwayOSD
-# meson setup build
-# ninja -C build
-# meson install --prefix /usr -C build
-
-### Remove Build Sowtware
-dnf5 -y remove meson ninja-build rust cargo gcc glib2-devel sassc
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
