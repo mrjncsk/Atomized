@@ -103,7 +103,7 @@ Source: https://github.com/HyDE-Project/HyDE
 - Hyprland
 - Waybar
 
-![HyDE] (Images/HyDE.png)
+![HyDE](Images/HyDE.png)
 
 
 
