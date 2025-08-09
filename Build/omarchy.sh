@@ -59,14 +59,24 @@ cp -Rf /tmp/omarchy/config /etc/skel/.config
 #cp -Rf /tmp/omarchy/default
 
 ### Install Walker
-cd /tmp
-git clone --depth 1 https://github.com/abenz1267/walker
-cd walker/cmd
-mkdir -p /tmp/go /tmp/go-build-cache
-export GOCACHE=/tmp/go-build-cache
-export GOPATH=/tmp/go
-go build -x -o walker
-cp walker /usr/bin/
+LATEST_URL=$(curl -s https://api.github.com/repos/abenz1267/walker/releases/latest | grep browser_download_url | grep tar.gz | cut -d '"' -f 4)
+curl -LO "$LATEST_URL"
+TARFILE=$(basename "$LATEST_URL")
+DIRNAME=$(tar -tzf "$TARFILE" | head -1 | cut -f1 -d"/")
+tar -xzf "$TARFILE"
+cp "$DIRNAME/walker" /usr/bin/
+chmod +x /usr/bin/walker
+rm -rf "$TARFILE" "$DIRNAME"
+
+# ### Build Walker
+# cd /tmp
+# git clone --depth 1 https://github.com/abenz1267/walker
+# cd walker/cmd
+# mkdir -p /tmp/go /tmp/go-build-cache
+# export GOCACHE=/tmp/go-build-cache
+# export GOPATH=/tmp/go
+# go build -x -o walker
+# cp walker /usr/bin/
 
 ### Remove Build Software
 dnf5 -y remove golang gcc
