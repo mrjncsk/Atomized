@@ -5,6 +5,7 @@ set -ouex pipefail
 dnf5 -y copr enable solopasha/hyprland
 dnf5 -y copr enable tofik/nwg-shell
 dnf5 -y copr enable erikreider/SwayNotificationCenter
+dnf5 -y copr enable heus-sueh/packages
 
 ### Install Software
 dnf5 -y install \
@@ -74,6 +75,7 @@ dnf5 -y install \
         gtk-layer-shell \
         nwg-look \
         nwg-displays \
+        cliphist \
         swaync \
         --allowerasing
 
@@ -125,3 +127,4 @@ ln -s ../dotfiles/.config/zshrc /etc/skel/.config/zshrc
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable tofik/nwg-shell
 dnf5 -y copr disable erikreider/SwayNotificationCenter
+dnf5 -y copr disable heus-sueh/packages
