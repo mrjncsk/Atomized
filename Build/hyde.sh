@@ -72,6 +72,7 @@ dnf5 -y install \
         bat \
         duf \
         swayosd \
+        wl-clipboard \
         --allowerasing
 
 ### Get HyDE Files

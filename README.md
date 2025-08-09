@@ -64,16 +64,16 @@ Source: https://github.com/Jas-SinghFSU/HyprPanel
 - Hyprland
 - Hyprpanel
 
-## Omarchy (alpha)
+## ML4W (beta)
 
-Source: https://github.com/basecamp/omarchy
+Source: https://github.com/mylinuxforwork/dotfiles
 
 - Hyprland
 - Waybar
 
-## ML4W (alpha)
+## Omarchy (alpha)
 
-Source: https://github.com/mylinuxforwork/dotfiles
+Source: https://github.com/basecamp/omarchy
 
 - Hyprland
 - Waybar
