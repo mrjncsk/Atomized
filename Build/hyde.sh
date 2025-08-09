@@ -3,7 +3,7 @@ set -ouex pipefail
 
 ### Enable Copr
 dnf5 -y copr enable solopasha/hyprland
-dnf5 -y copr enable smarkupstart/SwayOSD
+dnf5 -y copr enable markupstart/SwayOSD
 
 ### Install Software
 dnf5 -y install \
@@ -100,4 +100,4 @@ dnf5 -y remove meson ninja-build rust cargo gcc glib2-devel sassc
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
-dnf5 -y copr disable smarkupstart/SwayOSD
+dnf5 -y copr disable markupstart/SwayOSD
