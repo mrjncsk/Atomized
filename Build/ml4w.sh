@@ -33,7 +33,6 @@ dnf5 -y install \
         qt6-qtwayland \
         fastfetch \
         python3 \
-        python3-pip \
         python3-gobject \
         python3-i3ipc \
         tumbler \
@@ -72,14 +71,8 @@ dnf5 -y install \
         power-profiles-daemon \
         vlc \
         gtk3 \
-        golang \
         gsettings-qt \
-        gsettings-qt-devel \
         gtk-layer-shell \
-        python3-build \
-        python3-installer \
-        python3-setuptools \
-        python3-wheel \
         nwg-look \
         nwg-displays \
         swaync \
@@ -128,28 +121,6 @@ ln -s ../dotfiles/.config/zshrc /etc/skel/.config/zshrc
 # git clone --depth 1 https://github.com/mylinuxforwork/dotfiles-calendar/
 # cd dotfiles-calendar
 # ./setup.sh
-
-# ### Build NWG Look
-# cd /tmp
-# git clone --depth 1 https://github.com/nwg-piotr/nwg-look
-# cd nwg-look
-# make build
-# make PREFIX=/usr install
-
-# ### Build NWG Displays
-# cd /tmp
-# git clone --depth 1 https://github.com/nwg-piotr/nwg-displays
-# cd nwg-displays
-# ./install.sh
-
-### Remove Build Software
-dnf5 -y remove \
-        golang \
-        gsettings-qt-devel \
-        python3-build \
-        python3-installer \
-        python3-setuptools \
-        python3-wheel
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
