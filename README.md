@@ -4,11 +4,13 @@
 
 Atomizing some Desktop Environments with [Fedora Atomic](https://fedoraproject.org/atomic-desktops) bootable OS Images.
 
+
 ## Code Template
 
 This is generated from the Ublue Template:
 
 https://github.com/ublue-os/image-template
+
 
 # Atomized Plasma Desktops
 
@@ -24,6 +26,7 @@ Image: ghcr.io/ublue-os/aurora:latest
 - BTRFS
 - Distrobox
 - Boxbuddy
+
 
 ## Plasma for Gaming
 
@@ -42,11 +45,13 @@ Image: ghcr.io/ublue-os/bazzite-nvidia:latest
 - Distrobox
 - Boxbuddy
 
+
 # Atomized Hyprland Desktops
 
 Base: https://github.com/wayblueorg
 
 Image: ghcr.io/wayblueorg/hyprland:latest
+
 
 ## Caelestia (beta)
 
@@ -57,12 +62,14 @@ Source: https://github.com/caelestia-dots/shell
 - fish
 - foot
 
+
 ## Hyprland with Hyprpanel (beta)
 
 Source: https://github.com/Jas-SinghFSU/HyprPanel
 
 - Hyprland
 - Hyprpanel
+
 
 ## ML4W (beta)
 
@@ -71,12 +78,14 @@ Source: https://github.com/mylinuxforwork/dotfiles
 - Hyprland
 - Waybar
 
+
 ## Omarchy (alpha)
 
 Source: https://github.com/basecamp/omarchy
 
 - Hyprland
 - Waybar
+
 
 ## HyDE (alpha)
 
@@ -85,6 +94,7 @@ Source: https://github.com/HyDE-Project/HyDE
 - Hyprland
 - Waybar
 
+
 ## End-4 (alpha)
 
 Source: https://github.com/end-4/dots-hyprland
@@ -92,9 +102,11 @@ Source: https://github.com/end-4/dots-hyprland
 - Hyprland
 - Quickshell
 
+
 ## Installation ISO Download
 
 https://archive.org/details/@mrjncsk
+
 
 ## Rebase from other Atomic OS
 
@@ -106,6 +118,8 @@ when Rebasing you have to copy default configurations from /etc/skel
 - Backup existing Configs in ~/.config
 - Copy needet Configs from /etc/skel/.config to ~/.config
 
+
 mrjn
+
 
 ![Title](Data/atomized/usr/share/atomized/Title.png)
