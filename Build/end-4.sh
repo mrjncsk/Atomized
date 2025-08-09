@@ -18,6 +18,7 @@ dnf5 -y install \
         fcitx5 \
         gnome-keyring \
         polkit \
+        qt6-qtpositioning \
         fish \
         sddm \
         xdg-desktop-portal-hyprland \
