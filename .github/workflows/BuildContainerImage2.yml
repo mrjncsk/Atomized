@@ -33,15 +33,15 @@ jobs:
           # - name: atomized-hyprpanel-nvidia
           #   desktop: hyprpanel
           #   base_image: ghcr.io/wayblueorg/hyprland-nvidia:latest
-          - name: atomized-testing
-            desktop: plasma
-            base_image: ghcr.io/ublue-os/aurora:latest
-          - name: atomized-caelestia-testing
-            desktop: caelestia
-            base_image: ghcr.io/wayblueorg/hyprland:latest
-          - name: atomized-hyprpanel-testing
-            desktop: hyprpanel
-            base_image: ghcr.io/wayblueorg/hyprland:latest
+          # - name: atomized-testing
+          #   desktop: plasma
+          #   base_image: ghcr.io/ublue-os/aurora:latest
+          # - name: atomized-caelestia-testing
+          #   desktop: caelestia
+          #   base_image: ghcr.io/wayblueorg/hyprland:latest
+          # - name: atomized-hyprpanel-testing
+          #   desktop: hyprpanel
+          #   base_image: ghcr.io/wayblueorg/hyprland:latest
           - name: atomized-hyde-testing
             desktop: hyde
             base_image: ghcr.io/wayblueorg/hyprland:latest
@@ -51,9 +51,9 @@ jobs:
           - name: atomized-omarchy-testing
             desktop: omarchy
             base_image: ghcr.io/wayblueorg/hyprland:latest
-          - name: atomized-end-4-testing
-            desktop: end-4
-            base_image: ghcr.io/wayblueorg/hyprland:latest
+          # - name: atomized-end-4-testing
+          #   desktop: end-4
+          #   base_image: ghcr.io/wayblueorg/hyprland:latest
 
     permissions:
       contents: read
