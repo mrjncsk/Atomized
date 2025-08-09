@@ -83,7 +83,7 @@ Source: https://github.com/mylinuxforwork/dotfiles
 Source: https://github.com/HyDE-Project/HyDE
 
 - Hyprland
-- Quickshell
+- Waybar
 
 ## End-4 (testing)
 
