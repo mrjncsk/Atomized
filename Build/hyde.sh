@@ -3,6 +3,7 @@ set -ouex pipefail
 
 ### Enable Copr
 dnf5 -y copr enable solopasha/hyprland
+dnf5 -y copr enable smarkupstart/SwayOSD
 
 ### Install Software
 dnf5 -y install \
@@ -77,6 +78,7 @@ dnf5 -y install \
         gcc \
         glib2-devel \
         sassc \
+        swayosd \
         --allowerasing
 
 ### Get HyDE Files
@@ -86,15 +88,16 @@ mkdir -p /etc/skel/.config/
 cp -Rf /tmp/HyDE /etc/skel/HyDE
 cp -Rf /tmp/HyDE/Configs    /etc/skel/.config
 
-### Install Sway OSD
-git clone --depth 1 https://github.com/ErikReider/SwayOSD
-cd SwayOSD
-meson setup build
-ninja -C build
-meson install --prefix /usr -C build
+# ### Install Sway OSD
+# git clone --depth 1 https://github.com/ErikReider/SwayOSD
+# cd SwayOSD
+# meson setup build
+# ninja -C build
+# meson install --prefix /usr -C build
 
 ### Remove Build Sowtware
 dnf5 -y remove meson ninja-build rust cargo gcc glib2-devel sassc
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
+dnf5 -y copr disable smarkupstart/SwayOSD

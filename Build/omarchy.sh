@@ -3,6 +3,7 @@ set -ouex pipefail
 
 ### Enable Copr
 dnf5 -y copr enable solopasha/hyprland
+dnf5 -y copr enable smarkupstart/SwayOSD
 
 ### Install Software
 dnf5 -y install \
@@ -49,7 +50,8 @@ dnf5 -y install \
         cargo \
         gcc \
         glib2-devel \
-        sassc
+        sassc \
+        swayosd
 
 ### Get Omarchy Files
 cd /tmp
@@ -62,12 +64,12 @@ cp -Rf /tmp/omarchy/config /etc/skel/.config
 #cp -Rf /tmp/omarchy/themes
 #cp -Rf /tmp/omarchy/default
 
-### Install Sway OSD
-git clone --depth 1 https://github.com/ErikReider/SwayOSD
-cd SwayOSD
-meson setup build
-ninja -C build
-meson install --prefix /usr -C build
+# ### Install Sway OSD
+# git clone --depth 1 https://github.com/ErikReider/SwayOSD
+# cd SwayOSD
+# meson setup build
+# ninja -C build
+# meson install --prefix /usr -C build
 
 ### Install Walker
 cd /tmp
@@ -81,3 +83,4 @@ dnf5 -y install meson ninja-build golang rust cargo gcc glib2-devel sassc
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
+dnf5 -y copr disable smarkupstart/SwayOSD
