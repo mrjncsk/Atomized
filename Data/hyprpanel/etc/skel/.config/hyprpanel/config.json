@@ -9,11 +9,8 @@
   "wallpaper.enable": true,
   "theme.bar.transparent": true,
   "wallpaper.pywal": false,
-  "menus.dashboard.powermenu.avatar.image": "/usr/share/pixmaps/system-logo-white.png",
+  "menus.dashboard.powermenu.avatar.image": "/usr/share/atomized/Logo.png",
   "menus.clock.time.military": true,
   "menus.clock.weather.unit": "metric",
-  "menus.clock.weather.location": "Berlin",
-  "menus.dashboard.shortcuts.left.shortcut1.tooltip": "firefox",
-  "menus.dashboard.shortcuts.left.shortcut1.command": "Firefox",
-  "menus.dashboard.shortcuts.left.shortcut1.icon": "ff"
+  "menus.clock.weather.location": "Berlin"
 }
