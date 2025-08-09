@@ -27,6 +27,8 @@ Image: ghcr.io/ublue-os/aurora:latest
 - Distrobox
 - Boxbuddy
 
+![Plasma](Images/Plasma.png)
+
 
 ## Plasma for Gaming
 
@@ -44,6 +46,8 @@ Image: ghcr.io/ublue-os/bazzite-nvidia:latest
 - BTRFS
 - Distrobox
 - Boxbuddy
+
+![PlasmaGaming](Images/PlasmaGaming.png)
 
 
 # Atomized Hyprland Desktops
@@ -73,7 +77,6 @@ Source: https://github.com/Jas-SinghFSU/HyprPanel
 - Hyprpanel
 
 ![HyprPanel](Images/HyprPanel.png)
-
 
 
 ## ML4W (beta)
@@ -106,7 +109,6 @@ Source: https://github.com/HyDE-Project/HyDE
 ![HyDE](Images/HyDE.png)
 
 
-
 ## End-4 (alpha)
 
 Source: https://github.com/end-4/dots-hyprland
@@ -115,7 +117,6 @@ Source: https://github.com/end-4/dots-hyprland
 - Quickshell
 
 ![End-4](Images/End-4.png)
-
 
 
 ## Installation ISO Download
