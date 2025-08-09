@@ -8,6 +8,8 @@ dnf5 -y copr enable errornointernet/quickshell
 ### Install Software
 dnf5 -y install \
         hyprland \
+        dolphin \
+        fish \
         sddm \
         xdg-desktop-portal-hyprland \
         quickshell-git
