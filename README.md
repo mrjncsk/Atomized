@@ -16,6 +16,8 @@ https://github.com/ublue-os/image-template
 
 # Atomized Plasma Desktops
 
+.
+
 ## Plasma
 
 Base: https://github.com/ublue-os/aurora
@@ -146,10 +148,10 @@ when Rebasing you have to copy default configurations from /etc/skel
 - Backup existing Configs in ~/.config
 - Copy needet Configs from /etc/skel/.config to ~/.config
 
-
+.
 
 mrjn
 
-
+.
 
 ![Title](Images/Title.png)
