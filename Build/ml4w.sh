@@ -117,7 +117,10 @@ ln -s ../dotfiles/.config/waylogout /etc/skel/.config/waylogout
 ln -s ../dotfiles/.config/xsettingsd /etc/skel/.config/xsettingsd
 ln -s ../dotfiles/.config/zshrc /etc/skel/.config/zshrc
 
-# ### Inmstall ML4W Calandar
+### Disable Updates
+#todo
+
+### Install ML4W Calandar
 # cd /tmp
 # git clone --depth 1 https://github.com/mylinuxforwork/dotfiles-calendar/
 # cd dotfiles-calendar

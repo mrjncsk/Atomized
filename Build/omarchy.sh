@@ -62,8 +62,9 @@ cp -Rf /tmp/omarchy/config /etc/skel/.config
 cd /tmp
 git clone --depth 1 https://github.com/abenz1267/walker
 cd walker/cmd
-mkdir -p /tmp/go-build-cache
+mkdir -p /tmp/go /tmp/go-build-cache
 export GOCACHE=/tmp/go-build-cache
+export GOPATH=/tmp/go
 go build -x -o walker
 cp walker /usr/bin/
 
