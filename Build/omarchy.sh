@@ -6,6 +6,9 @@ dnf5 -y copr enable solopasha/hyprland
 
 ### Install Software
 dnf5 -y install \
+        alacrity \
+        chromium \
+        obsidian \
         brightnessctl \
         playerctl \
         pamixer \
@@ -39,7 +42,10 @@ dnf5 -y install \
         mako \
         swaybg \
         xdg-desktop-portal-hyprland \
-        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gtk \
+        golang \
+        meson \
+        ninja-build
 
 ### Get Omarchy Files
 cd /tmp
@@ -51,6 +57,23 @@ cp -Rf /tmp/omarchy/config /etc/skel/.config
 #cp -Rf /tmp/omarchy/bin
 #cp -Rf /tmp/omarchy/themes
 #cp -Rf /tmp/omarchy/default
+
+### Install Sway OSD
+git clone --depth 1 https://github.com/ErikReider/SwayOSD
+cd SwayOSD
+meson setup build
+ninja -C build
+meson install --prefix /usr -C build
+
+### Install Walker
+cd /tmp
+git clone --depth 1 https://github.com/abenz1267/walker
+cd walker/cmd
+go build -x -o walker
+cp walker /usr/bin/
+
+### Remove Build Software
+dnf5 -y install meson ninja-build golang
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland

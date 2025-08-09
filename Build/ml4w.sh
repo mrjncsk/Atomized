@@ -29,8 +29,10 @@ dnf5 -y install \
         qt5-qtwayland \
         qt6-qtwayland \
         fastfetch \
+        python3 \
         python3-pip \
         python3-gobject \
+        python3-i3ipc \
         tumbler \
         brightnessctl \
         nm-connection-editor \
@@ -66,7 +68,26 @@ dnf5 -y install \
         nwg-dock-hyprland \
         power-profiles-daemon \
         vlc \
+        gtk-3 \
+        golang \
+        gsettings-qt \
+        gsettings-qt-devel \
+        gtk-layer-shell \
+        python3-build \
+        python3-installer \
+        python3-setuptools \
+        python3-wheel \
         --allowerasing
+
+### Install Flatpaks
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install --system -y \
+        com.ml4w.calendar \
+        com.ml4w.hyprlandsettings \
+        com.ml4w.settings \
+        com.ml4w.sidebar \
+        com.ml4w.welcome \
+        com.ml4w.dotfilesinstaller
 
 ### Get ML4W Files
 cd /tmp
@@ -97,8 +118,27 @@ ln -s ../dotfiles/.config/waylogout /etc/skel/.config/waylogout
 ln -s ../dotfiles/.config/xsettingsd /etc/skel/.config/xsettingsd
 ln -s ../dotfiles/.config/zshrc /etc/skel/.config/zshrc
 
-#bibata-cursor-theme
-########
+### Build NWG Look
+cd /tmp
+git clone --depth 1 https://github.com/nwg-piotr/nwg-look
+cd nwg-look
+make build
+make PREFIX=/usr install
+
+### Build NWG Displays
+cd /tmp
+git clone --depth 1 https://github.com/nwg-piotr/nwg-displays
+cd nwg-displays
+./install.sh
+
+### Remove Build Software
+dnf5 -y remove \
+        golang \
+        gsettings-qt-devel \
+        python3-build \
+        python3-installer \
+        python3-setuptools \
+        python3-wheel
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland

@@ -64,23 +64,15 @@ dnf5 -y install \
         hypridle \
         python3-requests \
         power-profiles-daemon \
+        trash-cli \
+        libinput \
+        emoji-picker \
+        cava \
+        bat \
+        duf \
+        meson \
+        ninja-build \
         --allowerasing
-
-# downgrade                # downgrade packages
-# trash-cli-git            # cli to manage trash files
-# libinput-gestures        # actions touchpad gestures using libinput
-# gestures                 # gui for libinput-gestures
-
-### extra
-# xdg-desktop-portal-gtk     # xdg desktop portal using gtk
-# wf-recorder              # Screen recorder for wlroots-based compositors such as sway
-# # emote                    # emoji picker gtk3
-# # wl-screenrec             # High performance hardware accelerated wlroots screen recorder // NO support for NVIDIA
-# cava                       # audio visualizer
-# bat|zsh                      # enhanced version of cat
-# eza|zsh                      # file lister for zsh
-# duf|zsh                      # prettier version of df for zsh
-# swayosd-git                 #A GTK based on screen display for keyboard shortcuts like caps-lock and volume
 
 ### Get HyDE Files
 cd /tmp
@@ -88,6 +80,16 @@ git clone --depth 1 https://github.com/HyDE-Project/HyDE
 mkdir -p /etc/skel/.config/
 cp -Rf /tmp/HyDE /etc/skel/HyDE
 cp -Rf /tmp/HyDE/Configs    /etc/skel/.config
+
+### Install Sway OSD
+git clone --depth 1 https://github.com/ErikReider/SwayOSD
+cd SwayOSD
+meson setup build
+ninja -C build
+meson install --prefix /usr -C build
+
+### Remove Build Sowtware
+dnf5 -y remove meson ninja-build
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
