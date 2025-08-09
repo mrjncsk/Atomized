@@ -53,17 +53,17 @@ git clone --depth 1 https://github.com/basecamp/omarchy
 mkdir -p /etc/skel/.config/omarchy/themes /etc/skel/.config/omarchy/current  /etc/skel/.local/share
 cp -Rf /tmp/omarchy/ /etc/skel/.local/share/omarchy
 cp -Rf /tmp/omarchy/config /etc/skel/.config
-ln -s ../../.local/share/omarchy/themes/tokyo-night /etc/skel/.config/omarchy/themes/tokyo-night
-ln -s ../../.local/share/omarchy/themes/rose-pine /etc/skel/.config/omarchy/themes/rose-pine
-ln -s ../../.local/share/omarchy/themes/ristretto /etc/skel/.config/omarchy/themes/ristretto
-ln -s ../../.local/share/omarchy/themes/osaka-jade /etc/skel/.config/omarchy/themes/osaka-jade
-ln -s ../../.local/share/omarchy/themes/nord /etc/skel/.config/omarchy/themes/nord
-ln -s ../../.local/share/omarchy/themes/matte-black /etc/skel/.config/omarchy/themes/matte-black
-ln -s ../../.local/share/omarchy/themes/kanagawa /etc/skel/.config/omarchy/themes/kanagawa
-ln -s ../../.local/share/omarchy/themes/gruvbox /etc/skel/.config/omarchy/themes/gruvbox
-ln -s ../../.local/share/omarchy/themes/everforest /etc/skel/.config/omarchy/themes/everforest
-ln -s ../../.local/share/omarchy/themes/catppuccin-latte /etc/skel/.config/omarchy/themes/catppuccin-latte
-ln -s ../../.local/share/omarchy/themes/catppuccin /etc/skel/.config/omarchy/themes/catppuccin
+ln -s ../../../.local/share/omarchy/themes/tokyo-night /etc/skel/.config/omarchy/themes/tokyo-night
+ln -s ../../../.local/share/omarchy/themes/rose-pine /etc/skel/.config/omarchy/themes/rose-pine
+ln -s ../../../.local/share/omarchy/themes/ristretto /etc/skel/.config/omarchy/themes/ristretto
+ln -s ../../../.local/share/omarchy/themes/osaka-jade /etc/skel/.config/omarchy/themes/osaka-jade
+ln -s ../../../.local/share/omarchy/themes/nord /etc/skel/.config/omarchy/themes/nord
+ln -s ../../../.local/share/omarchy/themes/matte-black /etc/skel/.config/omarchy/themes/matte-black
+ln -s ../../../.local/share/omarchy/themes/kanagawa /etc/skel/.config/omarchy/themes/kanagawa
+ln -s ../../../.local/share/omarchy/themes/gruvbox /etc/skel/.config/omarchy/themes/gruvbox
+ln -s ../../../.local/share/omarchy/themes/everforest /etc/skel/.config/omarchy/themes/everforest
+ln -s ../../../.local/share/omarchy/themes/catppuccin-latte /etc/skel/.config/omarchy/themes/catppuccin-latte
+ln -s ../../../.local/share/omarchy/themes/catppuccin /etc/skel/.config/omarchy/themes/catppuccin
 ln -s ../themes/tokyo-night /etc/skel/.config/omarchy/current/theme
 ln -s theme/backgrounds/1-scenery-pink-lakeside-sunset-lake-landscape-scenic-panorama-7680x3215-144.png \
     /etc/skel/.config/omarchy/current/background
