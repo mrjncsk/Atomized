@@ -59,7 +59,10 @@ cp -Rf /tmp/omarchy/config /etc/skel/.config
 #cp -Rf /tmp/omarchy/default
 
 ### Install Walker
-LATEST_URL=$(curl -s https://api.github.com/repos/abenz1267/walker/releases/latest | grep browser_download_url | grep tar.gz | cut -d '"' -f 4)
+LATEST_URL=$(curl -s https://api.github.com/repos/abenz1267/walker/releases/latest \
+  | grep browser_download_url \
+  | grep Linux_x86_64.tar.gz \
+  | cut -d '"' -f 4)
 curl -LO "$LATEST_URL"
 TARFILE=$(basename "$LATEST_URL")
 DIRNAME=$(tar -tzf "$TARFILE" | head -1 | cut -f1 -d"/")
