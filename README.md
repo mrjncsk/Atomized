@@ -62,7 +62,7 @@ Source: https://github.com/caelestia-dots/shell
 - fish
 - foot
 
-![Caelestia] (Images/Caelestia.png)
+![Caelestia](Images/Caelestia.png)
 
 
 ## Hyprland with HyprPanel (beta)
@@ -72,7 +72,7 @@ Source: https://github.com/Jas-SinghFSU/HyprPanel
 - Hyprland
 - Hyprpanel
 
-![HyprPanel] (Images/HyprPanel.png)
+![HyprPanel](Images/HyprPanel.png)
 
 
 
@@ -83,7 +83,7 @@ Source: https://github.com/mylinuxforwork/dotfiles
 - Hyprland
 - Waybar
 
-![ML4W] (Images/ML4W.png)
+![ML4W](Images/ML4W.png)
 
 
 ## Omarchy (alpha)
@@ -93,7 +93,7 @@ Source: https://github.com/basecamp/omarchy
 - Hyprland
 - Waybar
 
-![Omarchy] (Images/Omarchy.png)
+![Omarchy](Images/Omarchy.png)
 
 
 ## HyDE (alpha)
@@ -114,7 +114,7 @@ Source: https://github.com/end-4/dots-hyprland
 - Hyprland
 - Quickshell
 
-![End-4] (Images/End-4.png)
+![End-4](Images/End-4.png)
 
 
 
