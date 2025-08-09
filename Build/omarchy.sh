@@ -48,7 +48,8 @@ dnf5 -y install \
         rust \
         cargo \
         gcc \
-        glib2-devel
+        glib2-devel \
+        sassc
 
 ### Get Omarchy Files
 cd /tmp
@@ -76,7 +77,7 @@ go build -x -o walker
 cp walker /usr/bin/
 
 ### Remove Build Software
-dnf5 -y install meson ninja-build golang rust cargo gcc glib2-devel
+dnf5 -y install meson ninja-build golang rust cargo gcc glib2-devel sassc
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland

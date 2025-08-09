@@ -76,6 +76,7 @@ dnf5 -y install \
         cargo \
         gcc \
         glib2-devel \
+        sassc \
         --allowerasing
 
 ### Get HyDE Files
@@ -93,7 +94,7 @@ ninja -C build
 meson install --prefix /usr -C build
 
 ### Remove Build Sowtware
-dnf5 -y remove meson ninja-build rust cargo gcc glib2-devel
+dnf5 -y remove meson ninja-build rust cargo gcc glib2-devel sassc
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland

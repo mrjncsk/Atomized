@@ -85,11 +85,10 @@ dnf5 -y install \
         swaync \
         --allowerasing
 
-### Install Flatpaks
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install --system -y \
-        com.ml4w.hyprlandsettings
-
+# ### Install Flatpaks
+# flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# flatpak install --system -y \
+#         com.ml4w.hyprlandsettings \
 #         com.ml4w.settings \
 #         com.ml4w.sidebar \
 #         com.ml4w.welcome \
