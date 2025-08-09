@@ -3,6 +3,10 @@ set -ouex pipefail
 
 ### Enable Copr
 dnf5 -y copr enable solopasha/hyprland
+dnf5 -y copr enable peterwu/rendezvous
+dnf5 -y copr enable wef/cliphist
+dnf5 -y copr enable tofik/nwg-shell
+dnf5 -y copr enable erikreider/SwayNotificationCenter
 
 ### Install Software
 dnf5 -y install \
@@ -77,17 +81,21 @@ dnf5 -y install \
         python3-installer \
         python3-setuptools \
         python3-wheel \
+        cliphist \
+        nwg-look \
+        nwg-displays \
+        swaync \
         --allowerasing
 
-### Install Flatpaks
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install --system -y \
-        com.ml4w.calendar \
-        com.ml4w.hyprlandsettings \
-        com.ml4w.settings \
-        com.ml4w.sidebar \
-        com.ml4w.welcome \
-        com.ml4w.dotfilesinstaller
+# ### Install Flatpaks
+# flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# flatpak install --system -y \
+#         com.ml4w.calendar \
+#         com.ml4w.hyprlandsettings \
+#         com.ml4w.settings \
+#         com.ml4w.sidebar \
+#         com.ml4w.welcome \
+#         com.ml4w.dotfilesinstaller
 
 ### Get ML4W Files
 cd /tmp
@@ -118,18 +126,18 @@ ln -s ../dotfiles/.config/waylogout /etc/skel/.config/waylogout
 ln -s ../dotfiles/.config/xsettingsd /etc/skel/.config/xsettingsd
 ln -s ../dotfiles/.config/zshrc /etc/skel/.config/zshrc
 
-### Build NWG Look
-cd /tmp
-git clone --depth 1 https://github.com/nwg-piotr/nwg-look
-cd nwg-look
-make build
-make PREFIX=/usr install
+# ### Build NWG Look
+# cd /tmp
+# git clone --depth 1 https://github.com/nwg-piotr/nwg-look
+# cd nwg-look
+# make build
+# make PREFIX=/usr install
 
-### Build NWG Displays
-cd /tmp
-git clone --depth 1 https://github.com/nwg-piotr/nwg-displays
-cd nwg-displays
-./install.sh
+# ### Build NWG Displays
+# cd /tmp
+# git clone --depth 1 https://github.com/nwg-piotr/nwg-displays
+# cd nwg-displays
+# ./install.sh
 
 ### Remove Build Software
 dnf5 -y remove \
@@ -142,3 +150,7 @@ dnf5 -y remove \
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
+dnf5 -y copr disable peterwu/rendezvous
+dnf5 -y copr disable wef/cliphist
+dnf5 -y copr disable tofik/nwg-shell
+dnf5 -y copr disable erikreider/SwayNotificationCenter
