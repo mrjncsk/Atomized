@@ -65,8 +65,8 @@ LATEST_URL=$(curl -s https://api.github.com/repos/abenz1267/walker/releases/late
   | cut -d '"' -f 4)
 curl -LO "$LATEST_URL"
 TARFILE=$(basename "$LATEST_URL")
-FIRST_ENTRY=$(tar -tf "$TARFILE" | head -1)
-DIRNAME=${FIRST_ENTRY%%/*}
+read -r FIRST_ENTRY < <(tar -tf "$TARFILE")
+DIRNAME=${FIRST_ENTRY%/}
 tar -xzf "$TARFILE"
 cp "$DIRNAME/walker" /usr/bin/
 chmod +x /usr/bin/walker
