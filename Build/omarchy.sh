@@ -16,7 +16,7 @@ dnf5 -y install \
         fcitx5 \
         fcitx5-gtk \
         fcitx5-qt \
-        gtk-layer-shell \
+        gtk4-layer-shell \
         nautilus \
         sushi \
         ffmpegthumbnailer \
