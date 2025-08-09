@@ -48,7 +48,7 @@ Base: https://github.com/wayblueorg
 
 Image: ghcr.io/wayblueorg/hyprland:latest
 
-## Caelestia
+## Caelestia (beta)
 
 Source: https://github.com/caelestia-dots/shell
 
@@ -57,35 +57,35 @@ Source: https://github.com/caelestia-dots/shell
 - fish
 - foot
 
-## Hyprland with Hyprpanel
+## Hyprland with Hyprpanel (beta)
 
 Source: https://github.com/Jas-SinghFSU/HyprPanel
 
 - Hyprland
 - Hyprpanel
 
-## Omarchy (testing)
+## Omarchy (alpha)
 
 Source: https://github.com/basecamp/omarchy
 
 - Hyprland
 - Waybar
 
-## ML4W (testing)
+## ML4W (alpha)
 
 Source: https://github.com/mylinuxforwork/dotfiles
 
 - Hyprland
 - Waybar
 
-## HyDE (testing)
+## HyDE (alpha)
 
 Source: https://github.com/HyDE-Project/HyDE
 
 - Hyprland
 - Waybar
 
-## End-4 (testing)
+## End-4 (alpha)
 
 Source: https://github.com/end-4/dots-hyprland
 
