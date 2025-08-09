@@ -15,12 +15,12 @@ jobs:
       fail-fast: false
       matrix:
         variant:
-          # - name: atomized
-          #   desktop: plasma
-          #   base_image: ghcr.io/ublue-os/aurora:latest
-          # - name: atomized-nvidia
-          #   desktop: plasma
-          #   base_image: ghcr.io/ublue-os/bazzite-nvidia:latest
+          - name: atomized
+            desktop: plasma
+            base_image: ghcr.io/ublue-os/aurora:latest
+          - name: atomized-nvidia
+            desktop: plasma
+            base_image: ghcr.io/ublue-os/bazzite-nvidia:latest
           # - name: atomized-caelestia
           #   desktop: caelestia
           #   base_image: ghcr.io/wayblueorg/hyprland:latest
@@ -48,9 +48,9 @@ jobs:
           # - name: atomized-ml4w-testing
           #   desktop: ml4w
           #   base_image: ghcr.io/wayblueorg/hyprland:latest
-          - name: atomized-omarchy-testing
-            desktop: omarchy
-            base_image: ghcr.io/wayblueorg/hyprland:latest
+          # - name: atomized-omarchy-testing
+          #   desktop: omarchy
+          #   base_image: ghcr.io/wayblueorg/hyprland:latest
           # - name: atomized-end-4-testing
           #   desktop: end-4
           #   base_image: ghcr.io/wayblueorg/hyprland:latest
