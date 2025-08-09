@@ -42,12 +42,12 @@ jobs:
           # - name: atomized-hyprpanel-testing
           #   desktop: hyprpanel
           #   base_image: ghcr.io/wayblueorg/hyprland:latest
-          - name: atomized-hyde-testing
-            desktop: hyde
-            base_image: ghcr.io/wayblueorg/hyprland:latest
-          - name: atomized-ml4w-testing
-            desktop: ml4w
-            base_image: ghcr.io/wayblueorg/hyprland:latest
+          # - name: atomized-hyde-testing
+          #   desktop: hyde
+          #   base_image: ghcr.io/wayblueorg/hyprland:latest
+          # - name: atomized-ml4w-testing
+          #   desktop: ml4w
+          #   base_image: ghcr.io/wayblueorg/hyprland:latest
           - name: atomized-omarchy-testing
             desktop: omarchy
             base_image: ghcr.io/wayblueorg/hyprland:latest
