@@ -4,6 +4,7 @@ set -ouex pipefail
 ### Enable Copr
 dnf5 -y copr enable solopasha/hyprland
 dnf5 -y copr enable errornointernet/quickshell
+dnf5 -y copr enable atim/starship
 
 ### Install Software
 dnf5 -y install \
@@ -12,7 +13,8 @@ dnf5 -y install \
         fish \
         sddm \
         xdg-desktop-portal-hyprland \
-        quickshell-git
+        quickshell-git \
+        starship
 
 ### Get end-4 Files
 cd /tmp
@@ -24,6 +26,7 @@ cp -Rf /tmp/dots-hyprland/.local /etc/skel/
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable errornointernet/quickshell
+dnf5 -y copr disable atim/starship
 
 ### Enamble SDDM
 systemctl enable sddm
