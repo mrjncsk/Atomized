@@ -3,7 +3,6 @@ set -ouex pipefail
 
 ### Enable Copr
 dnf5 -y copr enable solopasha/hyprland
-dnf5 -y copr enable peterwu/rendezvous
 dnf5 -y copr enable tofik/nwg-shell
 dnf5 -y copr enable erikreider/SwayNotificationCenter
 
@@ -124,6 +123,5 @@ ln -s ../dotfiles/.config/zshrc /etc/skel/.config/zshrc
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
-dnf5 -y copr disable peterwu/rendezvous
 dnf5 -y copr disable tofik/nwg-shell
 dnf5 -y copr disable erikreider/SwayNotificationCenter
