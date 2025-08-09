@@ -9,7 +9,15 @@ dnf5 -y copr enable atim/starship
 ### Install Software
 dnf5 -y install \
         hyprland \
+        hypridle \
+        hyprlock \
+        hyprpm \
         dolphin \
+        kitty \
+        wl-clipboard \
+        fcitx5 \
+        gnome-keyring \
+        polkit \
         fish \
         sddm \
         xdg-desktop-portal-hyprland \
