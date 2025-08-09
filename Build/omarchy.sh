@@ -50,9 +50,26 @@ dnf5 -y install \
 ### Get Omarchy Files
 cd /tmp
 git clone --depth 1 https://github.com/basecamp/omarchy
-mkdir -p /etc/skel/.config /etc/skel/.local/share
+mkdir -p /etc/skel/.config/omarchy/themes /etc/skel/.config/omarchy/current  /etc/skel/.local/share
 cp -Rf /tmp/omarchy/ /etc/skel/.local/share/omarchy
 cp -Rf /tmp/omarchy/config /etc/skel/.config
+ln -s ../../.local/share/omarchy/themes/tokyo-night /etc/skalt/.config/omarchy/themes/tokyo-night
+ln -s ../../.local/share/omarchy/themes/rose-pine /etc/skalt/.config/omarchy/themes/rose-pine
+ln -s ../../.local/share/omarchy/themes/ristretto /etc/skalt/.config/omarchy/themes/ristretto
+ln -s ../../.local/share/omarchy/themes/osaka-jade /etc/skalt/.config/omarchy/themes/osaka-jade
+ln -s ../../.local/share/omarchy/themes/nord /etc/skalt/.config/omarchy/themes/nord
+ln -s ../../.local/share/omarchy/themes/matte-black /etc/skalt/.config/omarchy/themes/matte-black
+ln -s ../../.local/share/omarchy/themes/kanagawa /etc/skalt/.config/omarchy/themes/kanagawa
+ln -s ../../.local/share/omarchy/themes/gruvbox /etc/skalt/.config/omarchy/themes/gruvbox
+ln -s ../../.local/share/omarchy/themes/everforest /etc/skalt/.config/omarchy/themes/everforest
+ln -s ../../.local/share/omarchy/themes/catppuccin-latte /etc/skalt/.config/omarchy/themes/catppuccin-latte
+ln -s ../../.local/share/omarchy/themes/catppuccin /etc/skalt/.config/omarchy/themes/catppuccin
+ln -s ../themes/tokyo-night /etc/skel/.config/omarchy/current/theme
+ln -s theme/backgrounds/1-scenery-pink-lakeside-sunset-lake-landscape-scenic-panorama-7680x3215-144.png \
+    /etc/skel/.config/omarchy/current/background
+
+
+
 #cp -Rf /tmp/omarchy/applications /etc/skel/.local/share/applications
 #cp -Rf /tmp/omarchy/bin
 #cp -Rf /tmp/omarchy/themes
