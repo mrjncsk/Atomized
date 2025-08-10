@@ -5,8 +5,8 @@ dnf5 -y install \
         mesa-vulkan-drivers \
         mesa-dri-drivers \
         plasma-breeze \
-        libglvnd \
         fastfetch \
+        libglvnd \
         cmatrix \
         zoxide \
         kitty \
