@@ -79,9 +79,12 @@ dnf5 -y install \
 ### Get HyDE Files
 cd /tmp
 git clone --depth 1 https://github.com/HyDE-Project/HyDE
-mkdir -p /etc/skel/.config/
+mkdir -p /etc/skel/.config /etc/skel/.local
 cp -Rf /tmp/HyDE /etc/skel/HyDE
-cp -Rf /tmp/HyDE/Configs/* /etc/skel/
+cp -Rf /tmp/HyDE/Configs/.config /etc/skel/
+cp -Rf /tmp/HyDE/Configs/.local /etc/skel/
+cp -Rf /tmp/HyDE/Configs/.gtkrc-2.0 /etc/skel/
+cp -Rf /tmp/HyDE/Configs/.zshenv /etc/skel/
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
