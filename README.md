@@ -62,6 +62,8 @@ Base: https://github.com/wayblueorg
 
 Image: ghcr.io/wayblueorg/hyprland:latest
 
+- ujust
+
 .
 
 ## Caelestia (beta)
