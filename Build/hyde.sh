@@ -4,6 +4,7 @@ set -ouex pipefail
 ### Enable Copr
 dnf5 -y copr enable solopasha/hyprland
 dnf5 -y copr enable markupstart/SwayOSD
+dnf5 -y copr enable leloubil/wl-clip-persist
 
 ### Install Software
 dnf5 -y install \
@@ -72,7 +73,7 @@ dnf5 -y install \
         bat \
         duf \
         swayosd \
-        wl-clipboard \
+        wl-clip-persist \
         --allowerasing
 
 ### Get HyDE Files
@@ -80,8 +81,9 @@ cd /tmp
 git clone --depth 1 https://github.com/HyDE-Project/HyDE
 mkdir -p /etc/skel/.config/
 cp -Rf /tmp/HyDE /etc/skel/HyDE
-cp -Rf /tmp/HyDE/Configs    /etc/skel/.config
+cp -Rf /tmp/HyDE/Configs /etc/skel/
 
 ### Disable Copr
 dnf5 -y copr disable solopasha/hyprland
 dnf5 -y copr disable markupstart/SwayOSD
+dnf5 -y copr disable leloubil/wl-clip-persist
