@@ -1,4 +1,4 @@
-![Logo](Images/Logo.png)
+![Logo](Images/A.png)
 
 # Atomized Desktop Environments
 
@@ -154,4 +154,4 @@ mrjn
 
 .
 
-![Title](Images/Title.png)
+![Title](Images/ATOMIZED.png)
