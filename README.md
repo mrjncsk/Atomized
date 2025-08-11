@@ -4,6 +4,8 @@
 
 Atomizing modern Desktop Environments with [Fedora Atomic](https://fedoraproject.org/atomic-desktops) bootable OS Images.
 
+![Map](Images/Map.png)
+
 .
 
 ## Code Template
