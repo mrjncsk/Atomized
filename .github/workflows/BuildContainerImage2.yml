@@ -15,24 +15,24 @@ jobs:
       fail-fast: false
       matrix:
         variant:
-          # - name: atomized
-          #   desktop: plasma
-          #   base_image: ghcr.io/ublue-os/aurora:latest
-          # - name: atomized-nvidia
-          #   desktop: plasma
-          #   base_image: ghcr.io/ublue-os/bazzite-nvidia:latest
-          # - name: atomized-caelestia
-          #   desktop: caelestia
-          #   base_image: ghcr.io/wayblueorg/hyprland:latest
-          # - name: atomized-caelestia-nvidia
-          #   desktop: caelestia
-          #   base_image: ghcr.io/wayblueorg/hyprland-nvidia:latest
-          # - name: atomized-hyprpanel
-          #   desktop: hyprpanel
-          #   base_image: ghcr.io/wayblueorg/hyprland:latest
-          # - name: atomized-hyprpanel-nvidia
-          #   desktop: hyprpanel
-          #   base_image: ghcr.io/wayblueorg/hyprland-nvidia:latest
+          - name: atomized
+            desktop: plasma
+            base_image: ghcr.io/ublue-os/aurora:latest
+          - name: atomized-nvidia
+            desktop: plasma
+            base_image: ghcr.io/ublue-os/bazzite-nvidia:latest
+          - name: atomized-caelestia
+            desktop: caelestia
+            base_image: ghcr.io/wayblueorg/hyprland:latest
+          - name: atomized-caelestia-nvidia
+            desktop: caelestia
+            base_image: ghcr.io/wayblueorg/hyprland-nvidia:latest
+          - name: atomized-hyprpanel
+            desktop: hyprpanel
+            base_image: ghcr.io/wayblueorg/hyprland:latest
+          - name: atomized-hyprpanel-nvidia
+            desktop: hyprpanel
+            base_image: ghcr.io/wayblueorg/hyprland-nvidia:latest
           # - name: atomized-testing
           #   desktop: plasma
           #   base_image: ghcr.io/ublue-os/aurora:latest
@@ -42,9 +42,9 @@ jobs:
           # - name: atomized-hyprpanel-testing
           #   desktop: hyprpanel
           #   base_image: ghcr.io/wayblueorg/hyprland:latest
-          - name: atomized-hyde-testing
-            desktop: hyde
-            base_image: ghcr.io/wayblueorg/hyprland:latest
+          # - name: atomized-hyde-testing
+          #   desktop: hyde
+          #   base_image: ghcr.io/wayblueorg/hyprland:latest
           # - name: atomized-ml4w-testing
           #   desktop: ml4w
           #   base_image: ghcr.io/wayblueorg/hyprland:latest
