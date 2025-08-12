@@ -109,29 +109,14 @@ jobs:
             DESKTOP=${{ matrix.variant.desktop }}
             BASE_IMAGE=${{ matrix.variant.base_image }}
 
-      # Optional: check whether a previous image exists in the registry and set prev-ref accordingly
-      - name: Check previous image
-        id: prevcheck
-        run: |
-          set -euo pipefail
-          PREV="${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
-          echo "Checking existence of $PREV ..."
-          if podman pull "$PREV" >/dev/null 2>&1; then
-            echo "prev_ref=$PREV" >> $GITHUB_OUTPUT
-            echo "Previous image found: $PREV"
-          else
-            echo "prev_ref=" >> $GITHUB_OUTPUT
-            echo "Previous image not found; proceeding without prev-ref"
-          fi
-
       # Rechunk: split big layers for better resumability / smaller uploads (skip_compression=false for smaller image)
       - name: Run Rechunker
         id: rechunk
         uses: hhd-dev/rechunk@f153348d8100c1f504dec435460a0d7baf11a9d2 # v1.1.1
         with:
-          rechunk: 'ghcr.io/hhd-dev/rechunk:v1.0.1'
+          rechunk: "ghcr.io/hhd-dev/rechunk:v1.0.1"
           ref: "${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
-          prev-ref: "${{ steps.prevcheck.outputs.prev_ref }}"
+          prev-ref: "${{ matrix.variant.base_image }}"
           skip_compression: false
           labels: ${{ steps.metadata.outputs.labels }}
 
@@ -182,6 +167,3 @@ jobs:
           OLD_NOTES=$(gh release view "$TAG" --json body -q .body)
           NEW_LINK="- ghcr.io/mrjncsk/${{ matrix.variant.name }}:$RELEASE_TAG"
           gh release edit "$TAG" --notes "$OLD_NOTES"$'\n'"$NEW_LINK"
-
-
-
