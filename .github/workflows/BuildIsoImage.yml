@@ -14,7 +14,7 @@ jobs:
     outputs:
       release_tag: ${{ steps.set_tag.outputs.release_tag }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Fetch all git tags
         run: git fetch --tags
