@@ -109,36 +109,28 @@ jobs:
             DESKTOP=${{ matrix.variant.desktop }}
             BASE_IMAGE=${{ matrix.variant.base_image }}
 
-      - name: Save image after build
-        run: |
-          buildah push ${{ env.IMAGE_NAME }}:${{ steps.metadata.outputs.tags }} docker-archive:image.tar
+      # # Rechunk: split big layers for better resumability / smaller uploads (skip_compression=false for smaller image)
+      # - name: Run Rechunker
+      #   id: rechunk
+      #   uses: hhd-dev/rechunk@f153348d8100c1f504dec435460a0d7baf11a9d2 # v1.1.1
+      #   with:
+      #     rechunk: "ghcr.io/hhd-dev/rechunk:v1.0.1"
+      #     ref: "${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
+      #     prev-ref: "${{ matrix.variant.base_image }}"
+      #     skip_compression: false
+      #     labels: ${{ steps.metadata.outputs.labels }}
 
-      - name: Load image for rechunk
-        run: |
-          buildah pull docker-archive:image.tar
-
-      # Rechunk: split big layers for better resumability / smaller uploads (skip_compression=false for smaller image)
-      - name: Run Rechunker
-        id: rechunk
-        uses: hhd-dev/rechunk@f153348d8100c1f504dec435460a0d7baf11a9d2 # v1.1.1
-        with:
-          rechunk: "ghcr.io/hhd-dev/rechunk:v1.0.1"
-          ref: "${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
-          prev-ref: "${{ matrix.variant.base_image }}"
-          skip_compression: false
-          labels: ${{ steps.metadata.outputs.labels }}
-
-      #This is necessary so that the podman socket can find the rechunked image on its storage
-      - name: Load in podman and tag
-        run: |
-          set -euo pipefail
-          IMAGE_REF="${{ steps.rechunk.outputs.ref }}"
-          echo "Pulling rechunked image: $IMAGE_REF"
-          IMAGE=$(podman pull "$IMAGE_REF")
-          rm -rf "${{ steps.rechunk.outputs.output }}" || true
-          for tag in ${{ steps.metadata.outputs.tags }}; do
-            podman tag "$IMAGE" "${{ env.IMAGE_NAME }}:$tag"
-          done
+      # #This is necessary so that the podman socket can find the rechunked image on its storage
+      # - name: Load in podman and tag
+      #   run: |
+      #     set -euo pipefail
+      #     IMAGE_REF="${{ steps.rechunk.outputs.ref }}"
+      #     echo "Pulling rechunked image: $IMAGE_REF"
+      #     IMAGE=$(podman pull "$IMAGE_REF")
+      #     rm -rf "${{ steps.rechunk.outputs.output }}" || true
+      #     for tag in ${{ steps.metadata.outputs.tags }}; do
+      #       podman tag "$IMAGE" "${{ env.IMAGE_NAME }}:$tag"
+      #     done
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
