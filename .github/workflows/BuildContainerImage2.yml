@@ -109,6 +109,14 @@ jobs:
             DESKTOP=${{ matrix.variant.desktop }}
             BASE_IMAGE=${{ matrix.variant.base_image }}
 
+      - name: Save image after build
+        run: |
+          buildah push ${{ env.IMAGE_NAME }}:${{ steps.metadata.outputs.tags }} docker-archive:image.tar
+
+      - name: Load image for rechunk
+        run: |
+          buildah pull docker-archive:image.tar
+
       # Rechunk: split big layers for better resumability / smaller uploads (skip_compression=false for smaller image)
       - name: Run Rechunker
         id: rechunk
